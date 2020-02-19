@@ -1,61 +1,71 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>My local garden</title>
+	<!-- <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
+	
+	<!-- Latest compiled and minified CSS -->
 	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="css/stylesheet.css" rel="stylesheet">
 </head>
-<body>
-	<h1>My Local Garden</h1>
-	<div>
-		<form method="post">
-			<label for="pseudo">Identifiant :</label><input type="text" name="pseudo"/>
-				<br><br>
-			<label for="pw">Mot de passe :</label><input type="text" name="pw"/>
-				<br><br><br>
-			<input type="submit" value="Connexion"/>
-		</form>
-	</div>
-	<div>
-		<p>
-			<a href="Inscription">Inscription</a>
-		</p>
-	</div>
-<!-- 	<nav class="navbar navbar-light navbar navbar-expand-lg" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">The wildlife of nature</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="part8_ex02.html">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<body>
+	<!-- <h1>My Local Garden</h1> -->
+	<!-- Navigation bar -->
+
+	<nav class="navbar navbar-expand-lg navbar-custom">
+  		<a class="navbar-brand" href="#">My Local Garden</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+
+ 	 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	      </li>
+     	 <li class="nav-item dropdown">
+       		 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos jardins</a>
+       		 	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         	 		<a class="dropdown-item" href="#">Carte des jardins</a>
+         	 		<a class="dropdown-item" href="#">Choix</a>
+         	 		<div class="dropdown-divider"></div>
+        		</div>
+      	 </li>
+     	 <li class="nav-item dropdown">
+        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Producteurs</a>
+     	 </li>
+      	 <li class="nav-item dropdown">
+        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Qui sommes-nous ?</a>
+     	 </li>
+    	</ul>
+    	
+   		<div class="form-inline my-2 my-lg-0" id="buttonNavBar">
+     		<!-- <button class="btn btn-outline-success my-2 my-sm-0" type= "submit">Connexion</button>  -->
+     		<div>
+				<c:if test="${log == true }">
+<!-- 					<form action="Deconnexion">
+						<input type="submit" name="deconnexion" value="Deconnexion" />
+					</form> -->
+					<a href="<%=request.getContextPath()+"/Deconnexion"%>"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="deconnexion">Déconnexion</button></a>
+				</c:if>
+				<c:if test="${log != true }">
+<!-- 					<form action="connexion.jsp" class="btn btn-outline-success my-2 my-sm-0">
+						<input type="submit" name="connexion" value="Connexion" />
+					</form> -->
+					<a href="connexion.jsp"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="connexion">Connexion</button></a>
+				</c:if>
+			</div>
+     		<div> <a href="inscription.jsp"><button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="inscription">Inscription</button></a> </div>
+    	</div>
+     </div>
+   </nav>
+
+
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -66,7 +76,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/loup.jpg" class="d-block w-100" alt="loup">
+      <img src="img/garden.jpg" class="d-block w-100" alt="loup">
       <div class="carousel-caption d-none d-md-block">
         <h5>Loup polaire</h5>
         <p>Le loup polaire vit au pôle nord.</p>
@@ -151,42 +161,40 @@
 		</div>
 	</div>
 
-	Footer
+<!--  Footer -->
 <footer class="page-footer font-small mdb-color darken-3 pt-4 navbar-light" style="background-color: #e3f2fd;">
 
-  Footer Elements
+  <!-- Footer Elements -->
   <div class="container">
 
-    Grid row
+    <!--  Grid row -->
     <div class="row d-flex justify-content-center">
 
-      Grid column
+      <!-- Grid column -->
       <div class="col-md-6">
 
-        Video
+        <!-- Video -->
         <div class="embed-responsive embed-responsive-16by9 mb-4">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/J3euEMWC8tg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-      Grid column
 
     </div>
-    Grid row
 
   </div>
-  Footer Elements
 
-  Copyright
+
+  <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://www.nationalgeographic.fr/">The Wildlife of Nature</a>
   </div>
-  Copyright
+  <!-- Copyright -->
 
 </footer>
-Footer
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="js/bootstrap/bootstrap.bundle.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+	<!-- <script src="js/bootstrap/bootstrap.bundle.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
