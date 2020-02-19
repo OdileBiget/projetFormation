@@ -26,7 +26,6 @@ public class Profil {
 	public Profil() {
 		super();
 	}
-
 	public Profil(String nom, String prenom, String numeroTel, String mail, String password) {
 		super();
 		this.nom = nom;
