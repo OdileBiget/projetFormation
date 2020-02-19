@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>servlets.Basic</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Inscription</servlet-name>
+  	<display-name>Inscription</display-name>
+  	<description></description>
+  	<servlet-class>servlets.Inscription</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Basic</servlet-name>
   	<url-pattern>/Basic</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Inscription</servlet-name>
+  	<url-pattern>/Inscription</url-pattern>
   </servlet-mapping>
 </web-app>
