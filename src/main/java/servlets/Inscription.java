@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Profil;
+import services.methodesLogin;
 
 /**
  * Servlet implementation class inscription
@@ -41,26 +42,19 @@ public class Inscription extends HttpServlet {
 
 		Profil newUser = new Profil(nom,prenom, tel, email, mdp);
 
-		//DAOProjet.initialisation();
-		if (DAOProjet.checkEmail(email) != null) {
+		if (methodesLogin.checkEmail(email) != 0) {
 			request.setAttribute("message", "Cette adresse mail n'est pas disponible.");
 			ajouterOk = false;
 		}
-//		if (DAOProjet.checkUser(user) != null) {
-//			request.setAttribute("message", "Ce nom d'utilisateur n'est pas disponible.");
-//			ajouterOk = false;
-//		}
 
 		if (ajouterOk) {
-			DAOProjet.addUser(newUser);
-			//DAOProjet.cloture();
+			methodesLogin.addProfil(newUser);
 			request.setAttribute("email", email);
 			request.setAttribute("mdp", mdp);
 			this.getServletContext().getRequestDispatcher("/Connexion").forward(request, response);
 			return;
 
 		} else {
-			//DAOProjet.cloture();
 			this.getServletContext().getRequestDispatcher("/inscription.jsp").forward(request, response);
 			return;
 		}

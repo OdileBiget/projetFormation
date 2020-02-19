@@ -14,6 +14,8 @@ public class Profil {
 	private String nom;
 	@Column(name = "prenom")
 	private String prenom;
+	@Column(name="telephone")
+	private String numeroTel;
 	@Column(name = "mail")
 	private String mail;
 	@Column (name = "password")
@@ -23,10 +25,11 @@ public class Profil {
 	public Profil() {
 		super();
 	}
-	public Profil(String nom, String prenom, String mail, String password) {
+	public Profil(String nom, String prenom, String numeroTel, String mail, String password) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
+		this.numeroTel = numeroTel;
 		this.mail = mail;
 		this.password = password;
 	}
@@ -45,6 +48,12 @@ public class Profil {
 	}
 	public String getPrenom() {
 		return prenom;
+	}
+	public String getNumeroTel() {
+		return numeroTel;
+	}
+	public void setNumeroTel(String numeroTel) {
+		this.numeroTel = numeroTel;
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;

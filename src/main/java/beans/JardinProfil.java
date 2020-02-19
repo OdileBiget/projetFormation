@@ -25,13 +25,13 @@ public class JardinProfil {
 	private int superficie;
 	@Column (name = "typeCulture")
 	private String typeCulture;
-	@Column (name = "culturesPresentes")
+	@ElementCollection
 	private List<String>culturesPresentes;
 	@Column(name = "typeSol")
 	private String typeSol;
 	@Column(name = "typeProduction")
 	private String typeProduction;
-	@Column(name = "cheminImages")
+	@ElementCollection
 	private List<String>cheminImages;
 	
 	//Constructeurs
