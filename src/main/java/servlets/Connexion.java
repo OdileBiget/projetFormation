@@ -64,11 +64,11 @@ public class Connexion extends HttpServlet {
 
 		if (profilValide.getNom() != null) {
 
-			request.setAttribute("nom", profilValide.getNom());
-			request.setAttribute("prenom", profilValide.getPrenom());
-			request.setAttribute("mail", profilValide.getMail());
-			request.setAttribute("numeroTel", profilValide.getNumeroTel());
-			request.setAttribute("password", profilValide.getPassword());
+//			request.setAttribute("nom", profilValide.getNom());
+//			request.setAttribute("prenom", profilValide.getPrenom());
+//			request.setAttribute("mail", profilValide.getMail());
+//			request.setAttribute("numeroTel", profilValide.getNumeroTel());
+//			request.setAttribute("password", profilValide.getPassword());
 
 			session.setAttribute("nom", profilValide.getNom());
 			session.setAttribute("prenom", profilValide.getPrenom());
@@ -84,8 +84,8 @@ public class Connexion extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 //	
-//		this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
-//		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
 	}
 

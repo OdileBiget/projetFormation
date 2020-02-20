@@ -39,6 +39,18 @@
 		<description></description>
 		<servlet-class>servlets.Connexion</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AjoutJardin</servlet-name>
+		<display-name>AjoutJardin</display-name>
+		<description></description>
+		<servlet-class>servlets.AjoutJardin</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AfficherProfil</servlet-name>
+		<display-name>AfficherProfil</display-name>
+		<description></description>
+		<servlet-class>servlets.AfficherProfil</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
@@ -56,6 +68,14 @@
 	<servlet-mapping>
 		<servlet-name>Basic</servlet-name>
 		<url-pattern>/Basic</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AjoutJardin</servlet-name>
+		<url-pattern>/AjoutJardin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AfficherProfil</servlet-name>
+		<url-pattern>/AfficherProfil</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->
