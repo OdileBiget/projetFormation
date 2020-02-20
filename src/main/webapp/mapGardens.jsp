@@ -1,19 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Connexion</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<!-- <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
+	<!-- Latest compiled and minified CSS -->
 	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link href="css/cssFormulaires.css" rel="stylesheet">
+	<link rel="icon" href="icone.JPG">
+	<link href="css/stylesheet.css" rel="stylesheet">
+	<title>My local garden</title>
 </head>
-<body>
 
-		<nav class="navbar navbar-light navbar navbar-expand-lg" style="background-color: #e0ffff;">
+<body>
+	<!-- <h1>My Local Garden</h1> -->
+	<!-- Navigation bar -->
+
+	<nav class="navbar navbar-light navbar navbar-expand-lg" style="background-color: #e0ffff;">
   		<a class="navbar-brand" href="#">My Local Garden</a>
   		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
@@ -43,29 +47,12 @@
 	      </li>
     	</ul>
      </div>
-   </nav>	
+   </nav>
    
-   <div #fondForm>	
-	<h1>Connexion</h1><br>
-	<form action="Connexion">
-		<label for="name">E-mail :</label><br><input type="text" id="email" name="email"><br> 
-		<label for="name">Mot de passe :</label><br><input type="text" id="mdp" name="mdp"> <br>
-		<br> 
-		<input type="submit" name="connexion" value="Connexion" />
-	</form>
-	</div>	
-	<br>
-	<c:out value="${message}"></c:out>
-	<br>
-	<a href="index.jsp"> Accueil</a>
-	<br>
-	<a href="AfficherProfil"> Profil</a>
-	<br>
-	<a href="Deconnexion"> Deconnexion </a>
-	
+   
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> 
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script> 
-
+	
 </body>
 </html>

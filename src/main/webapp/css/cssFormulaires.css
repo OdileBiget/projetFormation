@@ -1,0 +1,39 @@
+h1{
+	font-family: New Century Schoolbook, TeX Gyre Schola;
+	color: #006400;
+}
+
+form{
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+label{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+input{
+	width: 200px;
+	padding: 5px;
+	border: 1px solid;
+	border-color: RGB(0,50,150,10);
+	border-radius: 10px;
+	color: RGB(0,50,150,100);	
+}
+
+#fondForm
+{
+    border: 1px green dashed;
+    border-color: aqua;
+}
+
+#soumettre
+{
+	background-color: #98fb98;
+	border: 2px solid green;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L;
+	font-size: medium;
+}
