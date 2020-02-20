@@ -39,9 +39,11 @@ public class Connexion extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String mailRenseigne = request.getParameter("mailRenseigne");
+		System.out.println("mail "+mailRenseigne);
 
 		String passwordRenseigne = request.getParameter("passwordRenseigne");
 
+		System.out.println("pw "+passwordRenseigne);
 //		Profil profilA = new Profil("NOMA", "prenomA", "0254785200", "mailA@gmial.com", "passwordA");
 //		Profil profilB = new Profil("NOMB", "prenomB", "0254785200", "mailB@gmial.com", "passwordB");
 //
@@ -58,34 +60,36 @@ public class Connexion extends HttpServlet {
 //		
 //		sessionH.close();
 
-		Profil profilValide = methodesLogin.connexionProfil(mailRenseigne, passwordRenseigne);
+		Profil profilValide = methodesLogin.connexionProfil(mailRenseigne, passwordRenseigne );
 
 		System.out.println(profilValide.getNom());
 
 		if (profilValide.getNom() != null) {
 
-			request.setAttribute("nom", profilValide.getNom());
-			request.setAttribute("prenom", profilValide.getPrenom());
-			request.setAttribute("mail", profilValide.getMail());
-			request.setAttribute("numeroTel", profilValide.getNumeroTel());
-			request.setAttribute("password", profilValide.getPassword());
-
+			request.setAttribute("connexion", "reussi");
+			
+			System.out.println("réussie"+profilValide.getNom());
+			session.setAttribute("connexion", true);
 			session.setAttribute("nom", profilValide.getNom());
 			session.setAttribute("prenom", profilValide.getPrenom());
 			session.setAttribute("mail", profilValide.getMail());
 			session.setAttribute("numeroTel", profilValide.getNumeroTel());
 			session.setAttribute("password", profilValide.getPassword());
+			
+			this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
 		}else {
-			request.setAttribute("error", "bad Password or Mail");
+			request.setAttribute("connexion", "error");
+			System.out.println("error"+profilValide.getNom());
+			this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
 		}
 
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-//	
-//		this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
-//		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+	
+		//this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
+		//this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
 	}
 
