@@ -7,6 +7,7 @@
 	<title>Ajouter un jardin</title>
 	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="css/stylesheet.css" rel="stylesheet">
+	<link href="css/cssAjoutJardin.css" rel="stylesheet">
 </head>
 <body>
 
@@ -61,7 +62,7 @@
      </div>
    </nav>
    
-    <div id=fondForm>	
+    <div>	
 	<h1>Ajouter un jardin</h1><br>
 	<form action="AjoutJardin">
 		<label for="name">Adresse (rue, n° ...) :</label><br><input type="text" id="adresse" name="adresse"><br> 

@@ -32,7 +32,7 @@ public class Deconnexion extends HttpServlet {
 		session.invalidate();
 		request.setAttribute("message", "Vous avez été déconnecté");
 
-		this.getServletContext().getRequestDispatcher("/deconnexion.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
 	}
 

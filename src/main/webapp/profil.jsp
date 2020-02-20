@@ -12,10 +12,36 @@
 	<link href="css/stylesheet.css" rel="stylesheet">
 	<title>My local garden</title>
 	
-	<style>
-	body{
-		text-align: center;
+	<style>	
+	#cadreProfil{
+		background-color: #fffacd;
+		text-align: justify;
+		width: 40%;
+		padding: 1em;
+		margin: auto;
+		border: 1px #d2b48c solid;
 	}
+	
+	h2
+	{
+	text-align: center;
+	}
+	
+	#item
+	{
+	padding: 1em;
+	}
+	
+	#itemJardin
+	{
+	padding: 1.5em;
+	}
+	
+/*  	#boutonModif
+	{
+	float: right;
+	}  */
+	
 	</style>
 	
 </head>
@@ -56,29 +82,72 @@
      </div>
    </nav>
    
+   <br>
+   <div id="cadreProfil">
    <h2>Mon profil</h2>
-   <br><br><br>
-   <div>
-		Nom:<br>
-		<% session.getAttribute("nom"); %>   
-   </div><br><br>
-   <div>
-		Prénom:<br>
-		<% session.getAttribute("prenom"); %>   
-   </div><br><br>
-   <div>
-		Nom:<br>
-		<% session.getAttribute("E-mail"); %>   
-   </div><br><br>
-   <div>
-		Numéro de téléphone:<br>
-		<% session.getAttribute("numeroTel"); %>   
-   </div><br><br>
+   <hr><br>
+   <div id="eachItem">
+		<b>Nom:</b>
+		<div class="row justify-content-between" id="item">
+		<div><% String name = (String) session.getAttribute("nom"); 
+		out.println(name);%></div>
+		<div><form><input type="button" value="Modifier"></form></div>
+		</div> 
+   </div>
+   <div id="eachItem">
+		<b>Prénom:</b>
+		<div class="row justify-content-between" id="item">
+		<div><% String surname = (String) session.getAttribute("prenom"); 
+		out.println(surname);%></div>
+		<div><form><input type="button" value="Modifier"></form></div>
+		</div> 	   
+   </div>
+   <div id="eachItem">
+		<b>Adresse e-mail:</b>
+		<div class="row justify-content-between" id="item">
+		<div><% String mail = (String) session.getAttribute("mail"); 
+		out.println(mail);%></div>
+		<div><form><input type="button" value="Modifier"></form></div>
+		</div>   
+   </div>
+   <div id="eachItem">
+		<b>Numéro de téléphone:</b>
+		<div class="row justify-content-between" id="item">
+		<div><% String tel = (String) session.getAttribute("numeroTel"); 
+		out.println(tel);%></div>
+		<div><form><input type="button" value="Modifier"></form></div>
+		</div>
+	</div>
+	<div id="eachItem">
+		<b>Mot de passe:</b>
+		<div class="row justify-content-between" id="item">
+		<div><% String mdp = (String) session.getAttribute("password"); 
+		out.println(mdp);%></div>
+		<div><form><input type="button" value="Modifier"></form></div>
+		</div>    
+   </div>
+   </div>
+   <br><br>
+   <h3>Voir mes jardins personnels</h3>
+   <div class="row justify-content-between" id="itemJardin">
+   		<div>
+   			<p> Vous n'avez pas de jardins</p>
+   		</div>
+   		<div>
+   			<a href="ajouterJardin.jsp"><input type="button" value="Ajouter un jardin"/></a>
+   		</div>
+   </div>
    
-   
-   
-   
-   
+   <br><br>
+   <h3>Voir les jardins que je partage</h3>
+   <div class="row justify-content-between" id="itemJardin">
+   		<div>
+   			<p> Vous n'avez pas de jardins partagés</p>
+   		</div>
+   		<div>
+   			<a href="mapGardens.jsp"><input type="button" value="Partager un jardin"></a>
+   		</div>
+   </div>
    
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> 
