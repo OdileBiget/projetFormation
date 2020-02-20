@@ -11,7 +11,7 @@ form{
 
 label{
 	display: block;
-	width: 150px;
+	width: 250px;
 	float: left;
 }
 
@@ -36,24 +36,4 @@ input{
 	border: 2px solid green;
 	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L;
 	font-size: medium;
-}
-
-.inscritpion{
-	spac: 100px;
-}
-
-.btn-show-hide-pwd {
-	color: #222c6a;
-	cursor: pointer;
-	margin-left: -30px;
-	opacity: 0.5;
-	
-}
-
-.btn-show-hide-pwd:hover {
-	opacity: 1;
-}
-
-.btn-show-hide-pwd:active{
-	transform: scale(0.9);
 }

@@ -55,6 +55,22 @@ public class JardinProfil {
 		this.typeProduction = typeProduction;
 		this.cheminImages = cheminImages;
 	}
+	
+	//constructeur sans les images car l'utilisateur pourrait ne pas vouloir ajouter d'images de son jardin
+	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin,
+			int superficie, String typeCulture, List<String> culturesPresentes, String typeSol, String typeProduction) {
+		super();
+		this.adresse = adresse;
+		this.villeNom = villeNom;
+		this.codePostal = codePostal;
+		this.coordonneesGPS = coordonneesGPS;
+		this.typeJardin = typeJardin;
+		this.superficie = superficie;
+		this.typeCulture = typeCulture;
+		this.culturesPresentes = culturesPresentes;
+		this.typeSol = typeSol;
+		this.typeProduction = typeProduction;
+	}
 	//Getters & setters
 
 	public int getId() {

@@ -11,8 +11,6 @@ import java.util.List;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
-import beans.Profil;
-
 public class methodesLogin {
 
 	public static Profil connexionProfil(String mail, String password) {

@@ -14,7 +14,7 @@
 		<filter-name>Session</filter-name>
 		<url-pattern>/Session</url-pattern>
 	</filter-mapping>
-	
+
 	<servlet>
 		<servlet-name>Basic</servlet-name>
 		<display-name>Basic</display-name>
@@ -45,6 +45,18 @@
 		<description></description>
 		<servlet-class>servlets.MapGarden</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AjoutJardin</servlet-name>
+		<display-name>AjoutJardin</display-name>
+		<description></description>
+		<servlet-class>servlets.AjoutJardin</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AfficherProfil</servlet-name>
+		<display-name>AfficherProfil</display-name>
+		<description></description>
+		<servlet-class>servlets.AfficherProfil</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
@@ -66,6 +78,15 @@
 	<servlet-mapping>
 		<servlet-name>MapGarden</servlet-name>
 		<url-pattern>/MapGarden</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AjoutJardin</servlet-name>
+		<url-pattern>/AjoutJardin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AfficherProfil</servlet-name>
+		<url-pattern>/AfficherProfil</url-pattern>
+
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->
