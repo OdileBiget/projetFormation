@@ -83,6 +83,9 @@ public class Connexion extends HttpServlet {
 			session.setAttribute("numeroTel", profilValide.getNumeroTel());
 			session.setAttribute("password", profilValide.getPassword());
 			
+			Profil utilisateurActuel = new Profil(profilValide.getNom(), profilValide.getPrenom(), profilValide.getNumeroTel(), profilValide.getMail(), profilValide.getPassword());
+			session.setAttribute("userActuel", utilisateurActuel);
+			
 			this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
 		}else {

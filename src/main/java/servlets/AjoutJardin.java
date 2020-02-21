@@ -34,9 +34,7 @@ public class AjoutJardin extends HttpServlet {
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 	
 		HttpSession session = request.getSession();
-		
-		
-		
+
 		String adresse = request.getParameter("adresse");
 		String codePostal = request.getParameter("CP");
 		String nomVille = request.getParameter("nomVille");
@@ -54,10 +52,14 @@ public class AjoutJardin extends HttpServlet {
 		
 		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, listeC, typeSol, typeProd);
 		
-		methodesJardin.addJardin(garden);
+		methodesJardin.addJardin(request, garden);
+		methodesJardin.getJardinUser("mistermediateur@gmail.com");
+		List<Integer> list = methodesJardin.getJardinUser((String) session.getAttribute("mail"));
 		
+		request.setAttribute("presence", list.get(0));
 		
-	
+		this.getServletContext().getRequestDispatcher("/profil.jsp").forward(request, response);
+		
 	}
 
 	/**
