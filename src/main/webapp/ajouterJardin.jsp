@@ -100,13 +100,16 @@
 		</select><br>
 		<label for="name">Superficie :</label><br><input type="text" id="superficie" name="superficie"> <br>
 		<label for="name">Ajouter des cultures déjà présentes :</label><br><input type="text" id="cultures" name="cultures"> <br>
-		<br> <input type="submit" name="valider" value="Valider" />
+		<br> <input type="submit" name="valider" value="Valider"  onclick="test()"/>
 	</form>
 	</div>
+	<br><br>
+
    
    	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> 
-	<script src="js/bootstrap/bootstrap.bundle.min.js"></script> 
+	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="js/methodes.js"></script>
 
 </body>
 </html>

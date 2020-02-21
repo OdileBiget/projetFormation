@@ -14,25 +14,23 @@
 
 <title>My local garden</title>
 
-<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU"></script>
+<!-- <script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU"></script> -->
 
 
 </head>
 
 <body>
-	<!-- <h1>My Local Garden</h1> -->
-	<!-- Navigation bar -->
 	<%@include file="include/header.jsp"%>
 
+	<div id="floating-panel">
+		<input id="address" type="textbox" value="Paris"> <input
+			id="submit" type="button" value="Geocode">
+	</div>
 	<div id="map"></div>
-	<!-- Pour transferer les informations de la BDD au JS : -->
-	<!-- 1: Créer un servlet qui récupère les données de la BDD qui qui les envoie ici -->
-	<!-- On récupère ces données via le $ script ci dessous -->
-	<script>
-		var jardinAdresse = <c:out value="${adresse}"/>
-	</script>
-	<!-- 2: On appel ces variables dans le JS (elles seront lues telles quelles) -->
+	<!-- Replace the value of the key parameter with your own API key. -->
+
+
 
 
 
@@ -44,13 +42,27 @@
 	</div> -->
 
 
-		<!--  Footer -->
+	<!--  Footer -->
 	<%@include file="include/footer.jsp"%>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="js/mapGarden.js"></script>
+	<script>
+		$(function() {
+			initMap();
+			var json = <c:out value="${json}" escapeXml="false"/>;
+			for (var i = 0; i < json.length; i++) {
+				var address = json[i]["adresse"] + " " + json[i]["codePostal"]
+						+ " " + json[i]["villeNom"];
+				addGardenMarker(address);
+			}
+
+		});
+	</script>
 
 
 </body>

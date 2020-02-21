@@ -297,33 +297,33 @@ h2 {
 		
 		
 	</div>
-	<br>
-	<br>
-	<h3>Voir mes jardins personnels</h3>
-	<div class="row justify-content-between" id="itemJardin">
-		<div>
-			<p>Vous n'avez pas de jardins</p>
-		</div>
-		<div>
-			<a href="ajouterJardin.jsp"><input type="button"
-				value="Ajouter un jardin" /></a>
-		</div>
+		
+   <br><br>
+   <h3>Voir mes jardins personnels</h3>
+   <div class="row justify-content-between" id="itemJardin">
+   		<div id="raccourciJardin"></div>
+   		<div>
+   			<a href="ajouterJardin.jsp"><input type="button" value="Ajouter un jardin"/></a>
+   		</div>
+   </div>
+   
+   	<div id="affichage">
+		<c:out value="${presence}"/> 
 	</div>
-
-	<br>
-	<br>
-	<h3>Voir les jardins que je partage</h3>
-	<div class="row justify-content-between" id="itemJardin">
-		<div>
-			<p>Vous n'avez pas de jardins partagés</p>
-		</div>
-		<div>
-			<a href="mapGardens.jsp"><input type="button"
-				value="Partager un jardin"></a>
-		</div>
-	</div>
-
-	<%@include file="include/footer.jsp"%>
+   
+   <br><br>
+   <h3>Voir les jardins que je partage</h3>
+   <div class="row justify-content-between" id="itemJardin">
+   		<div>
+   			<p> Vous n'avez pas de jardins partagés</p>
+   		</div>
+   		<div>
+   			<a href="mapGardens.jsp"><input type="button" value="Partager un jardin"></a>
+   		</div>
+   </div>
+   
+   	<%@include file="include/footer.jsp"%>
+   
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script

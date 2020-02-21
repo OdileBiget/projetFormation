@@ -34,11 +34,7 @@ public class AfficherProfil extends HttpServlet {
 		String prenom = (String) session.getAttribute("prenom");
 		String email = (String) session.getAttribute("mail");
 		String tel = (String) session.getAttribute("numeroTel");
-		
-		
-	
-	
-	
+
 	
 	}
 
