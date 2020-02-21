@@ -66,13 +66,6 @@ public class Connexion extends HttpServlet {
 
 		if (profilValide.getNom() != null) {
 
-
-//			request.setAttribute("nom", profilValide.getNom());
-//			request.setAttribute("prenom", profilValide.getPrenom());
-//			request.setAttribute("mail", profilValide.getMail());
-//			request.setAttribute("numeroTel", profilValide.getNumeroTel());
-//			request.setAttribute("password", profilValide.getPassword());
-
 			request.setAttribute("connexion", "reussi");
 			
 			System.out.println("réussie"+profilValide.getNom());
