@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>Ajouter un jardin</title>
 	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="css/stylesheet.css" rel="stylesheet">
@@ -100,10 +100,10 @@
 		</select><br>
 		<label for="name">Superficie :</label><br><input type="text" id="superficie" name="superficie"> <br>
 		<label for="name">Ajouter des cultures déjà présentes :</label><br><input type="text" id="cultures" name="cultures"> <br>
-		<br> <input type="submit" name="valider" value="Valider"  onclick="test()"/>
+		<br> 
+		<input type="submit" name="valider" id="valider" value="Valider"/>
 	</form>
 	</div>
-	<br><br>
 
    
    	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

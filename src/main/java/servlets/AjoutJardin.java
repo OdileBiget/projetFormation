@@ -53,10 +53,13 @@ public class AjoutJardin extends HttpServlet {
 		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, listeC, typeSol, typeProd);
 		
 		methodesJardin.addJardin(request, garden);
-		methodesJardin.getJardinUser("mistermediateur@gmail.com");
-		List<Integer> list = methodesJardin.getJardinUser((String) session.getAttribute("mail"));
+		methodesJardin.getJardinUser((String)session.getAttribute("mail"));
 		
-		request.setAttribute("presence", list.get(0));
+		session.setAttribute("presenceJardin", true);
+		
+//		List<Integer> list = methodesJardin.getJardinUser((String) session.getAttribute("mail"));
+		
+//		request.setAttribute("presence", list.get(0));
 		
 		this.getServletContext().getRequestDispatcher("/profil.jsp").forward(request, response);
 		

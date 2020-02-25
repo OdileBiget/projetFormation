@@ -33,7 +33,9 @@ public class JardinProfil {
 	private String typeProduction;
 	@ElementCollection
 	private List<String>cheminImages;
-	
+//	@ManyToMany(mappedBy = "listeJardinsPersos")
+//	private List<Profil> listeProfil = new ArrayList<Profil>();
+//	
 	//Constructeurs
 	public JardinProfil() {
 		super();
@@ -173,10 +175,7 @@ public class JardinProfil {
 
 	@Override
 	public String toString() {
-		return "JardinProfil [adresse=" + adresse + ", villeNom=" + villeNom + ", codePostal=" + codePostal
-				+ ", coordonneesGPS=" + coordonneesGPS + ", typeJardin=" + typeJardin + ", superficie=" + superficie
-				+ ", typeCulture=" + typeCulture + ", culturesPresentes=" + culturesPresentes + ", typeSol=" + typeSol
-				+ ", typeProduction=" + typeProduction + ", cheminImages=" + cheminImages + "]";
+		return "Le jardin situé à "+this.getVilleNom()+" est de type "+this.getTypeJardin()+" avec un sol "+this.getTypeSol()+". D'une superficie de "+this.getSuperficie()+" m², il propose des cultures "+this.getTypeCulture()+"...";
 	}
 	
 	

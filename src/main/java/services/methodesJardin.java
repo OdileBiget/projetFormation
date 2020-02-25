@@ -26,7 +26,13 @@ public class methodesJardin {
 		String mdp = (String) sessionUser.getAttribute("password");
 		
 		Profil user = new Profil(nom, prenom, numeroTel, mail, mdp);
+		
+	//	List<JardinProfil> listeJ = new ArrayList<JardinProfil>();
+	//	listeJ.add(garden);
+		
 		user.addJardin(garden);
+		
+//		user.getListeJardinsPersos().add(garden);
 //		user.getListeJardinsPersos().add(garden);
 		
 //		update(mail);
@@ -35,10 +41,16 @@ public class methodesJardin {
 		Session session = factory.openSession();
 			
 		//AJOUT DU JARDIN A LA BDD DU USER
+//		session.beginTransaction();	
+//		String queryString = "DELETE FROM Profil P WHERE P.mail='"+mail+"'";
+//		Query query = session.createQuery(queryString);
+//		query.executeUpdate();
+//		session.getTransaction().commit();
+			
 		session.beginTransaction();	
 		session.save(user);
-//   	session.getTransaction().commit();
 		session.getTransaction().commit();
+		
 		session.close();		
 	}
 	
@@ -64,7 +76,6 @@ public class methodesJardin {
 		List<Profil> liste = session.createQuery("FROM Profil P WHERE P.mail='"+mail+"'").list();
 		for(Profil p : liste) {
 			try {
-				System.out.println(p.getJardin().getId());
 				Integer value = new Integer(p.getJardin().getId());
 				if(value != null) {
 					listeIdJardins.add(p.getJardin().getId());
@@ -82,6 +93,21 @@ public class methodesJardin {
 		return listeIdJardins;
 		
 	}
+	
+//	public static List<String> getGardenData(List<Integer> liste) {
+//		
+//		if(liste.get(0)==1) {
+//			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+//			// Ouverture session
+//			Session session = sessionFactory.openSession();
+//			// Début de la transaction
+//			session.beginTransaction();
+//			
+//			for(int i = 1; i<liste.size(); i++) {
+//				
+//			}
+//		}
+//	}
 	
 	public static void update(String mail) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();

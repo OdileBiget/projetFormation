@@ -145,7 +145,3 @@ function afficherRaccourciJardin(){
 		document.getElementById("affichage").innerHTML="Je n'ai pas de jardin";
 	}
 }
-
-function test(){
-	document.getElementById("affichage").innerHTML = "Test";
-}
