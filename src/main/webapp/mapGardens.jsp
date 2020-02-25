@@ -5,17 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!-- <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
-<!-- Latest compiled and minified CSS -->
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="css/stylesheet.css" rel="stylesheet">
 <link href="css/mapGarden.css" rel="stylesheet">
 <link rel="icon" href="icone.JPG">
-<link href="css/stylesheet.css" rel="stylesheet">
 
 <title>My local garden</title>
-
-<!-- <script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU"></script> -->
 
 
 </head>
@@ -26,8 +21,7 @@
 	<!-- Layout Grid -->
 	<div class="grid-container">
 		<div class="grid-item">
-			<!-- Colonne de gauche -->
-			<p>Col 1</p>
+
 			<div id="floating-panel">
 				<input id="address" type="textbox" value="Paris"> <input
 					id="submit" type="button" value="Geocode">
@@ -36,8 +30,67 @@
 		</div>
 
 		<div class="grid-item">
-			<!-- Colonne de droite -->
-			<p>Col 2</p>
+			<form>
+				<div class="form-group col-md-6">
+					<label for="inputAddress">Adresse</label> <input type="text"
+						class="form-control" id="inputAddress"
+						placeholder="45, rue Albert Camus">
+				</div>
+					<div class="form-group col-md-6">
+						<label for="inputCity">Ville</label> <input type="text"
+							class="form-control" id="inputCity">
+					</div>
+				<div class="form-group col-md-6">
+					<label for="inputZip">Code postal</label> <input type="text"
+						class="form-control" id="inputZip">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputTypeJardin">Type jardin</label> <select
+						id="inputTypeJardin" class="form-control">
+						<option selected>Choisissez une option</option>
+						<option value="privé">privé</option>
+						<option value="collectif">collectif</option>
+					</select>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputTypeCulture">Type cuture</label> <select
+						id="inputTypeCulture" class="form-control">
+						<option selected>Choisissez une option</option>
+						<option value="hors sol">hors-sol</option>
+						<option value="pleine terre">pleine terre</option>
+					</select>
+				</div>
+
+				<div class="form-group col-md-4">
+					<label for="inputTypeSol">Type sol</label> <select
+						id="inputTypeSol" class="form-control">
+						<option selected>Choisissez une option</option>
+						<option value="calcaire">calcaire</option>
+						<option value="argileux">argileux</option>
+						<option value="sableux">sableux</option>
+						<option value="siliceux">siliceux</option>
+						<option value="tourbeux">tourbeux</option>
+						<option value="limoneux">limoneux</option>
+					</select>
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputTypeSol">Type de production</label> <select
+						id="inputTypeSol" class="form-control">
+						<option selected>Choisissez une option</option>
+						<option value="sous serre">en serre</option>
+						<option value="sous tunnel">sous tunnel</option>
+						<option value="en plein air">en plein air</option>
+					</select>
+				</div>
+				<div class="form-group col-md-3">
+					<label for="inputSuperficie">Superficie</label> <input type="text"
+						class="form-control" id="inputSuperficie">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputCulture">Culture déjà présente</label> <input type="text"
+						class="form-control" id="inputCuture">
+				</div>
+			</form>
 		</div>
 
 	</div>
@@ -45,13 +98,16 @@
 
 	<!--  Footer -->
 	<%@include file="include/footer.jsp"%>
-	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU"></script>
+	<script src="js/mapGarden.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU">
+		google.maps.event.addDomListener(window, 'load', initMap);
+	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="js/mapGarden.js"></script>
 	<script>
 		$(function() {
 			initMap();

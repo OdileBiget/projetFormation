@@ -28,14 +28,12 @@ function addGardenMarker(address, contentString) {
 
 
 function initMap() {
-	resultsMap = new google.maps.Map(document.getElementById('map'), {
-		zoom : 8,
-		center : {
-			lat : 48.80,
-			lng : 2.45
-		}
-	});
+	console.log("youhouuuu");
 
+	resultsMap = new google.maps.Map(document.getElementById('map'), {
+		  center: {lat:  48.80, lng: 2.45},
+		  zoom: 8
+		});
 	geocoder = new google.maps.Geocoder();
 
 	document.getElementById('submit').addEventListener('click', function() {
@@ -60,3 +58,6 @@ function geocodeAddress() {
 		}
 	});
 }
+
+
+
