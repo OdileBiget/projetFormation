@@ -18,13 +18,13 @@ public class updateProfil {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
 		Session session = factory.openSession();
-		
+
 		session.beginTransaction();
-		
+
 		Query query = session.createQuery("UPDATE Profil P SET P.nom=:nnom WHERE P.mail=:mail AND P.password=:pw");
 
 		query.setParameter("nnom", newNom).setParameter("mail", oldMail).setParameter("pw", oldPassword);
-		
+
 		int result = query.executeUpdate();
 		System.out.println(result);
 
@@ -41,11 +41,12 @@ public class updateProfil {
 		Session session = factory.openSession();
 
 		session.beginTransaction();
-		
-		Query query = session.createQuery("UPDATE Profil P SET P.prenom=:pprenom WHERE P.mail=:mail AND P.password=:pw");
+
+		Query query = session
+				.createQuery("UPDATE Profil P SET P.prenom=:pprenom WHERE P.mail=:mail AND P.password=:pw");
 
 		query.setParameter("pprenom", newPrenom).setParameter("mail", oldMail).setParameter("pw", oldPassword);
-		
+
 		int result = query.executeUpdate();
 		System.out.println(result);
 
@@ -62,11 +63,11 @@ public class updateProfil {
 		Session session = factory.openSession();
 
 		session.beginTransaction();
-		
+
 		Query query = session.createQuery("UPDATE Profil P SET P.mail=:mmail WHERE P.mail=:mail AND P.password=:pw");
 
 		query.setParameter("mmail", newMail).setParameter("mail", oldMail).setParameter("pw", oldPassword);
-		
+
 		int result = query.executeUpdate();
 		System.out.println(result);
 
@@ -83,11 +84,11 @@ public class updateProfil {
 		Session session = factory.openSession();
 
 		session.beginTransaction();
-		
+
 		Query query = session.createQuery("UPDATE Profil P SET P.telephone=:tel WHERE P.mail=:mail AND P.password=:pw");
 
 		query.setParameter("tel", newTel).setParameter("mail", oldMail).setParameter("pw", oldPassword);
-		
+
 		int result = query.executeUpdate();
 		System.out.println(result);
 
@@ -104,11 +105,11 @@ public class updateProfil {
 		Session session = factory.openSession();
 
 		session.beginTransaction();
-		
+
 		Query query = session.createQuery("UPDATE Profil P SET P.password=:pwd WHERE P.mail=:mail AND P.password=:pw");
 
 		query.setParameter("pwd", newPassword).setParameter("mail", oldMail).setParameter("pw", oldPassword);
-		
+
 		int result = query.executeUpdate();
 		System.out.println(result);
 

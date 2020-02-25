@@ -33,8 +33,12 @@ public class Profil {
 //		this.id_jardin = id_jardin;
 //	}
 
-	//	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//	@JoinColumn(name = "id_jardins")
+//	@ManyToMany(cascade = {CascadeType.ALL})
+//	@JoinTable(
+//			name = "Jardin_Utilisateurs",
+//			joinColumns = {@JoinColumn(name="user_id")},
+//			inverseJoinColumns = {@JoinColumn(name="jardin_id")}
+//			)
 //	private List<JardinProfil> listeJardinsPersos = new ArrayList<JardinProfil>();
 	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "id_jardin")
@@ -110,16 +114,17 @@ public class Profil {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-public JardinProfil getJardin() {
+		
+	public JardinProfil getJardin() {
 		return jardin;
 	}
 	public void setJardin(JardinProfil jardin) {
 		this.jardin = jardin;
 	}
-	//	public List<JardinProfil> getListeJardinsPersos() {
-//		return listeJardinsPersos;
+//	public List<JardinProfil> getListeJardinsPersos() {
+//	return listeJardinsPersos;
 //	}
+//	
 //	public void setListeJardinsPersos(List<JardinProfil> listeJardinsPersos) {
 //		this.listeJardinsPersos = listeJardinsPersos;
 //	}

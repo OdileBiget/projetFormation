@@ -11,6 +11,7 @@
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" href="icone.JPG">
 <link href="css/stylesheet.css" rel="stylesheet">
+<link href="css/popup.css" rel="stylesheet">
 <title>My local garden</title>
 
 <style>
@@ -56,80 +57,80 @@ h2 {
 		<br>
 		<div id="eachItem">
 			<b>Nom:</b>
-			
+
 			<form action="updateProfil" method="post">
-			
-			<div class="row justify-content-between" id="item">
 
-				<div style="display: inline">
+				<div class="row justify-content-between" id="item">
 
-					<div id="ValeurNom" style="display: inline-block">
-						<a> <%
+					<div style="display: inline">
+
+						<div id="ValeurNom" style="display: inline-block">
+							<a> <%
  	String name = (String) session.getAttribute("nom");
  	out.println(name);
  %>
-						</a>
-					</div>
-					
+							</a>
+						</div>
+
 						<div id="modifNom" style="display: none">
 							<!-- <form action="updateProfil" method="post"> -->
 							<label for="name"></label><input type="text"
 								value="<%out.println(name);%>" name="nom">
 							<!-- </form> -->
 						</div>
+					</div>
+
+					<div>
+						<!-- <form action="updateProfil" method="post"> -->
+
+						<div class="nomBouton01" style="display: inline-block">
+							<button type="button" onclick="NomAfficherMasquer()">Modifier</button>
+						</div>
+
+						<div class="nomBouton02" style="display: none">
+							<button type="submit" onclick="#">Valider</button>
+						</div>
+
+						<div class="nomBouton02" style="display: none">
+							<button type="button" onclick="NomAfficherMasquer()">Annuler</button>
+						</div>
+						<!-- </form> -->
+					</div>
 				</div>
 
-				<div>
-					<!-- <form action="updateProfil" method="post"> -->
-
-					<div class="nomBouton01" style="display: inline-block">
-						<button type="button" onclick="NomAfficherMasquer()">Modifier</button>
-					</div>
-
-					<div class="nomBouton02" style="display: none">
-						<button type="submit" onclick="#">Valider</button>
-					</div>
-
-					<div class="nomBouton02" style="display: none">
-						<button type="button" onclick="NomAfficherMasquer()">Annuler</button>
-					</div>
-					<!-- </form> -->
-				</div>
-			</div>
-			
 			</form>
-			
+
 		</div>
 
 
 		<div id="eachItem">
 			<b>Prénom:</b>
-			
+
 			<form action="updateProfil" method="post">
 
-			<div class="row justify-content-between" id="item">
+				<div class="row justify-content-between" id="item">
 
-				<div style="display: inline">
+					<div style="display: inline">
 
-					<div id="ValeurPrenom" style="display: inline-block">
-						<a> <%
+						<div id="ValeurPrenom" style="display: inline-block">
+							<a> <%
  	String prenom = (String) session.getAttribute("prenom");
  	out.println(prenom);
  %>
-						</a>
-					</div>
+							</a>
+						</div>
 
-					<div id="modifPrenom" style="display: none">
-						<!-- <form action="#" method="post"> -->
+						<div id="modifPrenom" style="display: none">
+							<!-- <form action="#" method="post"> -->
 							<label for="prenom"></label><input type="text"
 								value="<%out.println(prenom);%>" name="prenom">
-						<!-- </form> -->
+							<!-- </form> -->
+						</div>
+
 					</div>
 
-				</div>
-
-				<div>
-					<!-- <form action="updateProfil" method="post">
+					<div>
+						<!-- <form action="updateProfil" method="post">
  -->
 						<div class="prenomBouton01" style="display: inline-block">
 							<button type="button" onclick="prenomMasque()">Modifier</button>
@@ -142,90 +143,105 @@ h2 {
 						<div class="prenomBouton02" style="display: none">
 							<button type="button" onclick="prenomMasque()">Annuler</button>
 						</div>
-					<!-- </form> -->
+						<!-- </form> -->
+					</div>
 				</div>
-			</div>
-			
+
 			</form>
-			
+
 		</div>
 
 		<div id="eachItem">
 			<b>Adresse e-mail:</b>
-			
+
 			<form action="updateProfil" method="post">
 
-			<div class="row justify-content-between" id="item">
+				<div class="row justify-content-between" id="item">
 
-				<div style="display: inline">
+					<div style="display: inline">
 
-					<div id="ValeurMail" style="display: inline-block">
-						<a> <%
+						<div id="ValeurMail" style="display: inline-block">
+
+							<div id="checkMail">
+								<c:choose>
+									<c:when test="${mailExistant==true }">
+										<div onload="mailMasque()">
+											<a id="mailPris"> Ce mail est déjà utilisé</a>
+										</div>
+
+									</c:when>
+									<c:otherwise>
+										<a> <%
  	String mail = (String) session.getAttribute("mail");
- 	out.println(mail);
+ 			out.println(mail);
  %>
-						</a>
-					</div>
+										</a>
+									</c:otherwise>
+								</c:choose>
+							</div>
 
-					<div id="modifMail" style="display: none">
-						<!-- <form action="#" method="post"> -->
+						</div>
+
+						<div id="modifMail" style="display: none">
+							<!-- <form action="#" method="post"> -->
 							<label for="mail"></label><input type="text"
-								value="<%out.println(mail);%>" name="mail">
-						<!-- </form> -->
+								value="<%out.println((String) session.getAttribute("mail"));%>"
+								name="mail">
+							<!-- </form> -->
+						</div>
+
 					</div>
 
-				</div>
-
-				<div>
-					<!-- <form action="#" method="post"> -->
+					<div>
+						<!-- <form action="#" method="post"> -->
 
 						<div class="mailBouton01" style="display: inline-block">
 							<button type="button" onclick="mailMasque()">Modifier</button>
 						</div>
 
 						<div class="mailBouton02" style="display: none">
-							<button type="submit" onclick="#">Valider</button>
+							<button type="submit">Valider</button>
 						</div>
 
 						<div class="mailBouton02" style="display: none">
 							<button type="button" onclick="mailMasque()">Annuler</button>
 						</div>
-					<!-- </form> -->
+						<!-- </form> -->
+					</div>
 				</div>
-			</div>
-			
+
 			</form>
-			
+
 		</div>
 
 		<div id="eachItem">
 			<b>Numéro de téléphone:</b>
-			
+
 			<form action="updateProfil" method="post">
 
-			<div class="row justify-content-between" id="item">
+				<div class="row justify-content-between" id="item">
 
-				<div style="display: inline">
+					<div style="display: inline">
 
-					<div id="ValeurTel" style="display: inline-block">
-						<a> <%
+						<div id="ValeurTel" style="display: inline-block">
+							<a> <%
  	String tel = (String) session.getAttribute("numeroTel");
  	out.println(tel);
  %>
-						</a>
-					</div>
+							</a>
+						</div>
 
-					<div id="modifTel" style="display: none">
-					<!-- 	<form action="#" method="post"> -->
+						<div id="modifTel" style="display: none">
+							<!-- 	<form action="#" method="post"> -->
 							<label for="numeroTel"></label><input type="text"
 								value="<%out.println(tel);%>" name="numeroTel">
-						<!-- </form> -->
+							<!-- </form> -->
+						</div>
+
 					</div>
 
-				</div>
-
-				<div>
-					<!-- <form action="#" method="post"> -->
+					<div>
+						<!-- <form action="#" method="post"> -->
 
 						<div class="telBouton01" style="display: inline-block">
 							<button type="button" onclick="telMasque()">Modifier</button>
@@ -238,43 +254,43 @@ h2 {
 						<div class="telBouton02" style="display: none">
 							<button type="button" onclick="telMasque()">Annuler</button>
 						</div>
-					<!-- </form> -->
+						<!-- </form> -->
+					</div>
 				</div>
-			</div>
-			
+
 			</form>
-			
+
 		</div>
 
 
 		<div id="eachItem">
 			<b>Mot de passe:</b>
-			
+
 			<form action="updateProfil" method="post">
 
-			<div class="row justify-content-between" id="item">
+				<div class="row justify-content-between" id="item">
 
-				<div style="display: inline">
+					<div style="display: inline">
 
-					<div id="ValeurMdp" style="display: inline-block">
-						<a> <%
+						<div id="ValeurMdp" style="display: inline-block">
+							<a> <%
  	String mdp = (String) session.getAttribute("password");
  	out.println(mdp);
  %>
-						</a>
-					</div>
+							</a>
+						</div>
 
-					<div id="modifMdp" style="display: none">
-						<!-- <form action="#" method="post"> -->
+						<div id="modifMdp" style="display: none">
+							<!-- <form action="#" method="post"> -->
 							<label for="password"></label><input type="text"
 								value="<%out.println(mdp);%>" name="password">
-						<!-- </form> -->
+							<!-- </form> -->
+						</div>
+
 					</div>
 
-				</div>
-
-				<div>
-					<!-- <form action="#" method="post"> -->
+					<div>
+						<!-- <form action="#" method="post"> -->
 
 						<div class="mdpBouton01" style="display: inline-block">
 							<button type="button" onclick="mdpMasque()">Modifier</button>
@@ -287,43 +303,75 @@ h2 {
 						<div class="mdpBouton02" style="display: none">
 							<button type="button" onclick="mdpMasque()">Annuler</button>
 						</div>
-					<!-- </form> -->
+						<!-- </form> -->
+					</div>
 				</div>
-			</div>
-			
+
 			</form>
-			
+
 		</div>
-		
-		
+
+
 	</div>
-		
-   <br><br>
-   <h3>Voir mes jardins personnels</h3>
-   <div class="row justify-content-between" id="itemJardin">
-   		<div id="raccourciJardin"></div>
-   		<div>
-   			<a href="ajouterJardin.jsp"><input type="button" value="Ajouter un jardin"/></a>
-   		</div>
-   </div>
-   
-   	<div id="affichage">
-		<c:out value="${presence}"/> 
+
+
+	<!-- </div> -->
+
+	<br>
+	<br>
+	<h3>Voir mes jardins personnels</h3>
+	<div class="row justify-content-between" id="itemJardin">
+		<div id="raccourciJardin">
+			<c:choose>
+				<c:when test="${sessionScope.presenceJardin == true}">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm">
+								<div class="card" style="width: 18rem;">
+									<img src="img/exJardin.jpg" class="card-img-top" alt="jardin1">
+									<div class="card-body">
+										<h5 class="card-title">Jardin</h5>
+										<p class="card-text">The north pole is an extreme land on
+											Earth welcoming a large amount of animals like bears, foxes,
+											wolves and tigers.</p>
+										<a href="#" class="btn btn-primary">Go somewhere</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<%
+						out.println("Vous n'avez pas de jardin");
+					%>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div>
+			<a href="ajouterJardin.jsp"><input type="button"
+				value="Ajouter un jardin" /></a>
+		</div>
 	</div>
-   
-   <br><br>
-   <h3>Voir les jardins que je partage</h3>
-   <div class="row justify-content-between" id="itemJardin">
-   		<div>
-   			<p> Vous n'avez pas de jardins partagés</p>
-   		</div>
-   		<div>
-   			<a href="mapGardens.jsp"><input type="button" value="Partager un jardin"></a>
-   		</div>
-   </div>
-   
-   	<%@include file="include/footer.jsp"%>
-   
+	<br>
+	<div id="affichage">
+		<!--<c:out value="${presence}"/>-->
+	</div>
+
+	<br>
+	<br>
+	<h3>Voir les jardins que je partage</h3>
+	<div class="row justify-content-between" id="itemJardin">
+		<div>
+			<p>Vous n'avez pas de jardins partagés</p>
+		</div>
+		<div>
+			<a href="mapGardens.jsp"><input type="button"
+				value="Partager un jardin"></a>
+		</div>
+	</div>
+
+	<%@include file="include/footer.jsp"%>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script
