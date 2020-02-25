@@ -23,23 +23,24 @@
 <body>
 	<%@include file="include/header.jsp"%>
 
-	<div id="floating-panel">
-		<input id="address" type="textbox" value="Paris"> <input
-			id="submit" type="button" value="Geocode">
-	</div>
-	<div id="map"></div>
-	<!-- Replace the value of the key parameter with your own API key. -->
-
-
-
-
-
-	<!-- 	<div class="container">
-		<div class="row">
-			<div class="col"></div>
-			<div class="col"></div>
+	<!-- Layout Grid -->
+	<div class="grid-container">
+		<div class="grid-item">
+			<!-- Colonne de gauche -->
+			<p>Col 1</p>
+			<div id="floating-panel">
+				<input id="address" type="textbox" value="Paris"> <input
+					id="submit" type="button" value="Geocode">
+			</div>
+			<div id="map"></div>
 		</div>
-	</div> -->
+
+		<div class="grid-item">
+			<!-- Colonne de droite -->
+			<p>Col 2</p>
+		</div>
+
+	</div>
 
 
 	<!--  Footer -->
@@ -58,7 +59,42 @@
 			for (var i = 0; i < json.length; i++) {
 				var address = json[i]["adresse"] + " " + json[i]["codePostal"]
 						+ " " + json[i]["villeNom"];
-				addGardenMarker(address);
+
+				var contentString = '<div id="content">'
+						+ '<div id="siteNotice">' + '</div>'
+						+ '<h1 id="firstHeading" class="firstHeading">'
+						+ json[i]["typeJardin"]
+						+ '</h1>'
+						+ '<div id="bodyContent">'
+						+ '<p><b>Adresse : </b>'
+						+ address
+						+ '</p>'
+						+ '<p><b>Type de jardin : </b>'
+						+ json[i]["typeJardin"]
+						+ '</p>'
+						+ '<p><b>Superficie : </b>'
+						+ json[i]["superficie"]
+						+ '</p>'
+						+ '<p><b>Type de culture : </b>'
+						+ json[i]["typeCulture"]
+						+ '</p>'
+						+ '<p><b>Type de jardin : </b>'
+						+ json[i]["typeJardin"]
+						+ '</p>'
+						+ '<p><b>Type de sol : </b>'
+						+ json[i]["typeSol"]
+						+ '</p>'
+						+ '<p><b>Type de production : </b>'
+						+ json[i]["typeProduction"]
+						+ '</p>'
+
+						+ '<p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'
+						+ 'https://en.wikipedia.org/w/index.php?title=Uluru</a> '
+						+ '(last visited June 22, 2009).</p>'
+						+ '</div>'
+						+ '</div>';
+
+				addGardenMarker(address, contentString);
 			}
 
 		});

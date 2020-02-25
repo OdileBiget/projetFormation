@@ -1,12 +1,23 @@
-function addGardenMarker(address) {
+function addGardenMarker(address, contentString) {
 	geocoder.geocode({
 		'address' : address
 	}, function(results, status) {
 		if (status === 'OK') {
+			
+		var infowindow = new google.maps.InfoWindow({
+			content : contentString,
+			maxWidth: 300
+		});
+
 			resultsMap.setCenter(results[0].geometry.location);
 			var marker = new google.maps.Marker({
 				map : resultsMap,
-				position : results[0].geometry.location
+				position : results[0].geometry.location,
+				title : 'Uluru (Ayers Rock)'
+			});
+			
+			marker.addListener('click', function() {
+				infowindow.open(resultsMap, marker);
 			});
 		} else {
 			alert('Geocode was not successful for the following reason: '
@@ -14,6 +25,8 @@ function addGardenMarker(address) {
 		}
 	});
 }
+
+
 function initMap() {
 	resultsMap = new google.maps.Map(document.getElementById('map'), {
 		zoom : 8,
@@ -22,10 +35,10 @@ function initMap() {
 			lng : 2.45
 		}
 	});
-	
+
 	geocoder = new google.maps.Geocoder();
 
-		document.getElementById('submit').addEventListener('click', function() {
+	document.getElementById('submit').addEventListener('click', function() {
 		geocodeAddress();
 	});
 }
@@ -47,5 +60,3 @@ function geocodeAddress() {
 		}
 	});
 }
-
-
