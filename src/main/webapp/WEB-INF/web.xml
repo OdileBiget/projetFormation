@@ -57,6 +57,12 @@
 		<description></description>
 		<servlet-class>servlets.AfficherProfil</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>updateProfil</servlet-name>
+		<display-name>updateProfil</display-name>
+		<description></description>
+		<servlet-class>servlets.updateProfil</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
@@ -87,6 +93,10 @@
 		<servlet-name>AfficherProfil</servlet-name>
 		<url-pattern>/AfficherProfil</url-pattern>
 
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>updateProfil</servlet-name>
+		<url-pattern>/updateProfil</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->

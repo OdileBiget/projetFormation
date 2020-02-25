@@ -42,10 +42,20 @@
 			<div>
 				<c:choose>
 					<c:when test="${sessionScope.connexion == true }">
-						<a href="<%=request.getContextPath() + "/Deconnexion"%>">
-							<button class="btn btn-outline-success my-2 my-sm-0"
-								type="submit" name="deconnexion">Déconnexion</button>
-						</a>
+						<div class="navbar-nav mr-auto dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button"
+								id="dropdownMenuLink" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> Mon
+								Compte </a>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="profil.jsp">Profil</a> <a
+									class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="#">Something else here</a> <a
+									href="<%=request.getContextPath() + "/Deconnexion"%>">
+									<button class="dropdown-item" type="submit" name="deconnexion">Déconnexion</button>
+								</a>
+							</div>
+						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="connexion">
