@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Profil;
+import services.methodesLogin;
 
 /**
  * Servlet implementation class updateProfil
@@ -66,9 +67,15 @@ public class updateProfil extends HttpServlet {
 		}
 		
 		if(mailModif!= null){
-			profilUpdate.setMail(mailModif);
-			services.updateProfil.updateMail(mailModif, mailOld, passwordOld);
-			session.setAttribute("mail", mailModif);
+			if(methodesLogin.checkEmail(mailModif)==0) {
+				profilUpdate.setMail(mailModif);
+				services.updateProfil.updateMail(mailModif, mailOld, passwordOld);
+				session.setAttribute("mail", mailModif);
+				request.setAttribute("mailExistant", false);
+			}else {
+				request.setAttribute("mailExistant", true);
+			}
+			
 		}else {
 			profilUpdate.setMail(mailOld);
 		}

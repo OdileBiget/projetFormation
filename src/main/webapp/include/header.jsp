@@ -22,7 +22,7 @@
 				role="button" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false">Nos jardins</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="mapGardens.jsp">Carte des
+					<a class="dropdown-item" href="MapGarden">Carte des
 						jardins</a> <a class="dropdown-item" href="#">Choix</a>
 				</div></li>
 			<li class="nav-item dropdown"><a
