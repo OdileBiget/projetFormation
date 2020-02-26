@@ -57,7 +57,7 @@ public class AjoutJardin extends HttpServlet {
 		methodesJardin.addJardin(request, garden);
 		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));
 		
-//		session.setAttribute("presenceJardin", true);
+		session.setAttribute("presenceJardin", true);
 		
 //		methodesJardin.afficheTest(liste);
 		

@@ -27,30 +27,18 @@
    <h3>Mes jardins personnels</h3>
    <div class="row justify-content-between" id="itemJardin">
    		<div id="itemJ">
+   			<div class="container">
+   				<div class="card-deck" id="rowDiv"> 
+   					<c:choose>
+   					<c:when test="${sessionScope.presenceJardin == true}">
+   					</c:when>
+   					<c:otherwise>
+   					<% out.println("Vous n'avez pas de jardin."); %>
+   					</c:otherwise>
+   					</c:choose>
+   				</div>
+   			</div>
    		</div>
-   		<%-- <div id="raccourciJardin">
-   			<c:choose>
-   				<c:when test="${sessionScope.presenceJardin == true}">
-   					<div class="container">
-						<div class="row">
-							<div class="col-sm">
-								<div class="card" style="width: 18rem;">
-									<img src="img/exJardin.jpg" class="card-img-top" alt="jardin1">
-									<div class="card-body">
-										<h5 class="card-title">Jardin</h5>
-										<p class="card-text">Le jardin situé à villeNom est de type typeJardin avec un sol typeSol. D'une superficie de superficie m², il propose des cultures typeCulture...</p>
-										<a href="#" class="btn btn-primary">Voir plus</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-   				</c:when>
-   				<c:otherwise>
-   					<% out.println("Vous n'avez pas de jardin"); %>
-   				</c:otherwise>
-   			</c:choose>
-   		</div> --%>
    		<div>
    			<a href="ajouterJardin.jsp"><input type="button" class="btn btn-info" value="+ Ajouter un jardin"/></a>
    		</div>
@@ -64,7 +52,7 @@
    <h3>Mes jardins partagés</h3>
    <div class="row justify-content-between" id="itemJardin">
    		<div>
-   			<p> Vous n'avez pas de jardins partagés</p>
+   			<p> Vous n'avez pas de jardins partagés.</p>
    		</div>
    		<div>
    			<a href="mapGardens.jsp"><input type="button" class="btn btn-info" value="+ Partager un jardin"></a>
@@ -81,14 +69,14 @@
 	<script src="js/jardin.js" type="text/javascript"></script>
 	<script>
 		$(document).ready(function(){
-			var jsonPara = <c:out value = "${jsonJardins}" escapeXml="false"/>;
+			var jsonPara = <c:out value="${jsonJardins}" escapeXml="false"/>;
 		//	console.log(jsonPara.length);
 /*  			var villeN = jsonPara[0][0];
 			var typeJ = jsonPara[0][1];
 			var typeS = jsonPara[0][2];
 			var superficie = jsonPara[0][3]; 
 			var typeC = jsonPara[0][4]; */ 
-			affichageFinalJardins(jsonPara); 
+			affichageTousJardins2(jsonPara); 
 		});
 	</script>
 	

@@ -48,7 +48,7 @@
 								aria-haspopup="true" aria-expanded="false"> Mon
 								Compte </a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/VoirMesJardins">Profil</a> <a
+								<a class="dropdown-item" href="profil.jsp">Profil</a> <a
 									class="dropdown-item" href="afficherMesJardins.jsp">Voir mes jardins</a> <a
 									class="dropdown-item" href="#">Something else here</a> <a
 									href="<%=request.getContextPath() + "/Deconnexion"%>">
