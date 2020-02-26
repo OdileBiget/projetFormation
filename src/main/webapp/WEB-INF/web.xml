@@ -63,6 +63,12 @@
 		<description></description>
 		<servlet-class>servlets.updateProfil</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>MapGardenFiltre</servlet-name>
+		<display-name>MapGardenFiltre</display-name>
+		<description></description>
+		<servlet-class>servlets.MapGardenFiltre</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
@@ -97,6 +103,10 @@
 	<servlet-mapping>
 		<servlet-name>updateProfil</servlet-name>
 		<url-pattern>/updateProfil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MapGardenFiltre</servlet-name>
+		<url-pattern>/MapGardenFiltre</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->

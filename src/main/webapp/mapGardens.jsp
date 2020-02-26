@@ -30,40 +30,40 @@
 		</div>
 
 		<div class="grid-item">
-			<form>
+			<form action="MapGardenFiltre">
 				<div class="form-group col-md-6">
-					<label for="inputAddress">Adresse</label> <input type="text"
-						class="form-control" id="inputAddress"
+					<label for="adresse">Adresse</label> <input type="text"
+						class="form-control" id="adresse" name="adresse"
 						placeholder="45, rue Albert Camus">
 				</div>
-					<div class="form-group col-md-6">
-						<label for="inputCity">Ville</label> <input type="text"
-							class="form-control" id="inputCity">
-					</div>
 				<div class="form-group col-md-6">
-					<label for="inputZip">Code postal</label> <input type="text"
-						class="form-control" id="inputZip">
+					<label for="nomVille">Ville</label> <input type="text"
+						class="form-control" id="nomVille" name="nomVille">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="CP">Code postal</label> <input type="text"
+						class="form-control" id="CP" name="CP">
 				</div>
 				<div class="form-group col-md-4">
-					<label for="inputTypeJardin">Type jardin</label> <select
-						id="inputTypeJardin" class="form-control">
+					<label for="typeJardin">Type jardin</label> <select
+						id="typeJardin" class="form-control" name="typeJardin">
 						<option selected>Choisissez une option</option>
-						<option value="privé">privé</option>
+						<option value="prive">privé</option>
 						<option value="collectif">collectif</option>
 					</select>
 				</div>
 				<div class="form-group col-md-4">
-					<label for="inputTypeCulture">Type cuture</label> <select
-						id="inputTypeCulture" class="form-control">
+					<label for="typeCulture">Type cuture</label> <select
+						id="typeCulture" class="form-control" name="typeCulture">
 						<option selected>Choisissez une option</option>
-						<option value="hors sol">hors-sol</option>
+						<option value="hors-sol">hors-sol</option>
 						<option value="pleine terre">pleine terre</option>
 					</select>
 				</div>
 
 				<div class="form-group col-md-4">
-					<label for="inputTypeSol">Type sol</label> <select
-						id="inputTypeSol" class="form-control">
+					<label for="typeSol">Type sol</label> <select
+						id="typeSol" class="form-control name="typeSol"">
 						<option selected>Choisissez une option</option>
 						<option value="calcaire">calcaire</option>
 						<option value="argileux">argileux</option>
@@ -74,8 +74,8 @@
 					</select>
 				</div>
 				<div class="form-group col-md-4">
-					<label for="inputTypeSol">Type de production</label> <select
-						id="inputTypeSol" class="form-control">
+					<label for="typeProd">Type de production</label> <select
+						id="typeProd" class="form-control" name="typeProd">
 						<option selected>Choisissez une option</option>
 						<option value="sous serre">en serre</option>
 						<option value="sous tunnel">sous tunnel</option>
@@ -83,13 +83,15 @@
 					</select>
 				</div>
 				<div class="form-group col-md-3">
-					<label for="inputSuperficie">Superficie</label> <input type="text"
-						class="form-control" id="inputSuperficie">
+					<label for="superficie">Superficie</label> <input type="text"
+						class="form-control" id="superficie" name="superficie">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="inputCulture">Culture déjà présente</label> <input type="text"
-						class="form-control" id="inputCuture">
+					<label for="cultures">Culture déjà présente</label> <input
+						type="text" class="form-control" id="cultures" name="cultures">
 				</div>
+				<br> <input type="submit" name="valider" id="valider"
+					value="Valider" />
 			</form>
 		</div>
 
