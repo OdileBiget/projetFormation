@@ -67,10 +67,6 @@
 </div>
 
 <!--  Fin du carousel -->
-
-<p>
-	<a href="profil.jsp">Lien vers le profil</a>
-</p>
 	<div id="content">
 		<p class="alert alert-danger">Here is the code</p>
 	</div>

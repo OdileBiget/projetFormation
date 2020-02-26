@@ -31,10 +31,6 @@ h2 {
 	padding: 1em;
 }
 
-#itemJardin {
-	padding: 1.5em;
-}
-
 /*  	#boutonModif
 	{
 	float: right;
@@ -297,68 +293,16 @@ h2 {
 		
 		
 	</div>
-		
-   <br><br>
-   <h3>Voir mes jardins personnels</h3>
-   <div class="row justify-content-between" id="itemJardin">
-   		<div id="raccourciJardin">
-   			<c:choose>
-   				<c:when test="${sessionScope.presenceJardin == true}">
-   					<div class="container">
-						<div class="row">
-							<div class="col-sm">
-								<div class="card" style="width: 18rem;">
-									<img src="img/exJardin.jpg" class="card-img-top" alt="jardin1">
-									<div class="card-body">
-										<h5 class="card-title">Jardin</h5>
-										<p class="card-text">The north pole is an extreme land on Earth welcoming a large amount of animals like bears, foxes, wolves and tigers.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-   				</c:when>
-   				<c:otherwise>
-   					<% out.println("Vous n'avez pas de jardin"); %>
-   				</c:otherwise>
-   			</c:choose>
-   		</div>
-   		<div>
-   			<a href="ajouterJardin.jsp"><input type="button" value="Ajouter un jardin"/></a>
-   		</div>
-   </div>
-   <br>
-   	<div id="affichage">
-		<!--<c:out value="${presence}"/>-->
-	</div>
-	   
-   <br><br>
-   <h3>Voir les jardins que je partage</h3>
-   <div class="row justify-content-between" id="itemJardin">
-   		<div>
-   			<p> Vous n'avez pas de jardins partagés</p>
-   		</div>
-   		<div>
-   			<a href="mapGardens.jsp"><input type="button" value="Partager un jardin"></a>
-   		</div>
-   </div>
-   
+	<br><br>
+		   
    	<%@include file="include/footer.jsp"%>
    
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<<<<<<< HEAD
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> 
-	<script src="js/bootstrap/bootstrap.bundle.min.js"></script> 
-	<script src="js/methodes.js"></script>
-	
-=======
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="js/methodes.js" type="text/javascript"></script>
 
->>>>>>> 766458d8b1e3ce26b85343709039a5a8bf212250
 </body>
 </html>

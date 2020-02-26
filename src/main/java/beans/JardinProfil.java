@@ -173,9 +173,8 @@ public class JardinProfil {
 	//Methodes
 	//toString
 
-	@Override
-	public String toString() {
-		return "Le jardin situé à "+this.getVilleNom()+" est de type "+this.getTypeJardin()+" avec un sol "+this.getTypeSol()+". D'une superficie de "+this.getSuperficie()+" m², il propose des cultures "+this.getTypeCulture()+"...";
+	public String affiche(String villeN, String typeJ, String typeS, String sup, String typeC) {
+		return "Le jardin situé à "+villeN+" est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+sup+" m², il propose des cultures "+typeC+"...";
 	}
 	
 	

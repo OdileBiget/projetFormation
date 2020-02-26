@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import beans.JardinProfil;
 import services.methodesJardin;
 
@@ -53,15 +55,30 @@ public class AjoutJardin extends HttpServlet {
 		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, listeC, typeSol, typeProd);
 		
 		methodesJardin.addJardin(request, garden);
-		methodesJardin.getJardinUser((String)session.getAttribute("mail"));
+		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));
 		
-		session.setAttribute("presenceJardin", true);
+//		session.setAttribute("presenceJardin", true);
+		
+//		methodesJardin.afficheTest(liste);
+		
+//		System.out.println("taille: "+methodesJardin.getGardenData(liste).size());
+//		System.out.println("***");
+//		methodesJardin.afficheTest(methodesJardin.getGardenData(liste));
+		
+		List<String[]> listePara = methodesJardin.getGardenData(liste);
+		
+//		request.setAttribute("listePara", listePara);
+		
+		//Création d'un fichier JSON 
+		try {
+		String jsonPara = new Gson().toJson(listePara);
+//		System.out.println(jsonPara);
+		request.setAttribute("jsonJardins",jsonPara);
+		}catch(NullPointerException e) {}
 		
 //		List<Integer> list = methodesJardin.getJardinUser((String) session.getAttribute("mail"));
 		
-//		request.setAttribute("presence", list.get(0));
-		
-		this.getServletContext().getRequestDispatcher("/profil.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/afficherMesJardins.jsp").forward(request, response);
 		
 	}
 

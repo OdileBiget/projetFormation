@@ -72,7 +72,7 @@
 		<label for="name">Type de jardin :</label><br>
 		<select name="typeJardin" id="typeJardin">
 			<option value="">Choisissez une option</option>
-			<option value="privé">privé</option>
+			<option value="prive">privé</option>
 			<option value="collectif">collectif</option>
 		</select><br>
 		<label for="name">Type de sol :</label><br>
