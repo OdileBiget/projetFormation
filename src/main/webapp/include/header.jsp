@@ -22,7 +22,7 @@
 				role="button" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false">Nos jardins</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="mapGardens.jsp">Carte des
+					<a class="dropdown-item" href="MapGarden">Carte des
 						jardins</a> <a class="dropdown-item" href="#">Choix</a>
 				</div></li>
 			<li class="nav-item dropdown"><a
@@ -49,7 +49,7 @@
 								Compte </a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="profil.jsp">Profil</a> <a
-									class="dropdown-item" href="#">Another action</a> <a
+									class="dropdown-item" href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir mes jardins</a> <a
 									class="dropdown-item" href="#">Something else here</a> <a
 									href="<%=request.getContextPath() + "/Deconnexion"%>">
 									<button class="dropdown-item" type="submit" name="deconnexion">Déconnexion</button>

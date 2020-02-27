@@ -32,10 +32,6 @@ h2 {
 	padding: 1em;
 }
 
-#itemJardin {
-	padding: 1.5em;
-}
-
 /*  	#boutonModif
 	{
 	float: right;
@@ -313,8 +309,6 @@ h2 {
 
 
 	</div>
-
-
 	<!-- </div> -->
 
 	<br>

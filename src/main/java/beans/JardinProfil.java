@@ -26,8 +26,8 @@ public class JardinProfil {
 	private int superficie;
 	@Column (name = "typeCulture")
 	private String typeCulture;
-	@ElementCollection
-	private List<String>culturesPresentes;
+	@Column (name = "culturesPresentes")
+	private String culturesPresentes;
 	@Column(name = "typeSol")
 	private String typeSol;
 	@Column(name = "typeProduction")
@@ -42,8 +42,7 @@ public class JardinProfil {
 	public JardinProfil() {
 		super();
 	}
-	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin,
-			int superficie, String typeCulture, List<String> culturesPresentes, String typeSol, String typeProduction,
+	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin, int superficie, String typeCulture, String culturesPresentes, String typeSol, String typeProduction,
 			List<photoJardin> image) {
 		super();
 		this.adresse = adresse;
@@ -58,6 +57,23 @@ public class JardinProfil {
 		this.typeProduction = typeProduction;
 		this.image = image;
 	}
+	//constructeur sans les images car l'utilisateur pourrait ne pas vouloir ajouter d'images de son jardin
+	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin,
+			int superficie, String typeCulture, String culturesPresentes, String typeSol, String typeProduction) {
+		super();
+		this.adresse = adresse;
+		this.villeNom = villeNom;
+		this.codePostal = codePostal;
+		this.coordonneesGPS = coordonneesGPS;
+		this.typeJardin = typeJardin;
+		this.superficie = superficie;
+		this.typeCulture = typeCulture;
+		this.culturesPresentes = culturesPresentes;
+		this.typeSol = typeSol;
+		this.typeProduction = typeProduction;
+	}
+	//Getters & setters
+
 	public int getId() {
 		return id;
 	}
@@ -106,10 +122,12 @@ public class JardinProfil {
 	public void setTypeCulture(String typeCulture) {
 		this.typeCulture = typeCulture;
 	}
-	public List<String> getCulturesPresentes() {
+
+	public String getCulturesPresentes() {
 		return culturesPresentes;
 	}
-	public void setCulturesPresentes(List<String> culturesPresentes) {
+
+	public void setCulturesPresentes(String culturesPresentes) {
 		this.culturesPresentes = culturesPresentes;
 	}
 	public String getTypeSol() {
@@ -131,9 +149,8 @@ public class JardinProfil {
 		this.image = image;
 	}
 
-	
-	
-	
-	
+	public String affiche(String villeN, String typeJ, String typeS, String sup, String typeC) {
+		return "Le jardin situé à "+villeN+" est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+sup+" m², il propose des cultures "+typeC+"...";
+	}
 
 }

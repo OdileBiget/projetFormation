@@ -52,7 +52,7 @@ public class methodesJardin {
 		session.close();		
 	}
 	
-	public static List<Integer> getJardinUser(String mail){
+	public static List<Integer> getJardinsUser(String mail){
 		List<Integer> listeIdJardins = new ArrayList<Integer>();
 		listeIdJardins.add(0); //le 1er chiffre nous dit s'il y a un jardin(1) ou non (0)
 		boolean presence = false;
@@ -95,20 +95,71 @@ public class methodesJardin {
 		
 	}
 	
-//	public static List<String> getGardenData(List<Integer> liste) {
-//		
-//		if(liste.get(0)==1) {
-//			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-//			// Ouverture session
-//			Session session = sessionFactory.openSession();
-//			// Début de la transaction
-//			session.beginTransaction();
-//			
-//			for(int i = 1; i<liste.size(); i++) {
-//				
-//			}
-//		}
-//	}
+	public static List<String[]> getGardenData(List<Integer> liste) {
+		//liste = liste des id de jardin appartenant à l'utilisateur
+		//commencant par 0 s'il n'en a pas
+		//et 1 s'il a au moins un jardin
+		
+		List<String[]> listeParametres = new ArrayList<String[]>();
+		String requete = "";
+		
+		if(liste.get(0)==1) {
+			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+			// Ouverture session
+			Session session = sessionFactory.openSession();
+			// Début de la transaction
+			session.beginTransaction();
+			
+			for(int i = 1; i<liste.size(); i++) {
+				int id = liste.get(i);
+				requete = "FROM JardinProfil JP WHERE JP.id = "+id;
+				List<JardinProfil> listeJP = session.createQuery(requete).list();
+				for(JardinProfil JP : listeJP) {
+					String data[] = new String[6];
+					data[0] = JP.getVilleNom();
+					data[1] = JP.getTypeJardin();
+					data[2] = JP.getTypeSol();
+					data[3] = Integer.toString(JP.getSuperficie());
+					data[4] = JP.getTypeCulture();
+					data[5] = Integer.toString(id);
+					listeParametres.add(data);
+				}
+				
+			}
+			session.getTransaction().commit();
+			session.close();
+		}
+		
+		else listeParametres = null;
+		
+		return listeParametres;
+	}
+	
+	public static List<String> infoJardin(String idJ){
+		
+		List<String> infoJardin = new ArrayList<String>();
+		int id = Integer.parseInt(idJ);
+		
+		String requete = "FROM JardinProfil JP WHERE JP.id ="+id;
+		
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		List<JardinProfil> liste = session.createQuery(requete).list();	
+		for(JardinProfil j : liste) {
+			infoJardin.add(j.getAdresse());
+			infoJardin.add(j.getVilleNom());
+			infoJardin.add(j.getCodePostal());
+			infoJardin.add(j.getTypeJardin());
+			infoJardin.add(j.getTypeCulture());
+			infoJardin.add(j.getTypeSol());
+			infoJardin.add(j.getTypeProduction());
+			infoJardin.add(Integer.toString(j.getSuperficie()));
+		}
+		
+		return infoJardin;
+	}
 	
 	public static void update(String mail) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -124,9 +175,8 @@ public class methodesJardin {
 		session.close();
 	}
 	
-	public static String afficheTest() {
-		String test = "Olala, je teste";
-		return test;
+	public static void afficheTest(List<String[]> liste) {
+		for(String[] i : liste) System.out.println(i[0]);
 	}
 	
 	

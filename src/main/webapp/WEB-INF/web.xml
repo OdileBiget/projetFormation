@@ -81,7 +81,24 @@
 		<description></description>
 		<servlet-class>servlets.ImageDeMerde</servlet-class>
 	</servlet>
-
+	<servlet>
+		<servlet-name>VoirMesJardins</servlet-name>
+		<display-name>VoirMesJardins</display-name>
+		<description></description>
+		<servlet-class>servlets.VoirMesJardins</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MapGardenFiltre</servlet-name>
+		<display-name>MapGardenFiltre</display-name>
+		<description></description>
+		<servlet-class>servlets.MapGardenFiltre</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PageJardinsMiniatures</servlet-name>
+		<display-name>PageJardinsMiniatures</display-name>
+		<description></description>
+		<servlet-class>servlets.PageJardinsMiniatures</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/Inscription</url-pattern>
@@ -110,7 +127,6 @@
 	<servlet-mapping>
 		<servlet-name>AfficherProfil</servlet-name>
 		<url-pattern>/AfficherProfil</url-pattern>
-
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>updateProfil</servlet-name>
@@ -127,6 +143,18 @@
 	<servlet-mapping>
 		<servlet-name>ImageDeMerde</servlet-name>
 		<url-pattern>/ImageDeMerde</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>VoirMesJardins</servlet-name>
+		<url-pattern>/VoirMesJardins</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MapGardenFiltre</servlet-name>
+		<url-pattern>/MapGardenFiltre</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PageJardinsMiniatures</servlet-name>
+		<url-pattern>/PageJardinsMiniatures</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->
