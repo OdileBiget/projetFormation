@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 			<div id="map"></div>
 		</div>
 
-		<div class="grid-item">
+		<div class="grid-item" id="formulaire">
 			<form action="MapGardenFiltre">
 				<div class="form-group col-md-9">
 					<label for="adresse">Adresse</label> <input type="text"
@@ -40,8 +40,9 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-2">
-						<label for="CP">Code postal</label> <input type="text"
-							class="form-control" id="CP" name="CP">
+						<label for="CP">Code postal</label> <input type="number"
+							onkeypress="return isNumberKey(event)" class="form-control"
+							id="CP" name="CP">
 					</div>
 					<div class="form-group co-md-7">
 						<label for="nomVille">Ville</label> <input type="text"
@@ -90,11 +91,12 @@
 						</select>
 					</div>
 					<div class="form-group col-md-3">
-						<label for="superficie">Superficie</label> <input type="text"
+						<label for="superficie">Superficie minimum</label> <input
+							type="number" onkeypress="return isNumberKey(event)"
 							class="form-control" id="superficie" name="superficie">
 					</div>
 					<div class="form-group col-md-3">
-						<label for="cultures">Culture déjà présente</label> <input
+						<label for="cultures">Cultures déjà présentes</label> <input
 							type="text" class="form-control" id="cultures" name="cultures">
 					</div>
 				</div>
@@ -102,7 +104,9 @@
 					value="Valider" />
 			</form>
 			<br>
-			<div> <c:out value="${jsonVide}"/></div>
+			<div>
+				<c:out value="${jsonVide}" />
+			</div>
 		</div>
 
 	</div>
