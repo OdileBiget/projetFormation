@@ -20,12 +20,17 @@
 		<div class="row">
 		
 			<div class="col-md-6">
-				<form method="post" action="#" id="#">
+			
+				<form method="post" action="ImageDeMerde" id="#"  enctype="multipart/form-data">
 
 					<div class="form-group files color">
-						<label>Upload Your File </label> <input type="file"
-							class="form-control" multiple="" accept="image/*">
+					
+						<label for="pathFile">Upload Your File </label> <input name="file"type="file"
+							class="form-control" accept="image/*" onchange="readURL(this);">
+							
 					</div>
+										
+					<input type="submit" value="Valider" >
 
 				</form>
 

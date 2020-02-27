@@ -63,6 +63,24 @@
 		<description></description>
 		<servlet-class>servlets.updateProfil</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>UploadImage</servlet-name>
+		<display-name>UploadImage</display-name>
+		<description></description>
+		<servlet-class>servlets.UploadImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>servletUploadImage</servlet-name>
+		<display-name>servletUploadImage</display-name>
+		<description></description>
+		<servlet-class>servlets.servletUploadImage</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ImageDeMerde</servlet-name>
+		<display-name>ImageDeMerde</display-name>
+		<description></description>
+		<servlet-class>servlets.ImageDeMerde</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
@@ -97,6 +115,18 @@
 	<servlet-mapping>
 		<servlet-name>updateProfil</servlet-name>
 		<url-pattern>/updateProfil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UploadImage</servlet-name>
+		<url-pattern>/UploadImage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>servletUploadImage</servlet-name>
+		<url-pattern>/servletUploadImage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ImageDeMerde</servlet-name>
+		<url-pattern>/ImageDeMerde</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->

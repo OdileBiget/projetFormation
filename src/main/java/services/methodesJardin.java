@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.*;
-import org.hibernate.cfg.*;
-
 import org.hibernate.cfg.Configuration;
 
 public class methodesJardin {
@@ -73,9 +71,12 @@ public class methodesJardin {
 //		for (Profil p : (List<Profil>) list) {
 //			System.out.println(p.toString());
 //		}
+		@SuppressWarnings("unchecked")
 		List<Profil> liste = session.createQuery("FROM Profil P WHERE P.mail='"+mail+"'").list();
 		for(Profil p : liste) {
 			try {
+				
+				@SuppressWarnings("deprecation")
 				Integer value = new Integer(p.getJardin().getId());
 				if(value != null) {
 					listeIdJardins.add(p.getJardin().getId());

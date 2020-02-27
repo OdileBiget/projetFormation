@@ -50,7 +50,7 @@ public class AjoutJardin extends HttpServlet {
 		listeC.add("carotte");
 		listeC.add(cultures);
 		
-		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, listeC, typeSol, typeProd);
+		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, listeC, typeSol, typeProd, null);
 		
 		methodesJardin.addJardin(request, garden);
 		methodesJardin.getJardinUser((String)session.getAttribute("mail"));
