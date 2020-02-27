@@ -1,6 +1,6 @@
 var booleanDiv = true;
 
-function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, currentDiv, numeroJ){
+function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, currentDiv, numeroJ, id){
 //	let data = document.getElementById('itemJ');
 //	let texte = "Le jardin situé à "+villeN+", est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+superficie+" m², il propose des cultures "+typeC+"...";
 //	let finalText = decodeUTF8(texte);
@@ -43,9 +43,17 @@ function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, curren
 	phrase.innerHTML = finalText;
 	phrase.setAttribute('class','card-text');
 	fifthDiv.append(phrase);
+	
+//	let pID = document.createElement('p');
+//	pID.innerHTML = id;
+//	pID.setAttribute('id','idJardin');
+//	pID.style.visibility="hidden";
+//	fifthDiv.append(pID);
+	
 	let ref = document.createElement('a');
 	ref.setAttribute('class','btn btn-primary');
-	ref.setAttribute('href','afficherUnJardin.jsp');
+	let link = 'VoirMesJardins?idJardin='+id
+	ref.setAttribute('href',link);
 	ref.textContent = 'Voir plus';
 	fifthDiv.append(ref);
 	fourthDiv.append(fifthDiv);
@@ -89,7 +97,7 @@ function affichageTousJardins2(listeJSON){
 //	data.append(firstdiv);
 	
 	for(let i = 0; i < tailleListe; i++){
-			afficherRaccourciJardin(listeJSON[i][0], listeJSON[i][1], listeJSON[i][2], listeJSON[i][3], listeJSON[i][4], data, i+1);
+			afficherRaccourciJardin(listeJSON[i][0], listeJSON[i][1], listeJSON[i][2], listeJSON[i][3], listeJSON[i][4], data, i+1, listeJSON[i][5]);
 	}
 	
 }

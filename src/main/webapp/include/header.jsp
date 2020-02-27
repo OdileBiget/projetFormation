@@ -49,7 +49,7 @@
 								Compte </a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="profil.jsp">Profil</a> <a
-									class="dropdown-item" href="afficherMesJardins.jsp">Voir mes jardins</a> <a
+									class="dropdown-item" href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir mes jardins</a> <a
 									class="dropdown-item" href="#">Something else here</a> <a
 									href="<%=request.getContextPath() + "/Deconnexion"%>">
 									<button class="dropdown-item" type="submit" name="deconnexion">Déconnexion</button>

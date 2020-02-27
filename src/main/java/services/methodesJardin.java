@@ -134,6 +134,32 @@ public class methodesJardin {
 		return listeParametres;
 	}
 	
+	public static List<String> infoJardin(String idJ){
+		
+		List<String> infoJardin = new ArrayList<String>();
+		int id = Integer.parseInt(idJ);
+		
+		String requete = "FROM JardinProfil JP WHERE JP.id ="+id;
+		
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		List<JardinProfil> liste = session.createQuery(requete).list();	
+		for(JardinProfil j : liste) {
+			infoJardin.add(j.getAdresse());
+			infoJardin.add(j.getVilleNom());
+			infoJardin.add(j.getCodePostal());
+			infoJardin.add(j.getTypeJardin());
+			infoJardin.add(j.getTypeCulture());
+			infoJardin.add(j.getTypeSol());
+			infoJardin.add(j.getTypeProduction());
+			infoJardin.add(Integer.toString(j.getSuperficie()));
+		}
+		
+		return infoJardin;
+	}
+	
 	public static void update(String mail) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		
