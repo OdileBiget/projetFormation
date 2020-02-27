@@ -26,21 +26,65 @@
 	<a id="picture1"><img src="./img/exJardin.jpg" alt="image jardin 1"/></a>
 	
 	<div id="description">
-		<p>Adresse: </p>
+		<p>Adresse: 
+			<%
+				String adresse = (String) request.getAttribute("addresse");
+				out.println(adresse);
+			%>
+		</p>
 	<br>
-		<p>Ville: </p>
+		<p>Ville: 
+			<%
+				String villeNom = (String) request.getAttribute("villeNom");
+				out.println(villeNom);
+			%>
+		</p>
 	<br>
-		<p>Code postal: </p>
+		<p>Code postal: 
+			<%
+				String codePostal = (String) request.getAttribute("codePostal");
+				out.println(codePostal);
+			%>
+		</p>
 	<br>
-		<p>Type de jardin: </p>
+		<p>Superficie: 
+			<%
+				String superficie = (String) request.getAttribute("superficie");
+				out.println(superficie);
+			%>
+		</p>
 	<br>
-		<p>Type de culture: </p>
+		<p>Type de jardin: 
+			<%
+				String typeJardin = (String) request.getAttribute("typeJardin");
+				out.println(typeJardin);
+			%>
+		</p>
 	<br>
-		<p>Type de sol: </p>
+		<p>Type de culture: 
+			<%
+				String typeCulture = (String) request.getAttribute("typeCulture");
+				out.println(typeCulture);
+			%>
+		</p>
 	<br>
-		<p>Type de production: </p>
+		<p>Type de sol: 
+			<%
+				String typeSol = (String) request.getAttribute("typeSol");
+				out.println(typeSol);
+			%>
+		</p>
+	<br>
+		<p>Type de production: 
+			<%
+				String typeProduction = (String) request.getAttribute("typeProduction");
+				out.println(typeProduction);
+			%>
+		</p>
 	<br>
 	</div>
+	
+	<a href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>"><button type="button" class="btn btn-outline-dark" id="boutonRetour" class="mr-auto">Retour vers mes jardins</button></a>
 	
 	<%@include file="include/footer.jsp"%>
    

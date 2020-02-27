@@ -67,18 +67,12 @@
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<!--  <script src="js/methodes.js" type="text/javascript"></script> -->
 	<script src="js/jardin.js" type="text/javascript"></script>
-	<script>
+ 	<script>
 		$(document).ready(function(){
 			var jsonPara = <c:out value="${jsonJardins}" escapeXml="false"/>;
-		//	console.log(jsonPara.length);
-/*  			var villeN = jsonPara[0][0];
-			var typeJ = jsonPara[0][1];
-			var typeS = jsonPara[0][2];
-			var superficie = jsonPara[0][3]; 
-			var typeC = jsonPara[0][4]; */ 
 			affichageTousJardins2(jsonPara); 
 		});
-	</script>
+	</script> 
 	
 </body>
 </html>

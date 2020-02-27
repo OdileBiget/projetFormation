@@ -76,10 +76,10 @@
 		<servlet-class>servlets.MapGardenFiltre</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>AfficherPageJardin</servlet-name>
-		<display-name>AfficherPageJardin</display-name>
+		<servlet-name>PageJardinsMiniatures</servlet-name>
+		<display-name>PageJardinsMiniatures</display-name>
 		<description></description>
-		<servlet-class>servlets.AfficherPageJardin</servlet-class>
+		<servlet-class>servlets.PageJardinsMiniatures</servlet-class>
 	</servlet>
 	
 
@@ -126,8 +126,8 @@
 		<url-pattern>/MapGardenFiltre</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>AfficherPageJardin</servlet-name>
-		<url-pattern>/AfficherPageJardin</url-pattern>
+		<servlet-name>PageJardinsMiniatures</servlet-name>
+		<url-pattern>/PageJardinsMiniatures</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->
