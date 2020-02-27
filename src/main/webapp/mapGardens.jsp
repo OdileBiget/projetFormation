@@ -1,4 +1,6 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
 
 <!DOCTYPE html>
@@ -31,68 +33,76 @@
 
 		<div class="grid-item">
 			<form action="MapGardenFiltre">
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-9">
 					<label for="adresse">Adresse</label> <input type="text"
 						class="form-control" id="adresse" name="adresse"
 						placeholder="45, rue Albert Camus">
 				</div>
-				<div class="form-group col-md-6">
-					<label for="nomVille">Ville</label> <input type="text"
-						class="form-control" id="nomVille" name="nomVille">
+				<div class="form-row">
+					<div class="form-group col-md-2">
+						<label for="CP">Code postal</label> <input type="text"
+							class="form-control" id="CP" name="CP">
+					</div>
+					<div class="form-group co-md-7">
+						<label for="nomVille">Ville</label> <input type="text"
+							class="form-control" id="nomVille" name="nomVille">
+					</div>
 				</div>
-				<div class="form-group col-md-6">
-					<label for="CP">Code postal</label> <input type="text"
-						class="form-control" id="CP" name="CP">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="typeJardin">Type jardin</label> <select
-						id="typeJardin" class="form-control" name="typeJardin">
-						<option selected>Choisissez une option</option>
-						<option value="prive">privé</option>
-						<option value="collectif">collectif</option>
-					</select>
-				</div>
-				<div class="form-group col-md-4">
-					<label for="typeCulture">Type cuture</label> <select
-						id="typeCulture" class="form-control" name="typeCulture">
-						<option selected>Choisissez une option</option>
-						<option value="hors-sol">hors-sol</option>
-						<option value="pleine terre">pleine terre</option>
-					</select>
-				</div>
+				<div class="form-row">
+					<div class="form-group col-md-3">
+						<label for="typeJardin">Type jardin</label> <select
+							id="typeJardin" class="form-control" name="typeJardin">
+							<option selected>Choisissez une option</option>
+							<option value="prive">privé</option>
+							<option value="collectif">collectif</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="typeCulture">Type cuture</label> <select
+							id="typeCulture" class="form-control" name="typeCulture">
+							<option selected>Choisissez une option</option>
+							<option value="hors-sol">hors-sol</option>
+							<option value="pleine terre">pleine terre</option>
+						</select>
+					</div>
 
-				<div class="form-group col-md-4">
-					<label for="typeSol">Type sol</label> <select
-						id="typeSol" class="form-control name="typeSol"">
-						<option selected>Choisissez une option</option>
-						<option value="calcaire">calcaire</option>
-						<option value="argileux">argileux</option>
-						<option value="sableux">sableux</option>
-						<option value="siliceux">siliceux</option>
-						<option value="tourbeux">tourbeux</option>
-						<option value="limoneux">limoneux</option>
-					</select>
+					<div class="form-group col-md-3">
+						<label for="typeSol">Type sol</label> <select id="typeSol"
+							class="form-control name="typeSol">
+							<option selected>Choisissez une option</option>
+							<option value="calcaire">calcaire</option>
+							<option value="argileux">argileux</option>
+							<option value="sableux">sableux</option>
+							<option value="siliceux">siliceux</option>
+							<option value="tourbeux">tourbeux</option>
+							<option value="limoneux">limoneux</option>
+						</select>
+					</div>
 				</div>
-				<div class="form-group col-md-4">
-					<label for="typeProd">Type de production</label> <select
-						id="typeProd" class="form-control" name="typeProd">
-						<option selected>Choisissez une option</option>
-						<option value="sous serre">en serre</option>
-						<option value="sous tunnel">sous tunnel</option>
-						<option value="en plein air">en plein air</option>
-					</select>
-				</div>
-				<div class="form-group col-md-3">
-					<label for="superficie">Superficie</label> <input type="text"
-						class="form-control" id="superficie" name="superficie">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="cultures">Culture déjà présente</label> <input
-						type="text" class="form-control" id="cultures" name="cultures">
+				<div class="form-row">
+					<div class="form-group col-md-3">
+						<label for="typeProd">Type de production</label> <select
+							id="typeProd" class="form-control" name="typeProd">
+							<option selected>Choisissez une option</option>
+							<option value="sous serre">en serre</option>
+							<option value="sous tunnel">sous tunnel</option>
+							<option value="en plein air">en plein air</option>
+						</select>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="superficie">Superficie</label> <input type="text"
+							class="form-control" id="superficie" name="superficie">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="cultures">Culture déjà présente</label> <input
+							type="text" class="form-control" id="cultures" name="cultures">
+					</div>
 				</div>
 				<br> <input type="submit" name="valider" id="valider"
 					value="Valider" />
 			</form>
+			<br>
+			<div> <c:out value="${jsonVide}"/></div>
 		</div>
 
 	</div>
@@ -144,6 +154,9 @@
 						+ '</p>'
 						+ '<p><b>Type de production : </b>'
 						+ json[i]["typeProduction"]
+						+ '</p>'
+						+ '<p><b>Cultures déjà présentes : </b>'
+						+ json[i]["culturesPresentes"]
 						+ '</p>'
 
 						+ '<p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'

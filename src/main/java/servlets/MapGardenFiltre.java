@@ -53,8 +53,7 @@ public class MapGardenFiltre extends HttpServlet {
 		String typeProd = request.getParameter("typeProd");
 		String superficie = request.getParameter("superficie");
 		String cultures = request.getParameter("cultures");
-
-		System.out.println(typeCulture + typeJardin + typeProd + typeSol);
+		String[] culturesTab = cultures.split("[^a-zA-Z]");
 		String reqIni = "";
 
 		if (adresse != null && !adresse.isEmpty()) {
@@ -81,9 +80,13 @@ public class MapGardenFiltre extends HttpServlet {
 		if (superficie != null && !superficie.isEmpty()) {
 			reqIni += "J.superficie='" + superficie + "' AND ";
 		}
-		if (cultures != null && !cultures.isEmpty()) {
-			reqIni += "J.cultures='" + cultures + "' AND ";
-		}
+		for(int i=0; i<culturesTab.length; i++) {
+		if (culturesTab[i] != null && !culturesTab[i].isEmpty()) {
+			if (culturesTab[i].endsWith("s")) {
+				culturesTab[i] = culturesTab[i].substring(0, culturesTab[i].length() - 1);
+			}
+			reqIni += "J.culturesPresentes LIKE '%" + culturesTab[i] + "%' AND ";
+		}}
 
 		String req ="";
 		if (reqIni.length() > 4) {
@@ -93,12 +96,15 @@ public class MapGardenFiltre extends HttpServlet {
 		System.out.println("requete :");
 		System.out.println(req);
 		Query query = session.createQuery("FROM JardinProfil" + req);
+		//Query query = session.createQuery("FROM JardinProfil J  WHERE 'fraises' in elements(J.culturesPresentes)");
+		//Query query = session.createQuery("FROM JardinProfil J WHERE J.culturesPresentes LIKE '%tomates%'");
 		System.out.println(query);
 		List<JardinProfil> result = query.list();
 
 		String json = new Gson().toJson(result);
-
 		System.out.println(json);
+		if(json.equals("[]")) request.setAttribute("jsonVide", "Aucun élément ne correspond à votre recherche");
+
 		request.setAttribute("json", json);
 		session.getTransaction().commit();
 

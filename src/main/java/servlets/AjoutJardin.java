@@ -47,12 +47,12 @@ public class AjoutJardin extends HttpServlet {
 		String typeProd = request.getParameter("typeProd");
 		int superficie = Integer.parseInt(request.getParameter("superficie"));
 		String cultures = request.getParameter("cultures");
-		List<String> listeC = new ArrayList<String>();
-		listeC.add("tomate");
-		listeC.add("carotte");
-		listeC.add(cultures);
+//		List<String> listeC = new ArrayList<String>();
+//		listeC.add("tomate");
+//		listeC.add("carotte");
+//		listeC.add(cultures);
 		
-		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, listeC, typeSol, typeProd);
+		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, cultures, typeSol, typeProd);
 		
 		methodesJardin.addJardin(request, garden);
 		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));

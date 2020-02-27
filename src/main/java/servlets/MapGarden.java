@@ -50,8 +50,8 @@ public class MapGarden extends HttpServlet {
 		List<JardinProfil> result = query.list();
 
 		String json = new Gson().toJson(result);
-
 		System.out.println(json);
+		
 		request.setAttribute("json", json);
 		session.getTransaction().commit();
 

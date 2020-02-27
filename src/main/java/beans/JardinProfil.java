@@ -25,8 +25,8 @@ public class JardinProfil {
 	private int superficie;
 	@Column (name = "typeCulture")
 	private String typeCulture;
-	@ElementCollection
-	private List<String>culturesPresentes;
+	@Column (name = "culturesPresentes")
+	private String culturesPresentes;
 	@Column(name = "typeSol")
 	private String typeSol;
 	@Column(name = "typeProduction")
@@ -42,7 +42,7 @@ public class JardinProfil {
 	}
 
 	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin,
-			int superficie, String typeCulture, List<String> culturesPresentes, String typeSol, String typeProduction,
+			int superficie, String typeCulture, String culturesPresentes, String typeSol, String typeProduction,
 			List<String> cheminImages) {
 		super();
 		this.adresse = adresse;
@@ -60,7 +60,7 @@ public class JardinProfil {
 	
 	//constructeur sans les images car l'utilisateur pourrait ne pas vouloir ajouter d'images de son jardin
 	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin,
-			int superficie, String typeCulture, List<String> culturesPresentes, String typeSol, String typeProduction) {
+			int superficie, String typeCulture, String culturesPresentes, String typeSol, String typeProduction) {
 		super();
 		this.adresse = adresse;
 		this.villeNom = villeNom;
@@ -139,11 +139,11 @@ public class JardinProfil {
 		this.typeCulture = typeCulture;
 	}
 
-	public List<String> getCulturesPresentes() {
+	public String getCulturesPresentes() {
 		return culturesPresentes;
 	}
 
-	public void setCulturesPresentes(List<String> culturesPresentes) {
+	public void setCulturesPresentes(String culturesPresentes) {
 		this.culturesPresentes = culturesPresentes;
 	}
 
