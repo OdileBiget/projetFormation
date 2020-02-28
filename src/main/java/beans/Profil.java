@@ -1,7 +1,9 @@
 package beans;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PROFIL")
@@ -38,14 +40,18 @@ public class Profil {
 //			inverseJoinColumns = {@JoinColumn(name="jardin_id")}
 //			)
 //	private List<JardinProfil> listeJardinsPersos = new ArrayList<JardinProfil>();
-	@OneToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "id_jardin")
-	private JardinProfil jardin;
-	
+//	@OneToOne(cascade = {CascadeType.ALL})
+//	@JoinColumn(name = "id_jardin")
+//	private JardinProfil jardin;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
+	private List<JardinProfil> jardin = new ArrayList<JardinProfil>();
+
 	// Constructeurs
 	public Profil() {
 		super();
 	}
+
 	public Profil(String nom, String prenom, String numeroTel, String mail, String password) {
 		super();
 		this.nom = nom;
@@ -54,14 +60,26 @@ public class Profil {
 		this.mail = mail;
 		this.password = password;
 	}
-	
-	//constructeur sans password pour quand déjà identifié
+
+	// constructeur sans password pour quand déjà identifié
 	public Profil(String nom, String prenom, String numeroTel, String mail) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.numeroTel = numeroTel;
 		this.mail = mail;
+	}
+
+	public Profil(int id, String nom, String prenom, String numeroTel, String mail, String password,
+			List<JardinProfil> jardin) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.numeroTel = numeroTel;
+		this.mail = mail;
+		this.password = password;
+		this.jardin = jardin;
 	}
 
 	// Getters et setters
@@ -112,13 +130,21 @@ public class Profil {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-		
-	public JardinProfil getJardin() {
+
+	public List<JardinProfil> getJardin() {
 		return jardin;
 	}
-	public void setJardin(JardinProfil jardin) {
+
+	public void setJardin(List<JardinProfil> jardin) {
 		this.jardin = jardin;
 	}
+
+	// public JardinProfil getJardin() {
+//		return jardin;
+//	}
+//	public void setJardin(JardinProfil jardin) {
+//		this.jardin = jardin;
+//	}
 //	public List<JardinProfil> getListeJardinsPersos() {
 //	return listeJardinsPersos;
 //	}
@@ -132,9 +158,9 @@ public class Profil {
 	public String toString() {
 		return "Profil [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + "]";
 	}
-	
-	public void addJardin(JardinProfil j) {
-		this.jardin = j;
-	}
+
+//	public void addJardin(JardinProfil j) {
+//		this.jardin = j;
+//	}
 
 }

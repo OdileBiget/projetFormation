@@ -33,34 +33,25 @@ public class Inscription extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
 		String tel = request.getParameter("tel");
 		String mdp = request.getParameter("mdp");
-		boolean ajouterOk = true;
 
-		Profil newUser = new Profil(nom,prenom, tel, email, mdp);
+		Profil newUser = new Profil(nom, prenom, tel, email, mdp);
 
 		if (methodesLogin.checkEmail(email) != 0) {
 			request.setAttribute("message", "Cette adresse mail n'est pas disponible.");
-			ajouterOk = false;
-		}
-
-		if (ajouterOk) {
+			
+			this.getServletContext().getRequestDispatcher("/inscription.jsp").forward(request, response);
+		} else {
 			methodesLogin.addProfil(newUser);
+			request.setAttribute("connexion", "reussi");
 			request.setAttribute("email", email);
 			request.setAttribute("mdp", mdp);
-			this.getServletContext().getRequestDispatcher("/Connexion").forward(request, response);
-			return;
-
-		} else {
-			this.getServletContext().getRequestDispatcher("/inscription.jsp").forward(request, response);
-			return;
+			this.getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
 		}
-
-
 	}
 
 	/**

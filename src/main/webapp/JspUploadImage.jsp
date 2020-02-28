@@ -7,7 +7,9 @@
 
 <%@page import="java.util.List"%>
 <%@page import="beans.photoJardin"%>
+<%@page import="beans.JardinProfil"%>
 <%@page import="services.ImageImpl"%>
+<%@page import="services.JardinImpl"%>
 <%@page import="java.io.File"%>
 
 
@@ -28,14 +30,19 @@
 		<h3>${requestScope["message"]}</h3>
 		<%
 			ImageImpl iI = new ImageImpl();
-			List<photoJardin> listePhotos = iI.findAll();
-			for (int i = 0; i < listePhotos.size(); i++) {
-				
+			JardinImpl jl = new JardinImpl();
+
+			List<JardinProfil> listeJardin = jl.findAll();
+			for (int j = 0; j < listeJardin.size(); j++) {
+
+				List<photoJardin> listePhotos = iI.findAll();
+				for (int i = 0; i < listePhotos.size(); i++) {
 		%>
-		<h2><%= i %></h2>
+		<h2><%=i%></h2>
 		<div>
 			<figure>
-				<img src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(i).getImage()%>"
+				<img
+					src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(i).getImage()%>"
 					alt="<%=listePhotos.get(i).getNom()%>" />
 				<figcaption>
 					<h3><%=listePhotos.get(i).getNom() + i%>
@@ -44,10 +51,11 @@
 			</figure>
 			<%
 				}
+				}
 			%>
 		</div>
 	</div>
-	
+
 
 
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>

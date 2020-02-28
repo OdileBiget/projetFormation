@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.Profil;
 import services.methodesLogin;
+import services.*;
 
 /**
  * Servlet implementation class updateProfil
@@ -35,65 +36,53 @@ public class updateProfil extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String nomModif = request.getParameter("nom");
+
 		String prenomModif = request.getParameter("prenom");
+
 		String mailModif = request.getParameter("mail");
+
 		String telModif = request.getParameter("numeroTel");
+
 		String mdpModif = request.getParameter("password");
 
-		Profil profilUpdate = new Profil();
+		ProfilImpl profilImpl = new ProfilImpl();
 
-		String nomOld = (String)session.getAttribute("nom");
-		String prenomOld = (String)session.getAttribute("prenom");
-		String mailOld = (String)session.getAttribute("mail");
-		String numeroTelOld = (String)session.getAttribute("numeroTel");
-		String passwordOld = (String)session.getAttribute("password");	
-		
-		//Profil old = services.methodesLogin.connexionProfil(mailOld, passwordOld);
-		
-		if(nomModif != null){
-			profilUpdate.setNom(nomModif);
-			services.updateProfil.updateNom(nomModif, mailOld, passwordOld);
-			session.setAttribute("nom", nomModif);
-		}else {
-			profilUpdate.setNom(nomOld);
+		Profil profil = (Profil) session.getAttribute("user");
+
+		if (nomModif != null) {
+			profil.setNom(nomModif);
+			profilImpl.update(profil);
+			session.setAttribute("user", profil);
 		}
-		
-		if(prenomModif!= null){
-			profilUpdate.setPrenom(prenomModif);
-			services.updateProfil.updatePrenom(prenomModif, mailOld, passwordOld);
-			session.setAttribute("prenom", prenomModif);
-		}else {
-			profilUpdate.setPrenom(prenomOld);
+
+		if (prenomModif != null) {
+			profil.setPrenom(prenomModif);
+			profilImpl.update(profil);
+			session.setAttribute("user", profil);
 		}
-		
-		if(mailModif!= null){
-			if(methodesLogin.checkEmail(mailModif)==0) {
-				profilUpdate.setMail(mailModif);
-				services.updateProfil.updateMail(mailModif, mailOld, passwordOld);
-				session.setAttribute("mail", mailModif);
+
+		if (mailModif != null) {
+			if (methodesLogin.checkEmail(mailModif) == 0) {
+				profil.setMail(mailModif);
+				profilImpl.update(profil);
+				session.setAttribute("user", profil);
 				request.setAttribute("mailExistant", false);
-			}else {
+			} else {
 				request.setAttribute("mailExistant", true);
 			}
-			
-		}else {
-			profilUpdate.setMail(mailOld);
+
 		}
-		
-		if(telModif!= null){
-			profilUpdate.setNumeroTel(telModif);
-			services.updateProfil.updateTel(telModif, mailOld, passwordOld);
-			session.setAttribute("numeroTel", telModif);
-		}else {
-			profilUpdate.setNumeroTel(numeroTelOld);
+
+		if (telModif != null) {
+			profil.setNumeroTel(telModif);
+			profilImpl.update(profil);
+			session.setAttribute("user", profil);
 		}
-		
-		if(mdpModif!= null){
-			profilUpdate.setPassword(mdpModif);
-			services.updateProfil.updatePassword(mdpModif, mailOld, passwordOld);
-			session.setAttribute("password", mdpModif);
-		}else {
-			profilUpdate.setPassword(passwordOld);
+
+		if (mdpModif != null) {
+			profil.setPassword(mdpModif);
+			profilImpl.update(profil);
+			session.setAttribute("user", profil);
 		}
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());

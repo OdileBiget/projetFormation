@@ -1,28 +1,16 @@
 var booleanDiv = true;
 
 function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, currentDiv, numeroJ, id){
-//	let data = document.getElementById('itemJ');
-//	let texte = "Le jardin situé à "+villeN+", est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+superficie+" m², il propose des cultures "+typeC+"...";
-//	let finalText = decodeUTF8(texte);
-//	
-//	let firstdiv = document.createElement('div');
-////	firstdiv.textContent = 'first div';
-//	firstdiv.setAttribute('class','container');
-//	data.append(firstdiv);
-	
-//	let secondDiv = document.createElement('div');
-//	secondDiv.setAttribute('class','row');
-////	secondDiv.textContent = 'second div';
-////	firstdiv.append(secondDiv);
-//	currentDiv.append(secondDiv);
-	
+	//
 	let texte = "Le jardin situé à "+villeN+", est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+superficie+" m², il propose des cultures "+typeC+"...";
 	let finalText = decodeUTF8(texte);
 	
+	// Div de la carte
 	let thirdDiv = document.createElement('div');
 	thirdDiv.setAttribute('class','col-sm');
 	currentDiv.append(thirdDiv);
 	
+	// Div de la bordure
 	let fourthDiv = document.createElement('div');
 	fourthDiv.setAttribute('class','card border-dark');
 	fourthDiv.style.width = '18rem';
@@ -32,6 +20,7 @@ function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, curren
 	fourthDiv.append(image);
 	thirdDiv.append(fourthDiv);
 	
+	// Div du texte de la carte
 	let fifthDiv = document.createElement('div');
 	fifthDiv.setAttribute('class','card-body text-dark');
 	let jardin = document.createElement('h5');
@@ -44,64 +33,26 @@ function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, curren
 	phrase.setAttribute('class','card-text');
 	fifthDiv.append(phrase);
 	
-//	let pID = document.createElement('p');
-//	pID.innerHTML = id;
-//	pID.setAttribute('id','idJardin');
-//	pID.style.visibility="hidden";
-//	fifthDiv.append(pID);
-	
+	//Div boutton voir plus
 	let ref = document.createElement('a');
 	ref.setAttribute('class','btn btn-primary');
-	let link = 'VoirMesJardins?idJardin='+id
+	let link = 'VoirMesJardins?idJardin='+id;
 	ref.setAttribute('href',link);
 	ref.textContent = 'Voir plus';
 	fifthDiv.append(ref);
 	fourthDiv.append(fifthDiv);
 }
 
-//function affichageTousJardins1(listeJSON){
-//	let tailleListe = listeJSON.length;
-//	let data = document.getElementById('itemJ');
-////	let texte = "Le jardin situé à "+villeN+", est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+superficie+" m², il propose des cultures "+typeC+"...";
-////	let finalText = decodeUTF8(texte);
-//	
-//	let firstdiv = document.createElement('div');
-////	firstdiv.textContent = 'first div';
-//	firstdiv.setAttribute('class','container');
-//	data.append(firstdiv);
-//	
-//	let secondDiv = document.createElement('div');
-//	secondDiv.setAttribute('class','row');
-//	secondDiv.setAttribute('id','rowDiv');
-////	secondDiv.textContent = 'second div';
-////	firstdiv.append(secondDiv);
-//	firstdiv.append(secondDiv);
-//	
-//	for(let i = 0; i < tailleListe; i++){
-//			afficherRaccourciJardin(listeJSON[i][0], listeJSON[i][1], listeJSON[i][2], listeJSON[i][3], listeJSON[i][4],secondDiv)
-//	}
-//	
-//	booleanDiv = false;
-//	
-//}
-
-function affichageTousJardins2(listeJSON){
+function affichageJardinsCarte(listeJSON){
+	
 	let tailleListe = listeJSON.length;
 	let data = document.getElementById('rowDiv');
-//	let texte = "Le jardin situé à "+villeN+", est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+superficie+" m², il propose des cultures "+typeC+"...";
-//	let finalText = decodeUTF8(texte);
 	
-//	let firstdiv = document.createElement('div');
-//	firstdiv.textContent = 'first div';
-//	firstdiv.setAttribute('class','container');
-//	data.append(firstdiv);
-	
+	//Rajout de txt au div existant
 	for(let i = 0; i < tailleListe; i++){
-			afficherRaccourciJardin(listeJSON[i][0], listeJSON[i][1], listeJSON[i][2], listeJSON[i][3], listeJSON[i][4], data, i+1, listeJSON[i][5]);
+			afficherRaccourciJardin(listeJSON[i]["adresse"], listeJSON[i]["villeNom"], listeJSON[i]["typeJardin"], listeJSON[i]["superficie"], listeJSON[i]["typeCulture"], data, i+1, listeJSON[i]["id"]);
 	}
-	
 }
-
 
 function encodeUTF8(string) {
 	  return unescape(encodeURIComponent(string));
@@ -112,19 +63,6 @@ function decodeUTF8(string) {
 	  return decodeURIComponent(escape(string));
 	}
 
-//function affichageFinalJardins(listeJSON){
-//	var divATester = document.getElementById('itemJ');
-//	if(divATester.children==null) {
-//		console.log("no child");
-//		affichageTousJardins1(listeJSON);
-//		
-//	}
-//	else {
-//		console.log(" one child ");
-//		affichageTousJardins2(listeJSON);
-//		
-//	}
-//}
 
 
 

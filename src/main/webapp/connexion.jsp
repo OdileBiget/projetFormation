@@ -10,7 +10,8 @@
 <title>Connexion</title>
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/cssFormulaires.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/08ce264d0a.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/08ce264d0a.js"
+	crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -19,20 +20,28 @@
 	<div #fondForm>
 		<h1>Connexion</h1>
 		<br>
+		<div>
+			<c:choose>
+
+				<c:when test="${connexion.equals('error') }">
+
+					<p>
+						Un problème est survenu lors de la connexion<br>Identifiants
+						non reconus
+					</p>
+
+				</c:when>
+
+				<c:otherwise>
+
+					<p>Connectez-vous</p>
+
+				</c:otherwise>
+
+			</c:choose>
+
+		</div>
 		<form action="Connexion" method="post">
-
-			<div>
-				<c:choose>
-					<c:when test="${connexion.equals('error') }">
-						<p>
-							Un problème est survenu lors de la connexion<br>Identifiants
-							non reconus
-						</p>
-					</c:when>
-				</c:choose>
-
-			</div>
-
 			<label for="mailRenseigne">E-mail :</label><br> <input
 				type="email" id="email" name="mailRenseigne"><br> <label
 				for="passwordRenseigne">Mot de passe :</label><br> <input
@@ -43,10 +52,10 @@
 
 		</form>
 	</div>
-	
-	
-	
-	
+
+
+
+
 	<%@include file="include/footer.jsp"%>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

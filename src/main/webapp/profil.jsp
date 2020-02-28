@@ -1,6 +1,8 @@
+<%@page import="beans.Profil"%>
 <%@page import="com.sun.xml.txw2.Document"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
+<%@page import="beans.Profil"%>
 
 <!DOCTYPE html>
 <html>
@@ -41,8 +43,6 @@ h2 {
 </head>
 
 <body id="bodyProfile">
-	<!-- <h1>My Local Garden</h1> -->
-	<!-- Navigation bar -->
 
 	<%@include file="include/header.jsp"%>
 
@@ -61,23 +61,24 @@ h2 {
 					<div style="display: inline">
 
 						<div id="ValeurNom" style="display: inline-block">
+
 							<a> <%
- 	String name = (String) session.getAttribute("nom");
- 	out.println(name);
- %>
+ 								Profil profil = (Profil) session.getAttribute("user");
+ 								String name = profil.getNom();
+ 								out.println(name);
+ 								%>
 							</a>
 						</div>
 
 						<div id="modifNom" style="display: none">
-							<!-- <form action="updateProfil" method="post"> -->
+						
 							<label for="name"></label><input type="text"
 								value="<%out.println(name);%>" name="nom">
-							<!-- </form> -->
+							
 						</div>
 					</div>
 
 					<div>
-						<!-- <form action="updateProfil" method="post"> -->
 
 						<div class="nomBouton01" style="display: inline-block">
 							<button type="button" onclick="NomAfficherMasquer()">Modifier</button>
@@ -90,7 +91,7 @@ h2 {
 						<div class="nomBouton02" style="display: none">
 							<button type="button" onclick="NomAfficherMasquer()">Annuler</button>
 						</div>
-						<!-- </form> -->
+				
 					</div>
 				</div>
 
@@ -110,24 +111,23 @@ h2 {
 
 						<div id="ValeurPrenom" style="display: inline-block">
 							<a> <%
- 	String prenom = (String) session.getAttribute("prenom");
- 	out.println(prenom);
- %>
+ 								String prenom = profil.getPrenom();
+ 								out.println(prenom);
+								 %>
 							</a>
 						</div>
 
 						<div id="modifPrenom" style="display: none">
-							<!-- <form action="#" method="post"> -->
+						
 							<label for="prenom"></label><input type="text"
 								value="<%out.println(prenom);%>" name="prenom">
-							<!-- </form> -->
+						
 						</div>
 
 					</div>
 
 					<div>
-						<!-- <form action="updateProfil" method="post">
- -->
+						
 						<div class="prenomBouton01" style="display: inline-block">
 							<button type="button" onclick="prenomMasque()">Modifier</button>
 						</div>
@@ -139,7 +139,7 @@ h2 {
 						<div class="prenomBouton02" style="display: none">
 							<button type="button" onclick="prenomMasque()">Annuler</button>
 						</div>
-						<!-- </form> -->
+						
 					</div>
 				</div>
 
@@ -168,9 +168,9 @@ h2 {
 									</c:when>
 									<c:otherwise>
 										<a> <%
- 	String mail = (String) session.getAttribute("mail");
- 			out.println(mail);
- %>
+ 											String mail = profil.getMail();
+ 											out.println(mail);
+ 											%>
 										</a>
 									</c:otherwise>
 								</c:choose>
@@ -179,17 +179,16 @@ h2 {
 						</div>
 
 						<div id="modifMail" style="display: none">
-							<!-- <form action="#" method="post"> -->
+						
 							<label for="mail"></label><input type="text"
-								value="<%out.println((String) session.getAttribute("mail"));%>"
+								value="<%out.println((String)profil.getMail());%>"
 								name="mail">
-							<!-- </form> -->
+					
 						</div>
 
 					</div>
 
 					<div>
-						<!-- <form action="#" method="post"> -->
 
 						<div class="mailBouton01" style="display: inline-block">
 							<button type="button" onclick="mailMasque()">Modifier</button>
@@ -202,7 +201,7 @@ h2 {
 						<div class="mailBouton02" style="display: none">
 							<button type="button" onclick="mailMasque()">Annuler</button>
 						</div>
-						<!-- </form> -->
+						
 					</div>
 				</div>
 
@@ -221,23 +220,22 @@ h2 {
 
 						<div id="ValeurTel" style="display: inline-block">
 							<a> <%
- 	String tel = (String) session.getAttribute("numeroTel");
- 	out.println(tel);
- %>
+ 								String tel = profil.getNumeroTel();
+ 								out.println(tel);
+ 								%>
 							</a>
 						</div>
 
 						<div id="modifTel" style="display: none">
-							<!-- 	<form action="#" method="post"> -->
+						
 							<label for="numeroTel"></label><input type="text"
 								value="<%out.println(tel);%>" name="numeroTel">
-							<!-- </form> -->
+				
 						</div>
 
 					</div>
 
 					<div>
-						<!-- <form action="#" method="post"> -->
 
 						<div class="telBouton01" style="display: inline-block">
 							<button type="button" onclick="telMasque()">Modifier</button>
@@ -250,7 +248,7 @@ h2 {
 						<div class="telBouton02" style="display: none">
 							<button type="button" onclick="telMasque()">Annuler</button>
 						</div>
-						<!-- </form> -->
+						
 					</div>
 				</div>
 
@@ -270,24 +268,23 @@ h2 {
 
 						<div id="ValeurMdp" style="display: inline-block">
 							<a> <%
- 	String mdp = (String) session.getAttribute("password");
- 	out.println(mdp);
- %>
+ 								String mdp = profil.getPassword();
+ 								out.println(mdp);
+ 								%>
 							</a>
 						</div>
 
 						<div id="modifMdp" style="display: none">
-							<!-- <form action="#" method="post"> -->
+						
 							<label for="password"></label><input type="text"
 								value="<%out.println(mdp);%>" name="password">
-							<!-- </form> -->
+							
 						</div>
 
 					</div>
 
 					<div>
-						<!-- <form action="#" method="post"> -->
-
+						
 						<div class="mdpBouton01" style="display: inline-block">
 							<button type="button" onclick="mdpMasque()">Modifier</button>
 						</div>
@@ -299,7 +296,7 @@ h2 {
 						<div class="mdpBouton02" style="display: none">
 							<button type="button" onclick="mdpMasque()">Annuler</button>
 						</div>
-						<!-- </form> -->
+						
 					</div>
 				</div>
 
@@ -307,62 +304,6 @@ h2 {
 
 		</div>
 
-
-	</div>
-	<!-- </div> -->
-
-	<br>
-	<br>
-	<h3>Voir mes jardins personnels</h3>
-	<div class="row justify-content-between" id="itemJardin">
-		<div id="raccourciJardin">
-			<c:choose>
-				<c:when test="${sessionScope.presenceJardin == true}">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm">
-								<div class="card" style="width: 18rem;">
-									<img src="img/exJardin.jpg" class="card-img-top" alt="jardin1">
-									<div class="card-body">
-										<h5 class="card-title">Jardin</h5>
-										<p class="card-text">The north pole is an extreme land on
-											Earth welcoming a large amount of animals like bears, foxes,
-											wolves and tigers.</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</c:when>
-				<c:otherwise>
-					<%
-						out.println("Vous n'avez pas de jardin");
-					%>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<div>
-			<a href="ajouterJardin.jsp"><input type="button"
-				value="Ajouter un jardin" /></a>
-		</div>
-	</div>
-	<br>
-	<div id="affichage">
-		<!--<c:out value="${presence}"/>-->
-	</div>
-
-	<br>
-	<br>
-	<h3>Voir les jardins que je partage</h3>
-	<div class="row justify-content-between" id="itemJardin">
-		<div>
-			<p>Vous n'avez pas de jardins partagés</p>
-		</div>
-		<div>
-			<a href="mapGardens.jsp"><input type="button"
-				value="Partager un jardin"></a>
-		</div>
 	</div>
 
 	<%@include file="include/footer.jsp"%>

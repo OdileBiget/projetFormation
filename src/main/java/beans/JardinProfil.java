@@ -33,7 +33,7 @@ public class JardinProfil {
 	@Column(name = "typeProduction")
 	private String typeProduction;
 //	@ElementCollection
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL}, orphanRemoval = true)
 	private List<photoJardin>image = new ArrayList<photoJardin>();
 //	@ManyToMany(mappedBy = "listeJardinsPersos")
 //	private List<Profil> listeProfil = new ArrayList<Profil>();
@@ -151,6 +151,13 @@ public class JardinProfil {
 
 	public String affiche(String villeN, String typeJ, String typeS, String sup, String typeC) {
 		return "Le jardin situé à "+villeN+" est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+sup+" m², il propose des cultures "+typeC+"...";
+	}
+	@Override
+	public String toString() {
+		return "JardinProfil [id=" + id + ", adresse=" + adresse + ", villeNom=" + villeNom + ", codePostal="
+				+ codePostal + ", coordonneesGPS=" + coordonneesGPS + ", typeJardin=" + typeJardin + ", superficie="
+				+ superficie + ", typeCulture=" + typeCulture + ", typeSol=" + typeSol + ", typeProduction="
+				+ typeProduction + "]";
 	}
 
 }

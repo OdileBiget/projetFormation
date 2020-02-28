@@ -10,7 +10,10 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import beans.JardinProfil;
+import beans.Profil;
 import services.methodesJardin;
+import services.JardinImpl;
+import services.*;
 
 import java.util.*;
 
@@ -19,22 +22,24 @@ import java.util.*;
  */
 public class AjoutJardin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AjoutJardin() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public AjoutJardin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-	
+
 		HttpSession session = request.getSession();
 
 		String adresse = request.getParameter("adresse");
@@ -51,42 +56,67 @@ public class AjoutJardin extends HttpServlet {
 //		listeC.add("tomate");
 //		listeC.add("carotte");
 //		listeC.add(cultures);
-		
 
-		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture, cultures, typeSol, typeProd);
-		
-		methodesJardin.addJardin(request, garden);
-		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));
-		
+		int ID = (int) session.getAttribute("id");
+
+		ProfilImpl profilI = new ProfilImpl();
+
+		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture,
+				cultures, typeSol, typeProd);
+
+		Profil profil = profilI.findById(ID);
+
+		profil.getJardin().add(garden);
+
+		profilI.update(profil);
+
+		List<JardinProfil> listejardin = profil.getJardin();
+
+//		for(JardinProfil j : listejardin) {
+//			System.out.println(j.getId());
+//		}
+
+////		methodesJardin.addJardin(request, garden);
+//		
+//		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));
+//		
+////		List<Integer> liste = profilI.findById(ID).getJardin();
+
 		session.setAttribute("presenceJardin", true);
-		
+
 //		methodesJardin.afficheTest(liste);
-		
+
 //		System.out.println("taille: "+methodesJardin.getGardenData(liste).size());
 //		System.out.println("***");
 //		methodesJardin.afficheTest(methodesJardin.getGardenData(liste));
-		
-		List<String[]> listePara = methodesJardin.getGardenData(liste);
-		
+
+//		List<String[]> listePara = methodesJardin.getGardenData(liste);
+
 //		request.setAttribute("listePara", listePara);
-		
-		//Création d'un fichier JSON 
+
+		// Création d'un fichier JSON
 		try {
-		String jsonPara = new Gson().toJson(listePara);
+
+			String jsonPara = new Gson().toJson(listejardin);
+			System.out.println("jsonPara " + jsonPara);
 //		System.out.println(jsonPara);
-		request.setAttribute("jsonJardins",jsonPara);
-		}catch(NullPointerException e) {}
-		
+			request.setAttribute("jsonJardins", jsonPara);
+
+		} catch (NullPointerException e) {
+		}
+
 //		List<Integer> list = methodesJardin.getJardinUser((String) session.getAttribute("mail"));
-		
+
 		this.getServletContext().getRequestDispatcher("/afficherMesJardins.jsp").forward(request, response);
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

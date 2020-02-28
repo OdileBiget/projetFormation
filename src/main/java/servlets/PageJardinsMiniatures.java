@@ -11,6 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import beans.JardinProfil;
+import beans.Profil;
+import services.ProfilImpl;
 import services.methodesJardin;
 
 /**
@@ -18,52 +21,52 @@ import services.methodesJardin;
  */
 public class PageJardinsMiniatures extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PageJardinsMiniatures() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public PageJardinsMiniatures() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		HttpSession session = request.getSession();
-		
-		//liste des id des jardins que l'utilisateur actuel possède
-		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));
-		
+
 		session.setAttribute("presenceJardin", true);
-		
-//		methodesJardin.afficheTest(liste);
-		
-//		System.out.println("taille: "+methodesJardin.getGardenData(liste).size());
-//		System.out.println("***");
-//		methodesJardin.afficheTest(methodesJardin.getGardenData(liste));
-		
-		List<String[]> listePara = methodesJardin.getGardenData(liste);
-		
-//		request.setAttribute("listePara", listePara);
-		
-		//Création d'un fichier JSON 
+
+		Profil profil = (Profil) session.getAttribute("user");
+
+		List<JardinProfil> listejardin = profil.getJardin();
+
+		// Création d'un fichier JSON
+
 		try {
-		String jsonPara = new Gson().toJson(listePara);
-//		System.out.println(jsonPara);
-		request.setAttribute("jsonJardins",jsonPara);
-		}catch(NullPointerException e) {}
+
+			String jsonPara = new Gson().toJson(listejardin);
+
+			request.setAttribute("jsonJardins", jsonPara);
+
+		} catch (NullPointerException e) {
+		}
+
 		this.getServletContext().getRequestDispatcher("/afficherMesJardins.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

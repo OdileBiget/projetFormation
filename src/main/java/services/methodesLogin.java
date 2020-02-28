@@ -30,11 +30,8 @@ public class methodesLogin {
 
 		List<Profil> result = query.list();
 
-		for (Profil p : (List<Profil>) result) {
-
-			profilA = new Profil(p.getNom(), p.getPrenom(), p.getNumeroTel(), p.getMail(), p.getPassword());
-
-		}
+		if (result.size() > 0)
+			profilA = (Profil) query.list().get(0);
 
 		session.getTransaction().commit();
 

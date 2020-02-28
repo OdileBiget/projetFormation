@@ -3,17 +3,17 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import beans.JardinProfil;
-import beans.photoJardin;
-import services.IDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class ImageImpl implements IDAO<photoJardin> {
+import beans.JardinProfil;
+import beans.Profil;
+
+public class ProfilImpl implements IDAO<Profil> {
 
 	@Override
-	public boolean create(photoJardin o) {
+	public boolean create(Profil o) {
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
@@ -32,7 +32,7 @@ public class ImageImpl implements IDAO<photoJardin> {
 	}
 
 	@Override
-	public boolean update(photoJardin o) {
+	public boolean update(Profil o) {
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
@@ -50,7 +50,7 @@ public class ImageImpl implements IDAO<photoJardin> {
 	}
 
 	@Override
-	public boolean delete(photoJardin o) {
+	public boolean delete(Profil o) {
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
@@ -68,9 +68,9 @@ public class ImageImpl implements IDAO<photoJardin> {
 	}
 
 	@Override
-	public photoJardin findById(int id) {
-		
-		photoJardin pJ = null;
+	public Profil findById(int id) {
+
+		Profil profil = null;
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
@@ -78,20 +78,19 @@ public class ImageImpl implements IDAO<photoJardin> {
 
 		session.beginTransaction();
 		
-		pJ = (photoJardin) session.get(photoJardin.class, id);
+		profil = (Profil) session.get(Profil.class, id);
 
 		session.getTransaction().commit();
 
 		session.close();
 
-		return pJ;
+		return profil;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<photoJardin> findAll() {
-		
-		List<photoJardin> listePhoto = new ArrayList<photoJardin>();
+	public List<Profil> findAll() {
+
+		List<Profil> listeProfil = new ArrayList<Profil>();
 
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
@@ -99,13 +98,13 @@ public class ImageImpl implements IDAO<photoJardin> {
 
 		session.beginTransaction();
 		// TODO Auto-generated method stub
-		listePhoto = session.createQuery("FROM photoJardin").list();
+		listeProfil = session.createQuery("FROM Profil").list();
 
 		session.getTransaction().commit();
 
 		session.close();
 
-		return listePhoto;
+		return listeProfil;
 	}
 
 }

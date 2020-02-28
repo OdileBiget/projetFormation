@@ -29,8 +29,8 @@ public class Deconnexion extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		HttpSession session = request.getSession();
+		
 		session.invalidate();
-		request.setAttribute("message", "Vous avez été déconnecté");
 
 		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 

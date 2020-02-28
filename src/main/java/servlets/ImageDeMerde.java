@@ -23,8 +23,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.JardinProfil;
 import beans.photoJardin;
 import services.ImageImpl;
+import services.JardinImpl;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -110,8 +112,20 @@ public class ImageDeMerde extends HttpServlet {
 				}
 
 				ImageImpl img = new ImageImpl();
+				
+				JardinImpl load = new JardinImpl();
+				
+				load.create(new JardinProfil());
+				
+				JardinProfil jardin = load.findById(1);
+				
+				jardin.getImage().add(new photoJardin(name, name));
+				
+				load.update(jardin);
+				
+				//jardin.getImage().add(img.create(new photoJardin(name, name)));
 
-				img.create(new photoJardin(name, name));
+				//img.create(new photoJardin(name, name));
 
 				request.setAttribute("message", "File Uploaded Successfully le nom est :" + descriptionFile);
 				
