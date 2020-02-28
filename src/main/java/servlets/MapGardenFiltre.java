@@ -78,7 +78,7 @@ public class MapGardenFiltre extends HttpServlet {
 			reqIni += "J.typeProduction='" + typeProd + "' AND ";
 		}
 		if (superficie != null && !superficie.isEmpty()) {
-			reqIni += "J.superficie='" + superficie + "' AND ";
+			reqIni += "J.superficie >=" + superficie + " AND ";
 		}
 		for(int i=0; i<culturesTab.length; i++) {
 		if (culturesTab[i] != null && !culturesTab[i].isEmpty()) {
