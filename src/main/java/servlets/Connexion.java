@@ -49,7 +49,9 @@ public class Connexion extends HttpServlet {
 
 		if (profil.getNom() != null) {
 
-			request.setAttribute("connexion", "reussi");
+//			request.setAttribute("connexion", "reussi");
+
+			session.setAttribute("connexion", "reussi");
 
 			session.setAttribute("jardins", profil.getJardin());
 

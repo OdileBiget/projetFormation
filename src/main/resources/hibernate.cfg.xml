@@ -19,6 +19,7 @@
 		<mapping class="beans.Profil" />
 		<mapping class="beans.JardinProfil"/>
 		<mapping class="beans.photoJardin"/>
+		<mapping class="beans.Image"/>
 
 	</session-factory>
 </hibernate-configuration>

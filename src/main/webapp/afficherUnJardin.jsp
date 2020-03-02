@@ -20,6 +20,7 @@
 <body>
 
 	<%@include file="include/header.jsp"%>
+	
 	<br>
 	<h2> Jardin <i>numéro du jardin</i></h2>
 	<br><br>
@@ -82,6 +83,11 @@
 			%>
 		</p>
 	<br>
+	</div>
+	
+	<div>
+	<a href="fileUpload.jsp">ajouter une image</a>
+	<a href="JspUploadImage.jsp">voir images</a>
 	</div>
 	
 	<a href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>"><button type="button" class="btn btn-outline-dark" id="boutonRetour" class="mr-auto">Retour vers mes jardins</button></a>

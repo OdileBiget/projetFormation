@@ -41,7 +41,7 @@
 			<!-- <button class="btn btn-outline-success my-2 my-sm-0" type= "submit">Connexion</button>  -->
 			<div>
 				<c:choose>
-					<c:when test="${connexion.equals('reussi')}">
+					<c:when test="${sessionScope.connexion.equals('reussi')}">
 						<div class="navbar-nav mr-auto dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button"
 								id="dropdownMenuLink" data-toggle="dropdown"

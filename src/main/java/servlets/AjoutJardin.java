@@ -57,18 +57,20 @@ public class AjoutJardin extends HttpServlet {
 //		listeC.add("carotte");
 //		listeC.add(cultures);
 
-		int ID = (int) session.getAttribute("id");
+//		int ID = (int) session.getAttribute("id");
 
-		ProfilImpl profilI = new ProfilImpl();
+		ProfilImpl profilImpl = new ProfilImpl();
 
 		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture,
 				cultures, typeSol, typeProd);
 
-		Profil profil = profilI.findById(ID);
+		Profil profil = (Profil) session.getAttribute("user");
 
 		profil.getJardin().add(garden);
 
-		profilI.update(profil);
+		profilImpl.update(profil);
+		
+		session.setAttribute("user", profil);
 
 		List<JardinProfil> listejardin = profil.getJardin();
 
