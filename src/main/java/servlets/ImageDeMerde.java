@@ -22,8 +22,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.JardinProfil;
+import beans.Profil;
 import beans.photoJardin;
 import services.ImageImpl;
 import services.JardinImpl;
@@ -72,6 +74,8 @@ public class ImageDeMerde extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		HttpSession session = request.getSession();
+		
 		UPLOAD_DIRECTORY = getServletContext().getRealPath("/").replace("build\\", "") + "src" + File.separator
 				+ "main" + File.separator + "webapp" + File.separator + "fileDownload";
 		// process only if its multipart content
@@ -110,18 +114,48 @@ public class ImageDeMerde extends HttpServlet {
 
 					}
 				}
-
-				ImageImpl img = new ImageImpl();
 				
+				//ressort le profil
+
+//				int id = Integer.parseInt((String) request.getParameter("idJardin"));
+				
+				int id = (int) session.getAttribute("idJ");
+				
+//				System.out.println(id);
+				
+				Profil profil = (Profil) session.getAttribute("user");
+				
+				List<JardinProfil> listeJardins = profil.getJardin();
+
+				JardinProfil jP = new JardinProfil();
+
+				for(JardinProfil j : listeJardins) {
+					
+					if(j.getId()==id) {
+						
+						jP = j;
+						
+					}
+				}
+				
+				jP.getImage().add(new photoJardin(name, name));
+
 				JardinImpl load = new JardinImpl();
 				
-				load.create(new JardinProfil());
+				load.update(jP);
+				///
+
+//				ImageImpl img = new ImageImpl();
 				
-				JardinProfil jardin = load.findById(1);
-				
-				jardin.getImage().add(new photoJardin(name, name));
-				
-				load.update(jardin);
+//				JardinImpl load = new JardinImpl();
+//				
+//				load.create(new JardinProfil());
+//				
+//				JardinProfil jardin = load.findById(1);
+//				
+//				jardin.getImage().add(new photoJardin(name, name));
+//				
+//				load.update(jardin);
 				
 				//jardin.getImage().add(img.create(new photoJardin(name, name)));
 

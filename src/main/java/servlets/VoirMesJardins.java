@@ -40,6 +40,8 @@ public class VoirMesJardins extends HttpServlet {
 
 		int id = Integer.parseInt((String) request.getParameter("idJardin"));
 		
+		session.setAttribute("idJ", id);
+		
 		Profil profil = (Profil) session.getAttribute("user");
 		
 		List<JardinProfil> listeJardins = profil.getJardin();
