@@ -99,6 +99,12 @@
 		<description></description>
 		<servlet-class>servlets.PageJardinsMiniatures</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>deleteFile</servlet-name>
+		<display-name>deleteFile</display-name>
+		<description></description>
+		<servlet-class>servlets.deleteFile</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/Inscription</url-pattern>
@@ -155,6 +161,10 @@
 	<servlet-mapping>
 		<servlet-name>PageJardinsMiniatures</servlet-name>
 		<url-pattern>/PageJardinsMiniatures</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>deleteFile</servlet-name>
+		<url-pattern>/deleteFile</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->

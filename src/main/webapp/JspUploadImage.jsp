@@ -29,10 +29,10 @@
 
 	<%@include file="include/header.jsp"%>
 
-	<h1>File Upload to Database Demo</h1>
+	<!-- 	<h1>File Upload to Database Demo</h1>
 
 	<h1>Upload any image to mysql DB</h1>
-
+ -->
 	<div id="result">
 		<%-- <h3>${requestScope["message"]}</h3> --%>
 		<%
@@ -64,17 +64,41 @@
 			List<photoJardin> listePhotos = jP.getImage();
 			for (int i = 0; i < listePhotos.size(); i++) {
 		%>
-		<h2><%=i%></h2>
+		<%-- <h2><%=i%></h2> --%>
 		<div>
-			<figure>
+			<figure class="figure">
+
 				<img
 					src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(i).getImage()%>"
-					alt="<%=listePhotos.get(i).getNom()%>" />
-				<figcaption>
-					<h3><%=listePhotos.get(i).getNom() + i%>
-					</h3>
+					alt="<%=listePhotos.get(i).getNom()%>"
+					class="figure-img img-fluid rounded"
+					style="height: 400px; width: 300px;" />
+
+				<figcaption class="figure-caption">
+
+					<%=listePhotos.get(i).getNom()%>
+					<%=listePhotos.get(i).getId()%>
+
 				</figcaption>
+
 			</figure>
+
+
+			<form method="post" action="deleteFile">
+
+				<label for="idFile"></label> <input name="ID" type="number"
+					value="<%=listePhotos.get(i).getId()%>"> <input
+					type="submit" value="Delete">
+
+			</form>
+
+
+			<!-- 	<form method="post" action="ImageDeMerde">
+				<label> <input name="delete">
+				</label> <input type="submit">
+			</form> -->
+
+
 			<%
 				}
 				/* }*/

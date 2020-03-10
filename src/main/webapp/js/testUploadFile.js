@@ -6,7 +6,7 @@ window.addEventListener('load', function() {
 			'change',
 			function() {
 				if (this.files && this.files[0]) {
-					var img = document.querySelector('img'); // $('img')[0]
+					var img = document.querySelector('div.container img'); // $('img')[0]
 					img.src = URL.createObjectURL(this.files[0]); // set src
 					// to blob
 					// url
@@ -38,14 +38,14 @@ function readURL(input) {
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 
-		var img = document.querySelector('img');
+		var img = document.querySelector("div.container img");
 		img.src = URL.createObjectURL(this.files[0]);
 
 		reader.onload = function(e) {
 
-			$('#blah').attr('src', e.target.result);
+			// $('#blah').attr('src', e.target.result);
 
-			$("#imgName").attr('value', 'Name');
+			// $("#imgName").attr('value', 'Name');
 			$("#imgPath").attr('value', e.target.result);
 
 		};
