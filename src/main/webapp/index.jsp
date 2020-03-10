@@ -15,65 +15,64 @@
 
 <body>
 	<%@include file="include/header.jsp"%>
+	
+	<br><br>
 
-	<div id="carouselExampleCaptions" class="carousel slide"
-		data-ride="carousel">
+	<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" style="width: 70%; margin: auto;">
 		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleCaptions" data-slide-to="0"
-				class="active"></li>
+			<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
 			<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
 			<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-			<li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="img/garden.jpg" class="d-block w-100" alt="loup">
-				<div class="carousel-caption d-none d-md-block">
-					<h5>Loup polaire</h5>
-					<p>Le loup polaire vit au pôle nord.</p>
-					
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="img/ours.jpg" class="d-block w-100" alt="ours">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Ours polaire</h5>
-        <p>L'ours polaire vit au pôle nord.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="img/tigre.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Tigre polaire</h5>
-        <p>Le tigre polaire vit au pôle nord.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="img/renard.jpg" class="d-block w-100" alt="ours">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Renard polaire</h5>
-        <p>Le renard polaire vit au pôle nord.</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-<!--  Fin du carousel -->
-	<div id="content">
-		<p class="alert alert-danger">Here is the code</p>
+				<img src="img/FetL.jpg" class="d-block w-100" alt="loup">
+				<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
+					<h5 style="color: #00008b;">Découvrez les fruits et légumes de saison ...</h5>	
+      			</div>
+    		</div>
+    		
+    		<div class="carousel-item">
+      			<img src="img/garden.jpg" class="d-block w-100" alt="ours">
+      			<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
+        			<h5 style="color: #00008b;">Un trésor se cache peut-être près de chez vous !</h5>
+        			<h5 style="color: #00008b;">Découvrez les jardins les mieux notés du mois précédent...</h5>
+      			</div>
+    		</div>
+    		
+    		<div class="carousel-item">
+      			<img src="img/producteur.jpg" class="d-block w-100" alt="...">
+      			<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
+        			<h5 style="color: #00008b;">Devenez producteur local et vendez vos cultures...</h5>
+      			</div>
+    		</div>
+  		</div>
+  		
+  		<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+   	 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    		<span class="sr-only">Previous</span>
+  		</a>
+ 		<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    		<span class="sr-only">Next</span>
+  		</a>
 	</div>
-
-	<div class="jumbotron jumbotron-fluid">
+	<br><br>
+<!--  Fin du carousel -->
+	<div class="row justify-content-between" id="itemJardin" style="padding: 1.5em;">
+	<div style="background-color: rgba(255,250,205); padding: 1em; font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L; width: 25%;">
+		<h3>A la une</h3>
+		<div>
+			<ul>
+				<li><h5>Utilisateurs :</h5></li>
+				<li><h5>Jardins :</h5></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="jumbotron jumbotron-fluid" style="width: 70%;">
 		<div class="container">
-			<h1 class="display-4">The Wildlife of Nature</h1>
+			<h1 class="display-4">My Local Garden</h1>
 			<p class="lead">
 				Discover our latest research project on the process of wolves
 				packing when they are endangered in an unfriendly and unusual field,
@@ -82,49 +81,21 @@
 			</p>
 		</div>
 	</div>
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col-sm">
-				<div class="card" style="width: 18rem;">
-					<img src="img/polenord.jpg" class="card-img-top" alt="pole nord">
-					<div class="card-body">
-						<h5 class="card-title">North Pole</h5>
-						<p class="card-text">The north pole is an extreme land on
-							Earth welcoming a large amount of animals like bears, foxes,
-							wolves and tigers.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm">
-				<div class="card" style="width: 18rem;">
-					<img src="img/jungle.jpg" class="card-img-top" alt="jungle">
-					<div class="card-body">
-						<h5 class="card-title">Jungle</h5>
-						<p class="card-text">The jungle is another land which welcomes
-							the same animals as the North Pole. It's mostly situated in
-							Central Africa, Australia and South America.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm">
-				<div class="card" style="width: 18rem;">
-					<img src="img/desert.jpg" class="card-img-top" alt="désert">
-					<div class="card-body">
-						<h5 class="card-title">Desert</h5>
-						<p class="card-text">The desert is a final land welcoming a
-							large amount of animals like scorpions or scarce snakes. Some
-							foxes can be found there It's mostly located in North Africa and
-							Australia.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
+	<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<!--  Footer -->
 	<%@include file="include/footer.jsp"%>

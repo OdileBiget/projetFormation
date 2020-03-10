@@ -1,3 +1,4 @@
+<%@page import="beans.Profil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -50,9 +51,13 @@
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="profil.jsp">Profil</a> <a
 								class="dropdown-item" href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir mes jardins</a> <a
-								class="dropdown-item" href="#">Something else here</a> <a
+								class="dropdown-item" href="#">Something else here</a> 
+								<div class="dropdown-divider"></div> 
+								<a class="dropdown-item" style="background: #e6e6fa;"><b><% String prenom=((Profil)session.getAttribute("user")).getPrenom(); String nom =((Profil)session.getAttribute("user")).getNom();
+									out.println(prenom+" "+nom);%></b></a>
+								<a
 								href="<%=request.getContextPath() + "/Deconnexion"%>">
-								<button class="dropdown-item" type="submit" name="deconnexion">Déconnexion</button>
+								<button class="dropdown-item" type="submit" name="deconnexion" style="color: #008b8b; font-weight: bold;">Déconnexion</button>
 							</a>
 						</div>
 						</div>

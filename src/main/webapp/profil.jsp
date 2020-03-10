@@ -305,6 +305,8 @@ h2 {
 		</div>
 
 	</div>
+	<br>
+	<br>
 
 	<%@include file="include/footer.jsp"%>
 
