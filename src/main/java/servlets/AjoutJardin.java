@@ -52,10 +52,6 @@ public class AjoutJardin extends HttpServlet {
 		String typeProd = request.getParameter("typeProd");
 		int superficie = Integer.parseInt(request.getParameter("superficie"));
 		String cultures = request.getParameter("cultures");
-//		List<String> listeC = new ArrayList<String>();
-//		listeC.add("tomate");
-//		listeC.add("carotte");
-//		listeC.add(cultures);
 
 //		int ID = (int) session.getAttribute("id");
 
@@ -63,6 +59,7 @@ public class AjoutJardin extends HttpServlet {
 
 		JardinProfil garden = new JardinProfil(adresse, nomVille, codePostal, GPS, typeJardin, superficie, typeCulture,
 				cultures, typeSol, typeProd);
+
 
 		Profil profil = (Profil) session.getAttribute("user");
 
@@ -74,40 +71,16 @@ public class AjoutJardin extends HttpServlet {
 
 		List<JardinProfil> listejardin = profil.getJardin();
 
-//		for(JardinProfil j : listejardin) {
-//			System.out.println(j.getId());
-//		}
-
-////		methodesJardin.addJardin(request, garden);
-//		
-//		List<Integer> liste = methodesJardin.getJardinsUser((String)session.getAttribute("mail"));
-//		
-////		List<Integer> liste = profilI.findById(ID).getJardin();
-
 		session.setAttribute("presenceJardin", true);
-
-//		methodesJardin.afficheTest(liste);
-
-//		System.out.println("taille: "+methodesJardin.getGardenData(liste).size());
-//		System.out.println("***");
-//		methodesJardin.afficheTest(methodesJardin.getGardenData(liste));
-
-//		List<String[]> listePara = methodesJardin.getGardenData(liste);
-
-//		request.setAttribute("listePara", listePara);
 
 		// Création d'un fichier JSON
 		try {
 
 			String jsonPara = new Gson().toJson(listejardin);
-			System.out.println("jsonPara " + jsonPara);
-//		System.out.println(jsonPara);
+
 			request.setAttribute("jsonJardins", jsonPara);
 
-		} catch (NullPointerException e) {
-		}
-
-//		List<Integer> list = methodesJardin.getJardinUser((String) session.getAttribute("mail"));
+		} catch (NullPointerException e) {}
 
 		this.getServletContext().getRequestDispatcher("/afficherMesJardins.jsp").forward(request, response);
 
