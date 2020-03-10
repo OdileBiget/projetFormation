@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="grid-item" id="formulaire">
-			<form action="MapGardenFiltre">
+			<form action="MapGarden">
 			
 				<div class="form-group col-md-9">
 					<label for="adresse">Adresse</label> <input type="text"
@@ -133,42 +133,35 @@
 				var address = json[i]["adresse"] + " " + json[i]["codePostal"]
 						+ " " + json[i]["villeNom"];
 
-				var contentString = '<div id="content">'
-						+ '<div id="siteNotice">' + '</div>'
+				var contentString = '<div id="bubulle">'
+/* 						+ '<div id="siteNotice">' + '</div>'
 						+ '<h1 id="firstHeading" class="firstHeading">'
-						+ json[i]["typeJardin"]
-						+ '</h1>'
+ 						+ json[i]["typeJardin"]
+ 						+ '</h1>' */
 						+ '<div id="bodyContent">'
 						+ '<p><b>Adresse : </b>'
 						+ address
-						+ '</p>'
-						+ '<p><b>Type de jardin : </b>'
+						+ '<br><b>Type de jardin : </b>'
 						+ json[i]["typeJardin"]
-						+ '</p>'
-						+ '<p><b>Superficie : </b>'
+						+ '<br><b>Superficie : </b>'
 						+ json[i]["superficie"]
-						+ '</p>'
-						+ '<p><b>Type de culture : </b>'
+						+ '<br><b>Type de culture : </b>'
 						+ json[i]["typeCulture"]
-						+ '</p>'
-						+ '<p><b>Type de jardin : </b>'
+						+ '<br><b>Type de jardin : </b>'
 						+ json[i]["typeJardin"]
-						+ '</p>'
-						+ '<p><b>Type de sol : </b>'
+						+ '<br><b>Type de sol : </b>'
 						+ json[i]["typeSol"]
-						+ '</p>'
-						+ '<p><b>Type de production : </b>'
+						+ '<br><b>Type de production : </b>'
 						+ json[i]["typeProduction"]
-						+ '</p>'
-						+ '<p><b>Cultures déjà présentes : </b>'
+						+ '<br><b>Cultures déjà présentes : </b>'
 						+ json[i]["culturesPresentes"]
 						+ '</p>'
-
-						+ '<div style=\'float:left\'><img src=\'http://i.stack.imgur.com/g672i.png\'></div>'
-						+ '<br><div><p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'
+						+ '<div class="bandeauImages" style=\'float:left\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'>'
+						+ '</div></div>'
+/* 						+ '<br><div><p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'
 						+ 'Profil</a> '
 						+ '(last visited June 22, 2009).</p>'
-						+ '</div>';
+						+ '</div>'; */
 
 				addGardenMarker(address, contentString);
 			}

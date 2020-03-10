@@ -121,8 +121,6 @@ public class ImageDeMerde extends HttpServlet {
 				
 				int id = (int) session.getAttribute("idJ");
 				
-//				System.out.println(id);
-				
 				Profil profil = (Profil) session.getAttribute("user");
 				
 				List<JardinProfil> listeJardins = profil.getJardin();
