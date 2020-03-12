@@ -17,6 +17,10 @@
 #itemJardin {
 	padding: 1.5em;
 }
+
+h3{
+	padding: 0 10px;
+}
 </style>
 </head>
 
@@ -43,7 +47,7 @@
 		</div>
 		<div>
 			<a href="ajouterJardin.jsp"><input type="button"
-				class="btn btn-info" value="+ Ajouter un jardin" /></a>
+				class="btn btn-success" value="+ Ajouter un jardin" /></a>
 		</div>
 	</div>
 	<br>
@@ -55,7 +59,7 @@
 		</div>
 		<div>
 			<a href="mapGardens.jsp"><input type="button"
-				class="btn btn-info" value="+ Partager un jardin"></a>
+				class="btn btn-success" value="+ Partager un jardin"></a>
 		</div>
 	</div>
 
@@ -69,7 +73,7 @@
 	<!--  <script src="js/methodes.js" type="text/javascript"></script> -->
 	<script src="js/jardin.js" type="text/javascript"></script>
 	<script>
-		$(document).ready(function() {
+		$(document).ready(function(){
 			var jsonPara = <c:out value="${jsonJardins}" escapeXml="false"/>;
 			affichageJardinsCarte(jsonPara);
 		});

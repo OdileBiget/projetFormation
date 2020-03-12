@@ -26,7 +26,7 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="img/FetL.jpg" class="d-block w-100" alt="loup">
+				<a href="<%=request.getContextPath() + "/FruitsEtLegumes"%>"><img src="img/FetL.jpg" class="d-block w-100" alt="loup"></a>
 				<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
 					<h5 style="color: #00008b;">Découvrez les fruits et légumes de saison ...</h5>	
       			</div>

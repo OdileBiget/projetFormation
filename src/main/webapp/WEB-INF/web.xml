@@ -105,6 +105,18 @@
 		<description></description>
 		<servlet-class>servlets.deleteFile</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>FruitsEtLegumes</servlet-name>
+		<display-name>FruitsEtLegumes</display-name>
+		<description></description>
+		<servlet-class>servlets.FruitsEtLegumes</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JardinsContenantFL</servlet-name>
+		<display-name>JardinsContenantFL</display-name>
+		<description></description>
+		<servlet-class>servlets.JardinsContenantFL</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/Inscription</url-pattern>
@@ -165,6 +177,14 @@
 	<servlet-mapping>
 		<servlet-name>deleteFile</servlet-name>
 		<url-pattern>/deleteFile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FruitsEtLegumes</servlet-name>
+		<url-pattern>/FruitsEtLegumes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JardinsContenantFL</servlet-name>
+		<url-pattern>/JardinsContenantFL</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->
