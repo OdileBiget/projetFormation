@@ -6,7 +6,7 @@ window.addEventListener('load', function() {
 			'change',
 			function() {
 				if (this.files && this.files[0]) {
-					var img = document.querySelector('div.container img'); // $('img')[0]
+					var img = document.querySelector('div.modal img'); // $('img')[0]
 					img.src = URL.createObjectURL(this.files[0]); // set src
 					// to blob
 					// url
@@ -38,7 +38,7 @@ function readURL(input) {
 	if (input.files && input.files[0]) {
 		var reader = new FileReader();
 
-		var img = document.querySelector("div.container img");
+		var img = document.querySelector("div.modal img");
 		img.src = URL.createObjectURL(this.files[0]);
 
 		reader.onload = function(e) {
@@ -53,3 +53,5 @@ function readURL(input) {
 		reader.readAsDataURL(input.files[0]);
 	}
 }
+
+$('.carousel').carousel()

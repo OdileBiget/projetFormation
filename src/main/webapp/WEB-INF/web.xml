@@ -4,7 +4,7 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
-	<filter>
+<!-- 	<filter>
 		<filter-name>Session</filter-name>
 		<display-name>Session</display-name>
 		<description></description>
@@ -13,8 +13,7 @@
 	<filter-mapping>
 		<filter-name>Session</filter-name>
 		<url-pattern>/Session</url-pattern>
-	</filter-mapping>
-
+	</filter-mapping> -->
 	<servlet>
 		<servlet-name>Basic</servlet-name>
 		<display-name>Basic</display-name>
@@ -106,6 +105,12 @@
 		<servlet-class>servlets.deleteFile</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>WSAjoutJardinPartage</servlet-name>
+		<display-name>WSAjoutJardinPartage</display-name>
+		<description></description>
+		<servlet-class>servlets.WSAjoutJardinPartage</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>FruitsEtLegumes</servlet-name>
 		<display-name>FruitsEtLegumes</display-name>
 		<description></description>
@@ -129,7 +134,6 @@
 		<servlet-name>Connexion</servlet-name>
 		<url-pattern>/Connexion</url-pattern>
 	</servlet-mapping>
-
 	<servlet-mapping>
 		<servlet-name>Basic</servlet-name>
 		<url-pattern>/Basic</url-pattern>
@@ -179,6 +183,10 @@
 		<url-pattern>/deleteFile</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>WSAjoutJardinPartage</servlet-name>
+		<url-pattern>/WSAjoutJardinPartage</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
 		<servlet-name>FruitsEtLegumes</servlet-name>
 		<url-pattern>/FruitsEtLegumes</url-pattern>
 	</servlet-mapping>

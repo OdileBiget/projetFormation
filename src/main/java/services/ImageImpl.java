@@ -66,6 +66,29 @@ public class ImageImpl implements IDAO<photoJardin> {
 
 		return true;
 	}
+	
+	
+	public boolean delete(int idPhoto, int idJardin) {
+
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+		Session session = factory.openSession();
+
+		session.beginTransaction();
+		// TODO Auto-generated method stub
+		
+		photoJardin photoJardin = session.get(photoJardin.class, idPhoto);
+
+		JardinProfil jardinProfil = session.get(JardinProfil.class, idJardin);
+		
+		jardinProfil.getImage().remove(photoJardin);
+		
+		session.getTransaction().commit();
+
+		session.close();
+
+		return true;
+	}
 
 	@Override
 	public photoJardin findById(int id) {

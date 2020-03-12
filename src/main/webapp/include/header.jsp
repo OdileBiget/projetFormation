@@ -18,6 +18,7 @@
 			<li class="nav-item active"><a class="nav-link" href="index.jsp">Home
 					<span class="sr-only">(current)</span>
 			</a></li>
+
 			<li class="nav-item"><a class="nav-link" href="MapGarden" id="navbarDropdown">Trouver un jardin</a></li>
 			<li class="nav-item"><a class="nav-link" href="FruitsEtLegumes" id="navbarDropdown">Produits de saison</a></li>
 			<li class="nav-item"><a class="nav-link" href="whoWeAre.jsp">Qui sommes-nous ?</a></li>
@@ -29,17 +30,23 @@
 					<c:when test="${sessionScope.connexion.equals('reussi')}">
 						<div class="navbar-nav mr-auto dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button"
-								id="dropdownMenuLink" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> Mon
-								Compte </a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="profil.jsp">Mon profil</a> 
-							<a class="dropdown-item" href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir mes jardins</a> 
-							<a class="dropdown-item" href="#">Something else here</a> 
-							<div class="dropdown-divider"></div> 
-							<a class="dropdown-item" style="background-color: #e6e6fa; font-weight: bold;"> ${ sessionScope.prenom } ${ sessionScope.nom }</a>
-							<a class="dropdown-item" href="<%=request.getContextPath() + "/Deconnexion"%>"><button class="dropdown-item" type="submit" name="deconnexion" style="color: #008b8b; font-weight: bold;">Déconnexion</button></a>
-						</div>
+								id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mon Compte </a>
+							<div class="dropdown-menu dropdown-menu-right"
+								aria-labelledby="navbarDropdown">
+
+								<a class="dropdown-item" href="profil.jsp">Mon profil</a> <a
+									class="dropdown-item"
+									href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir
+									mes jardins</a> <a class="dropdown-item" href="#">Something
+									else here</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item"
+									style="background-color: #e6e6fa; font-weight: bold;"> ${ sessionScope.prenom }
+									${ sessionScope.nom }</a> <a class="dropdown-item"
+									href="<%=request.getContextPath() + "/Deconnexion"%>"><button
+										class="dropdown-item" type="submit" name="deconnexion"
+										style="color: #008b8b; font-weight: bold;">Déconnexion</button></a>
+							</div>
 						</div>
 					</c:when>
 					<c:otherwise>
