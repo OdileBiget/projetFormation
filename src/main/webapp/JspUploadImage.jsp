@@ -26,10 +26,6 @@
 
 	<%@include file="include/header.jsp"%>
 
-	<!-- 	<h1>File Upload to Database Demo</h1>
-
-	<h1>Upload any image to mysql DB</h1>
- -->
 	<div id="result">
 		<%-- <h3>${requestScope["message"]}</h3> --%>
 		<%
@@ -52,11 +48,6 @@
 
 				}
 			}
-
-			/* List<JardinProfil> listeJardin = jl.findAll();
-			for (int j = 0; j < listeJardin.size(); j++) { */
-
-			/* List<photoJardin> listePhotos = iI.findAll(); */
 
 			List<photoJardin> listePhotos = jP.getImage();
 			for (int i = 0; i < listePhotos.size(); i++) {
@@ -88,13 +79,6 @@
 					type="submit" value="Delete">
 
 			</form>
-
-
-			<!-- 	<form method="post" action="ImageDeMerde">
-				<label> <input name="delete">
-				</label> <input type="submit">
-			</form> -->
-
 
 			<%
 				}

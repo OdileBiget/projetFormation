@@ -47,8 +47,7 @@
 					<c:when test="${sessionScope.connexion.equals('reussi')}">
 						<div class="navbar-nav mr-auto dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button"
-								id="dropdownMenuLink" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> Mon Compte </a>
+								id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mon Compte </a>
 							<div class="dropdown-menu dropdown-menu-right"
 								aria-labelledby="navbarDropdown">
 

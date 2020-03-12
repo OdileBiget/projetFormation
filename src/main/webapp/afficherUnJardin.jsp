@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.sun.xml.txw2.Document"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
+
+<%@page import="java.util.List"%>
+<%@page import="beans.photoJardin"%>
+<%@page import="beans.JardinProfil"%>
+<%@page import="beans.Profil"%>
+<%@page import="services.ImageImpl"%>
+<%@page import="services.JardinImpl"%>
+<%@page import="java.io.File"%>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -30,6 +44,7 @@
 		Jardin <i>numéro du jardin</i>
 	</h2>
 	<br>
+
 	<div>
 		<a href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>"><button
 				type="button" class="btn btn-outline-dark" id="boutonRetour"
@@ -37,33 +52,120 @@
 	</div>
 	<br>
 
+	<%
+		JardinProfil jP = (JardinProfil) session.getAttribute("monJardin");
+
+		List<photoJardin> listePhotos = jP.getImage();
+	%>
+
 	<div class="container">
 
 		<div class="row">
 
+			<!-- Colonne 1 : image de présentaiton jardin -->
+
 			<div class="col-4">
+
+				<%
+					try {
+						if (jP.getImage().get(0) != null) {
+				%>
+				<figure class="figure">
+					<img
+						src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(0).getImage()%>"
+						class="figure-img img-fluid rounded"
+						alt="A generic square placeholder image with rounded corners in a figure.">
+					<figcaption class="figure-caption">Mon jardin</figcaption>
+
+				</figure>
+				<%
+					} else {
+				%>
 				<figure class="figure">
 					<img src="./img/exJardin.jpg" class="figure-img img-fluid rounded"
 						alt="A generic square placeholder image with rounded corners in a figure.">
 					<figcaption class="figure-caption">Mon jardin</figcaption>
+
 				</figure>
 
-				<div id="windowImage">
+				<%
+					}
+					} catch (Exception e) {
+						/*  Nothing */
+					}
+				%>
+				<!-- <figcaption class="figure-caption">Mon jardin</figcaption>
 
-					<button class="btn btn-success" id="btn-ajoutImage">Ajouter
-						une image</button>
+				</figure> -->
 
-					<div id="myModal" class="modal">
+				<div class="row">
 
-						<div class="modal-content">
+					<!------------------------------------- Fenêtre modale pour ajout image : clique btn "ajouter photo" ------------------------------------->
 
-							<form method="post" action="ImageDeMerde" id="#"
-								enctype="multipart/form-data">
+					<div id="windowImage">
 
+						<button class="btn btn-success" id="btn-ajoutImage"
+							data-target=".modalAjout">Ajouter une image</button>
+
+						<div id="myModal" class="modalAjout">
+
+							<div class="modal-content">
+
+								<form method="post" action="ImageDeMerde" id="#"
+									enctype="multipart/form-data">
+
+
+									<div class="modal-header">
+										<h1>Ajouter une photo</h1>
+										<span class="close" id="closeAjout"> &times; </span>
+									</div>
+
+									<div class="modal-body">
+
+										<div class="container">
+
+											<div class="row">
+
+												<div class="col-md-12">
+
+													<div class="form-group files color">
+
+														<label for="pathFile"></label> <input name="file"
+															type="file" class="form-control" accept="image/*"
+															onchange="readURL(this);">
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="modal-footer">
+										<button type="submit" class="btn btn-light">Valider</button>
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<!-- -----------------------------Fenêtre modale pour supression images ; clique btn "supression photo"---------------------------- -->
+
+					<div id="suppImage">
+
+						<button class="btn btn-danger" id="btn-suppImage"
+							data-target=".modalSuppression">Supprimer une image</button>
+
+						<div id="myModalSupp" class="modalSuppression">
+
+							<div class="modal-content">
 
 								<div class="modal-header">
-									<h1>Mettre un titre</h1>
-									<span class="close"> &times; </span>
+
+									<h1>Supprimer une photo</h1>
+
+									<span class="close" id="closeSupp"> &times; </span>
+
 								</div>
 
 								<div class="modal-body">
@@ -74,30 +176,60 @@
 
 											<div class="col-md-12">
 
-												<div class="form-group files color">
+												<div class="form-group">
 
-													<label for="pathFile"></label> <input name="file"
-														type="file" class="form-control" accept="image/*"
-														onchange="readURL(this);">
+													<%
+														for (int i = 0; i < listePhotos.size(); i++) {
+													%>
+
+
+													<div class="container">
+
+														<div class="row">
+
+															<div class="col-sm">
+
+																<img
+																	src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(i).getImage()%>"
+																	alt="<%=listePhotos.get(i).getNom()%>"
+																	style="margin-left: 6em; margin-right: auto; width: 30em">
+
+															</div>
+
+															<div class="col-sm">
+
+																<form method="post" action="deleteFile">
+
+																	<label for="idFile"></label> <input name="ID"
+																		type="number" value="<%=listePhotos.get(i).getId()%>"
+																		style="display: none">
+
+																	<button type="submit" class="btn btn-danger">Supprimer</button>
+
+																</form>
+															</div>
+														</div>
+														<br>
+													</div>
+
+													<%
+														}
+													%>
 
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="modal-footer">
-									<button type="submit" class="btn btn-light">Valider</button>
-								</div>
-							</form>
+								<div class="modal-footer">Mettre un texte</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div>
-					<a href="JspUploadImage.jsp"><button class="btn btn-success" style="margin-top: 20px;">voir
-							image</button></a>
-				</div>
 
 			</div>
+
+			<!-- -----------------Colonnes "mon adresse" et "mon jardin"--------------------- -->
 
 			<div class="col-4">
 
@@ -106,22 +238,19 @@
 
 					<li class="list-group-item disabled">
 						<%
-							String adresse = (String) request.getAttribute("addresse");
-							out.println(adresse);
+							out.println(jP.getAdresse());
 						%>
 					</li>
 
 					<li class="list-group-item disabled">
 						<%
-							String villeNom = (String) request.getAttribute("villeNom");
-							out.println(villeNom);
+							out.println(jP.getVilleNom());
 						%>
 					</li>
 
 					<li class="list-group-item disabled">
 						<%
-							String codePostal = (String) request.getAttribute("codePostal");
-							out.println(codePostal);
+							out.println(jP.getCodePostal());
 						%>
 					</li>
 				</ul>
@@ -130,39 +259,97 @@
 			<div class="col-4">
 				<ul class="list-group">
 					<li class="list-group-item">Mon jardin</li>
- 
+
 					<li class="list-group-item disabled">Superficie : <%
-						String superficie = (String) request.getAttribute("superficie");
-						out.println(superficie + " m²");
+						out.println(jP.getSuperficie() + " m²");
 					%>
 					</li>
 
 					<li class="list-group-item disabled">Jardin : <%
-						String typeJardin = (String) request.getAttribute("typeJardin");
-						out.println(typeJardin);
+						out.println(jP.getTypeJardin());
 					%>
 					</li>
 
 					<li class="list-group-item disabled">Culture : <%
-						String typeCulture = (String) request.getAttribute("typeCulture");
-						out.println(typeCulture);
+						out.println(jP.getTypeCulture());
 					%>
 					</li>
 
 					<li class="list-group-item disabled">Sol : <%
-						String typeSol = (String) request.getAttribute("typeSol");
-						out.println(typeSol);
+						out.println(jP.getTypeSol());
 					%>
 					</li>
 
 					<li class="list-group-item disabled">Production : <%
-						String typeProduction = (String) request.getAttribute("typeProduction");
-						out.println(typeProduction);
+						out.println(jP.getTypeSol());
 					%>
 					</li>
 				</ul>
 			</div>
 		</div>
+	</div>
+
+	<!-- 	------------------ Caroussel ---------------------->
+
+	<div id="carouselExampleIndicators" class="carousel slide"
+		data-ride="carousel" style="width: 400px; margin: 0 auto">
+		<ol class="carousel-indicators">
+			<%
+				for (int i = 0; i < listePhotos.size(); i++) {
+
+					if (i == 0) {
+			%>
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+
+
+			<%
+				} else {
+			%>
+			<li data-target="#carouselExampleIndicators" data-slide-to="<%=i%>"></li>
+			<%
+				}
+				}
+			%>
+		</ol>
+
+
+		<div class="carousel-inner">
+			<%
+				for (int i = 0; i < listePhotos.size(); i++) {
+
+					if (i == 0) {
+			%>
+			<div class="carousel-item active">
+				<img
+					src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(i).getImage()%>"
+					class="d-block w-100" alt="<%=listePhotos.get(i).getNom()%>"
+					style="height: 400px; width: 300px;">
+			</div>
+			<%
+				} else {
+			%>
+			<div class="carousel-item">
+				<img
+					src="/<%="JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(i).getImage()%>"
+					class="d-block w-100" alt="<%=listePhotos.get(i).getNom()%>"
+					style="height: 400px; width: 300px;">
+			</div>
+			<%
+				}
+				}
+			%>
+		</div>
+
+		<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
 	</div>
 
 	<%@include file="include/footer.jsp"%>

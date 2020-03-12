@@ -57,14 +57,16 @@ public class VoirMesJardins extends HttpServlet {
 			}
 		}
 
-		request.setAttribute("addresse", jP.getAdresse());
-		request.setAttribute("villeNom", jP.getVilleNom());
-		request.setAttribute("codePostal", jP.getCodePostal());
-		request.setAttribute("typeJardin", jP.getTypeJardin());
-		request.setAttribute("typeCulture", jP.getTypeCulture());
-		request.setAttribute("typeSol", jP.getTypeSol());
-		request.setAttribute("typeProduction", jP.getTypeProduction());
-		request.setAttribute("superficie", Integer.toString(jP.getSuperficie()));
+//		request.setAttribute("addresse", jP.getAdresse());
+//		request.setAttribute("villeNom", jP.getVilleNom());
+//		request.setAttribute("codePostal", jP.getCodePostal());
+//		request.setAttribute("typeJardin", jP.getTypeJardin());
+//		request.setAttribute("typeCulture", jP.getTypeCulture());
+//		request.setAttribute("typeSol", jP.getTypeSol());
+//		request.setAttribute("typeProduction", jP.getTypeProduction());
+//		request.setAttribute("superficie", Integer.toString(jP.getSuperficie()));
+//		
+		session.setAttribute("monJardin", jP);
 
 		this.getServletContext().getRequestDispatcher("/afficherUnJardin.jsp").forward(request, response);
 
