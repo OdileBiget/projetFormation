@@ -47,6 +47,9 @@ public class Profil {
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
 	private List<JardinProfil> jardin = new ArrayList<JardinProfil>();
 
+	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
+	private List<JardinProfil> jardinPartage = new ArrayList<JardinProfil>();
+	
 	// Constructeurs
 	public Profil() {
 		super();
@@ -137,6 +140,14 @@ public class Profil {
 
 	public void setJardin(List<JardinProfil> jardin) {
 		this.jardin = jardin;
+	}
+
+	public List<JardinProfil> getJardinPartage() {
+		return jardinPartage;
+	}
+
+	public void setJardinPartage(List<JardinProfil> jardinPartage) {
+		this.jardinPartage = jardinPartage;
 	}
 
 	// public JardinProfil getJardin() {

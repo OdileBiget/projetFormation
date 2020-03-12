@@ -75,7 +75,7 @@ public class AjoutJardin extends HttpServlet {
 
 		// Création d'un fichier JSON
 		try {
-
+			
 			String jsonPara = new Gson().toJson(listejardin);
 
 			request.setAttribute("jsonJardins", jsonPara);

@@ -6,6 +6,7 @@ import org.hibernate.cfg.*;
 import java.io.IOException;
 import java.util.List;
 
+import javax.enterprise.context.SessionScoped;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -56,6 +57,8 @@ public class Connexion extends HttpServlet {
 			session.setAttribute("jardins", profil.getJardin());
 
 			session.setAttribute("user", profil);
+			session.setAttribute("nom", profil.getNom());
+			session.setAttribute("prenom", profil.getPrenom());
 
 			this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 

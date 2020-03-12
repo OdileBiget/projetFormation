@@ -16,16 +16,22 @@
 }
 
 #bubulle {
-	height: 200px;
 	width: 200px;
-    overflow-x:auto;     
-    white-space: nowrap;
-} 
+	overflow-x: x:scroll;
+	white-space: nowrap;
+}
+
+#bandeauImages {
+	width: 200px;
+	height: 100px;
+	display: inline-block;
+	overflow-x: x:auto;
+	white-space: nowrap;
+}
 
 #floating-panel {
-	position: center;
-	text-align: center;
-
+	/* position: center;
+	text-align: center; */
 	/* top: 10px;
   left: 25%;
   z-index: 5;
@@ -35,4 +41,5 @@
   font-family: 'Roboto','sans-serif';
   line-height: 30px;
   padding-left: 10px;*/
+	
 }
