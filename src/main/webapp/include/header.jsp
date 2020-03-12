@@ -53,8 +53,10 @@
 								class="dropdown-item" href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir mes jardins</a> <a
 								class="dropdown-item" href="#">Something else here</a> 
 								<div class="dropdown-divider"></div> 
-								<a class="dropdown-item" style="background: #e6e6fa;"><b><% String prenom=((Profil)session.getAttribute("user")).getPrenom(); String nom =((Profil)session.getAttribute("user")).getNom();
-									out.println(prenom+" "+nom);%></b></a>
+								<a class="dropdown-item" style="background: #e6e6fa;"><b><% 
+								try{String prenom=((Profil)session.getAttribute("user")).getPrenom(); String nom =((Profil)session.getAttribute("user")).getNom();
+									out.println(prenom+" "+nom);
+									} catch (Exception e){}%></b></a>
 								<a
 								href="<%=request.getContextPath() + "/Deconnexion"%>">
 								<button class="dropdown-item" type="submit" name="deconnexion" style="color: #008b8b; font-weight: bold;">Déconnexion</button>

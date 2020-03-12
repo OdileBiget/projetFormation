@@ -23,17 +23,22 @@
 	<!-- Layout Grid -->
 	<div class="grid-container">
 		<div class="grid-item">
-
-			<div id="floating-panel">
-				<input id="address" type="textbox" value="Paris"> <input
-					id="submit" type="button" value="Geocode">
+			<div class="floating-panel p-3 mb-2 bg-success text-white">
+				<form class="form-inline align-items-center">
+					<div class="form-group mx-sm-3 mb-2">
+						<input id="address" type="textbox" value="Paris"
+							class="form-control"> <input class="form-control"
+							id="submit" type="button" value="Geocode">
+					</div>
+				</form>
 			</div>
 			<div id="map"></div>
 		</div>
 
 		<div class="grid-item" id="formulaire">
+			<h1>Affiner votre recherche :</h1>
 			<form action="MapGarden">
-			
+
 				<div class="form-group col-md-9">
 					<label for="adresse">Adresse</label> <input type="text"
 						class="form-control" id="adresse" name="adresse"
@@ -47,7 +52,8 @@
 					</div>
 					<div class="form-group col-md-7">
 						<label for="nomVille">Ville</label> <input type="text"
-							class="form-control" id="nomVille" name="nomVille" placeholder="Paris">
+							class="form-control" id="nomVille" name="nomVille"
+							placeholder="Paris">
 					</div>
 				</div>
 				<div class="form-row">
@@ -94,11 +100,13 @@
 					<div class="form-group col-md-3">
 						<label for="superficie">Superficie minimum</label> <input
 							type="number" min='0' onkeypress="return isNumberKey(event)"
-							class="form-control" id="superficie" name="superficie" placeholder="20">
+							class="form-control" id="superficie" name="superficie"
+							placeholder="20">
 					</div>
 					<div class="form-group col-md-3">
 						<label for="cultures">Cultures présentes</label> <input
-							type="text" class="form-control" id="cultures" name="cultures"placeholder="tomates, carottes">
+							type="text" class="form-control" id="cultures" name="cultures"
+							placeholder="tomates, carottes">
 					</div>
 				</div>
 				<br> <input type="submit" name="valider" id="valider"
@@ -126,19 +134,23 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script>
+	var json = <c:out value="${json}" escapeXml="false"/>;
 		$(function() {
 			initMap();
-			var json = <c:out value="${json}" escapeXml="false"/>;
+			
+
 			for (var i = 0; i < json.length; i++) {
+				var jardinId = "jardin" + json[i]["id"];
 				var address = json[i]["adresse"] + " " + json[i]["codePostal"]
 						+ " " + json[i]["villeNom"];
 
 				var contentString = '<div id="bubulle">'
-/* 						+ '<div id="siteNotice">' + '</div>'
-						+ '<h1 id="firstHeading" class="firstHeading">'
- 						+ json[i]["typeJardin"]
- 						+ '</h1>' */
-						+ '<div id="bodyContent">'
+						/* 						+ '<div id="siteNotice">' + '</div>'
+						 + '<h1 id="firstHeading" class="firstHeading">'
+						 + json[i]["typeJardin"]
+						 + '</h1>' */
+						+ '<input class="btn btn-success btn-sm" id="'+jardinId+'" type="submit" value="Ajouter à ma liste de jardins partagés">'
+						+ '<br><br><div id="bodyContent">'
 						+ '<p><b>Adresse : </b>'
 						+ address
 						+ '<br><b>Type de jardin : </b>'
@@ -147,26 +159,32 @@
 						+ json[i]["superficie"]
 						+ '<br><b>Type de culture : </b>'
 						+ json[i]["typeCulture"]
-						+ '<br><b>Type de jardin : </b>'
-						+ json[i]["typeJardin"]
 						+ '<br><b>Type de sol : </b>'
 						+ json[i]["typeSol"]
 						+ '<br><b>Type de production : </b>'
 						+ json[i]["typeProduction"]
 						+ '<br><b>Cultures déjà présentes : </b>'
 						+ json[i]["culturesPresentes"]
-						+ '</p>'
-						+ '<div class="bandeauImages" style=\'float:left\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'><img src=\'http://i.stack.imgur.com/g672i.png\'>'
-						+ '</div></div>'
-/* 						+ '<br><div><p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'
-						+ 'Profil</a> '
-						+ '(last visited June 22, 2009).</p>'
-						+ '</div>'; */
-
+						+ '</p><div class="bandeauImages" style=\'float:left\'>';
+				for (var j = 0; j < json[i]["image"].length; j++) {
+					contentString += "<img src=\"/JardinSite/fileDownload/" + json[i]["image"][j]["image"] + "\">";
+				}
+				contentString += '</div></div>';
+				/* 						+ '<br><div><p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'
+				 + 'Profil</a> '
+				 + '(last visited June 22, 2009).</p>'
+				 + '</div>'; */
+				console.log(json[i]["image"].length);
 				addGardenMarker(address, contentString);
 			}
 
 		});
+		for (var i = 0; i < json.length; i++) {
+			var jardinId = "jardin" + json[i]["id"];
+
+			$('"#'+jardinId+'"').click($get("/WSAjoutJardinPartage?idJardin="+jardinId));
+		}
+		
 	</script>
 
 

@@ -105,6 +105,12 @@
 		<description></description>
 		<servlet-class>servlets.deleteFile</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>WSAjoutJardinPartage</servlet-name>
+		<display-name>WSAjoutJardinPartage</display-name>
+		<description></description>
+		<servlet-class>servlets.WSAjoutJardinPartage</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/Inscription</url-pattern>
@@ -165,6 +171,10 @@
 	<servlet-mapping>
 		<servlet-name>deleteFile</servlet-name>
 		<url-pattern>/deleteFile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WSAjoutJardinPartage</servlet-name>
+		<url-pattern>/WSAjoutJardinPartage</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->
