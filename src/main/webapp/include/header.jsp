@@ -26,7 +26,8 @@
 					<a class="dropdown-item" href="MapGarden">Carte des jardins</a> <a
 						class="dropdown-item" href="#">Choix</a>
 				</div></li>
-			<li class="nav-item dropdown"><a
+			<li class="nav-item dropdown">
+			<a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false">Producteurs</a>
@@ -34,7 +35,8 @@
 					<a class="dropdown-item" href="mapGardens.jsp">Nos producteurs
 						locaux</a> <a class="dropdown-item" href="#">Acheter leurs
 						produits</a>
-				</div></li>
+				</div>
+				</li>
 			<li class="nav-item"><a class="nav-link" href="whoWeAre.jsp">Qui
 					sommes-nous ?</a></li>
 		</ul>

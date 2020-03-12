@@ -39,6 +39,33 @@ public class methodesLogin {
 
 		return profilA;
 	}
+	
+	public static Profil getProfilFromID(int ID) {
+
+		Profil profilA = new Profil();
+
+		// Initiliation
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+		Session session = factory.openSession();
+
+		session.beginTransaction();
+
+		Query query = session.createQuery("FROM Profil P WHERE P.id=:id");
+
+		query.setParameter("id", ID);
+
+		List<Profil> result = query.list();
+
+		if (result.size() > 0)
+			profilA = (Profil) query.list().get(0);
+
+		session.getTransaction().commit();
+
+		session.close();
+
+		return profilA;
+	}
 
 	public static void addProfil(Profil profil) {
 		// Preparation de la construction de sessions

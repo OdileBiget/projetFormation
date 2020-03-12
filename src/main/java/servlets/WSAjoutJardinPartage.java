@@ -16,6 +16,7 @@ import org.hibernate.cfg.Configuration;
 
 import beans.JardinProfil;
 import beans.Profil;
+import services.methodesLogin;
 
 /**
  * Servlet implementation class WSAjoutJardinPartage
@@ -39,20 +40,28 @@ public class WSAjoutJardinPartage extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession session = request.getSession();
-		Profil profil = (Profil) session.getAttribute("id");
-		int idJardin = Integer.parseInt(request.getParameter("idJardin"));
 
+		System.out.println("je suis dans le WS");
+		HttpSession session = request.getSession();
+		Profil profil = (Profil) session.getAttribute("user");
+		
+		profil = methodesLogin.getProfilFromID(profil.getId());
+		
+		int jardinId = Integer.parseInt(request.getParameter("jardinId"));
+		System.out.println(profil);
+		
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		Session sessionHib = factory.openSession();
 		sessionHib.beginTransaction();
 
-		Query query = sessionHib.createQuery("FROM JardinProfil WHERE id=" + idJardin);
+		Query query = sessionHib.createQuery("FROM JardinProfil WHERE id=" + jardinId);
 		List<JardinProfil> result = query.list();
-		profil.setJardinPartage(result);
-		sessionHib.save(profil);
+		System.out.println(result);
+		profil.getJardinPartage().add(result.get(0));
+		sessionHib.update(profil);
 		sessionHib.getTransaction().commit();
 		sessionHib.close();
+		session.setAttribute("user", profil);
 
 	}
 

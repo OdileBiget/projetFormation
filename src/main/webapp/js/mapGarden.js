@@ -62,3 +62,17 @@ function geocodeAddress() {
 }
 
 
+function ajouterJardinPartage(jardinId){
+	console.log("Je suis dans la fonction")
+//	var XhrObj = new XMLHttpRequest();
+//	XhrObj.open("GET","http://localhost:8080/JardinSite/WSAjoutJardinPartage?jardinId=1", false);
+//	XhrObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//	XhrObj.send("");
+//	if(XhrObj.readyState == 4 && XhrObj.status == 200)
+//		return XhrObj.responseText;
+//	else
+//		alert("erreur ajax");
+	$.get("http://localhost:8080/JardinSite/WSAjoutJardinPartage?jardinId=1", function(data) {
+		alert("The paragraph was clicked.");
+	});
+}
