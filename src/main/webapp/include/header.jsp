@@ -41,37 +41,55 @@
 		<div class="form-inline my-2 my-lg-0" id="buttonNavBar">
 			<!-- <button class="btn btn-outline-success my-2 my-sm-0" type= "submit">Connexion</button>  -->
 			<div>
+			
 				<c:choose>
+				
 					<c:when test="${sessionScope.connexion.equals('reussi')}">
+						
 						<div class="navbar-nav mr-auto dropdown">
+						
 							<a class="nav-link dropdown-toggle" href="#" role="button"
 								id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Mon Compte </a>
-							<div class="dropdown-menu dropdown-menu-right"
-								aria-labelledby="navbarDropdown">
+							
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-								<a class="dropdown-item" href="profil.jsp">Mon profil</a> <a
-									class="dropdown-item"
-									href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir
-									mes jardins</a> <a class="dropdown-item" href="#">Something
-									else here</a>
+								<a class="dropdown-item" href="profil.jsp">Mon profil</a> 
+								
+								<a class="dropdown-item" href="<%=request.getContextPath() + "/PageJardinsMiniatures"%>">Voir
+									mes jardins</a> 
+									
+								<a class="dropdown-item" href="#">Something	else here</a>
+								
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item"
-									style="background-color: #e6e6fa; font-weight: bold;"> ${ sessionScope.prenom }
-									${ sessionScope.nom }</a> <a class="dropdown-item"
-									href="<%=request.getContextPath() + "/Deconnexion"%>"><button
-										class="dropdown-item" type="submit" name="deconnexion"
-										style="color: #008b8b; font-weight: bold;">Déconnexion</button></a>
+								
+								<a class="dropdown-item" style="background-color: #e6e6fa; font-weight: bold;"> ${ sessionScope.prenom }
+									${ sessionScope.nom }</a> 
+								
+								<a class="dropdown-item" href="<%=request.getContextPath() + "/Deconnexion"%>">
+								<button	class="dropdown-item" type="submit" name="deconnexion" style="color: #008b8b; font-weight: bold;">Déconnexion</button>
+								
+								</a>
 							</div>
 						</div>
 					</c:when>
+					
 					<c:otherwise>
 						<div class="connexion">
+						
 							<a href="connexion.jsp">
+							
 								<button class="btn btn-outline-success my-2 my-sm-0"
 									type="submit" name="connexion">Connexion</button>
-							</a> <a href="inscription.jsp"><button
+									
+							</a> 
+							
+							<a href="inscription.jsp">
+							
+								<button
 									class="btn btn-outline-success my-2 my-sm-0" type="submit"
-									name="inscription">Inscription</button></a>
+									name="inscription">Inscription</button>
+									
+							</a>
 						</div>
 					</c:otherwise>
 				</c:choose>

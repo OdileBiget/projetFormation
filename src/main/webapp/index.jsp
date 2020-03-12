@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
 
@@ -14,11 +16,13 @@
 </head>
 
 <body>
+
 	<%@include file="include/header.jsp"%>
 
 	<br>
 	<br>
-
+      
+    
 	<div id="carouselExampleCaptions" class="carousel slide"
 		data-ride="carousel" style="width: 70%; margin: auto;">
 		<ol class="carousel-indicators">
@@ -70,6 +74,7 @@
 			class="sr-only">Next</span>
 		</a>
 	</div>
+	
 	<br>
 	<br>
 	<!--  Fin du carousel -->
@@ -85,15 +90,6 @@
 				</ul>
 			</div>
 
-			<a class="carousel-control-prev" href="#carouselExampleCaptions"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="sr-only">Next</span>
-			</a>
 		</div>
 		<br> <br>
 		<!--  Fin du carousel -->
@@ -133,6 +129,6 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
-	<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

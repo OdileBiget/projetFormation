@@ -44,8 +44,14 @@ public class PageJardinsMiniatures extends HttpServlet {
 		session.setAttribute("presenceJardin", true);
 
 		Profil profil = (Profil) session.getAttribute("user");
+		
+		System.out.println();
 
 		List<JardinProfil> listejardin = profil.getJardin();
+		
+		for(JardinProfil j : listejardin) {
+			System.out.println(j.getId() + j.getAdresse());
+		}
 
 		// Création d'un fichier JSON
 

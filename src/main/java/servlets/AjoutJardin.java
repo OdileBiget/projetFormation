@@ -42,6 +42,7 @@ public class AjoutJardin extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
+
 		String adresse = request.getParameter("adresse");
 		String codePostal = request.getParameter("CP");
 		String nomVille = request.getParameter("nomVille");
@@ -81,6 +82,7 @@ public class AjoutJardin extends HttpServlet {
 			request.setAttribute("jsonJardins", jsonPara);
 
 		} catch (NullPointerException e) {}
+		
 
 		this.getServletContext().getRequestDispatcher("/afficherMesJardins.jsp").forward(request, response);
 

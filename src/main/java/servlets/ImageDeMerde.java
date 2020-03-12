@@ -73,6 +73,16 @@ public class ImageDeMerde extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
+		
+		Profil profil2 = (Profil) session.getAttribute("user");
+		
+		System.out.println();
+
+		List<JardinProfil> listejardin2 = profil2.getJardin();
+		for(JardinProfil j : listejardin2) {
+			System.out.println(j.getId() + j.getAdresse());
+		}
+
 
 		UPLOAD_DIRECTORY = getServletContext().getRealPath("/").replace("build\\", "") + "src" + File.separator + "main"
 				+ File.separator + "webapp" + File.separator + "fileDownload";
@@ -114,6 +124,14 @@ public class ImageDeMerde extends HttpServlet {
 						sessionHibernate.update(jardin);
 
 						Profil profilMAJ = (Profil) sessionHibernate.get(Profil.class, profil.getId());
+						
+						System.out.println("PROFIL HIBERNATE");
+						
+						List<JardinProfil> listejardin3 = profilMAJ.getJardin();
+						for(JardinProfil j : listejardin3) {
+							System.out.println(j.getId() + j.getAdresse());
+						}
+
 
 						sessionHibernate.getTransaction().commit();
 
@@ -158,6 +176,18 @@ public class ImageDeMerde extends HttpServlet {
 			request.setAttribute("message", "Sorry this Servlet only handles file upload request");
 		}
 
+		
+		
+		Profil profil3 = (Profil) session.getAttribute("user");
+		
+		System.out.println();
+
+		List<JardinProfil> listejardin3 = profil3.getJardin();
+		for(JardinProfil j : listejardin3) {
+			System.out.println(j.getId() + j.getAdresse());
+		}
+
+		
 		request.getRequestDispatcher("/afficherUnJardin.jsp").forward(request, response);
 
 	}
