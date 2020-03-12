@@ -18,25 +18,9 @@
 			<li class="nav-item active"><a class="nav-link" href="index.jsp">Home
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">Nos jardins</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="MapGarden">Carte des
-						jardins</a> <a class="dropdown-item" href="#">Choix</a>
-				</div></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">Producteurs</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="mapGardens.jsp">Nos producteurs
-						locaux</a> <a class="dropdown-item" href="#">Acheter leurs
-						produits</a>
-				</div></li>
-			<li class="nav-item"><a class="nav-link" href="whoWeAre.jsp">Qui
-					sommes-nous ?</a></li>
+			<li class="nav-item"><a class="nav-link" href="MapGarden" id="navbarDropdown">Trouver un jardin</a></li>
+			<li class="nav-item"><a class="nav-link" href="FruitsEtLegumes" id="navbarDropdown">Produits de saison</a></li>
+			<li class="nav-item"><a class="nav-link" href="whoWeAre.jsp">Qui sommes-nous ?</a></li>
 		</ul>
 		<div class="form-inline my-2 my-lg-0" id="buttonNavBar">
 			<!-- <button class="btn btn-outline-success my-2 my-sm-0" type= "submit">Connexion</button>  -->

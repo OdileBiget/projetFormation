@@ -54,6 +54,9 @@ public class AjoutJardin extends HttpServlet {
 		String cultures = request.getParameter("cultures");
 
 //		int ID = (int) session.getAttribute("id");
+		
+		System.out.println("récupération adresse");
+		System.out.println(adresse);
 
 		ProfilImpl profilImpl = new ProfilImpl();
 
@@ -66,6 +69,8 @@ public class AjoutJardin extends HttpServlet {
 		profil.getJardin().add(garden);
 
 		profilImpl.update(profil);
+		
+		System.out.println(profil.getJardin().get(profil.getJardin().size()-1).getAdresse());
 		
 		session.setAttribute("user", profil);
 

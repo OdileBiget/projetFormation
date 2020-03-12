@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
+<link rel="icon" href="img/favicon.png">
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/testUploadFile.css" rel="stylesheet">
 </head>

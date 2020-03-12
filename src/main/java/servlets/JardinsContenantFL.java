@@ -1,10 +1,21 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.SessionFactory;
+
+import org.hibernate.*;
+import org.hibernate.cfg.Configuration;
+
+import com.google.gson.Gson;
+
+import beans.JardinProfil;
 
 /**
  * Servlet implementation class JardinsContenantFL
@@ -28,8 +39,25 @@ public class JardinsContenantFL extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	
 		String fruit = (String) request.getParameter("nomFL");
-		
 		request.setAttribute("nom", fruit);
+		
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+		
+		session.beginTransaction();
+		
+		Query query = session.createQuery("FROM JardinProfil");
+		List<JardinProfil> liste = query.getResultList();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		try {
+			String json = new Gson().toJson(liste);
+			request.setAttribute("json", json);
+			
+			
+		}catch(NullPointerException e) {}
 		
 		this.getServletContext().getRequestDispatcher("/jardinsAvecFL.jsp").forward(request, response);
 	}

@@ -8,7 +8,7 @@
 <!-- <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
 <!-- Latest compiled and minified CSS -->
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link rel="icon" href="icone.JPG">
+<link rel="icon" href="img/favicon.png">
 <link href="css/stylesheet.css" rel="stylesheet">
 <title>My local garden</title>
 </head>
@@ -59,18 +59,7 @@
 	</div>
 	<br><br>
 <!--  Fin du carousel -->
-	<div class="row justify-content-between" id="itemJardin" style="padding: 1.5em;">
-	<div style="background-color: rgba(255,250,205); padding: 1em; font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L; width: 25%;">
-		<h3>A la une</h3>
-		<div>
-			<ul>
-				<li><h5>Utilisateurs :</h5></li>
-				<li><h5>Jardins :</h5></li>
-			</ul>
-		</div>
-	</div>
-	
-	<div class="jumbotron jumbotron-fluid" style="width: 70%;">
+	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">My Local Garden</h1>
 			<p class="lead">
@@ -80,7 +69,6 @@
 					title="How wolves pack">here.</a>
 			</p>
 		</div>
-	</div>
 	</div>
 	<br><br>
 

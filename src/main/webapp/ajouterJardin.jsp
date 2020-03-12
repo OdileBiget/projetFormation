@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Ajouter un jardin</title>
+<link rel="icon" href="img/favicon.png">
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/stylesheet.css" rel="stylesheet">
 <link href="css/cssAjoutJardin.css" rel="stylesheet">
@@ -47,7 +48,7 @@
 	<div style = "padding: 0 10px;">
 		<h1>Ajouter un jardin</h1>
 		<br>
-		<form action="AjoutJardin">
+		<form accept-charset="UTF-8" action="AjoutJardin">
 			<label for="name">Adresse (rue, n° ...) :</label><br> <input type="text" id="adresse" name="adresse"><br> 
 			<label for="name">Code postal (ex: 12345) :</label><br> <input type="text" id="CP" name="CP" pattern = "[0-9]{5}">
 				<span class="error" aria-live="polite"></span><br> 
@@ -87,7 +88,7 @@
 			<div id="commentaireDefaut" style="padding: 0 250px; font-family: Georgia; font-weight: normal; font-size: small; font-variant: normal;">Le type de production par défaut est: <b><i>en serre</i></b>.</div> 
 			<label for="name">Superficie :</label><br> <input type="text" id="superficie" name="superficie" pattern="[0-9]{1,}" value="0"> 
 				<span class="error" aria-live="polite"></span><br>
-			<label for="name">Ajouter des cultures déjà présentes :</label><br> <input type="text" id="cultures" name="cultures" value="aucunes"> <br> <br>
+			<label for="name">Ajouter des cultures déjà présentes (ex: tomates rhubarbe coco fraises ...):</label><br> <input type="text" id="cultures" name="cultures" value="aucunes"> <br> <br>
 			<input type="submit" name="valider" id="valider" value="Valider" />
 		</form>
 	</div>

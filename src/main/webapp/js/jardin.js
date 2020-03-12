@@ -193,8 +193,33 @@ function conversionMoisChiffre(mois){
 	case 'decembre':
 		return 11;
 		break;
+	}	
+}
+
+
+function affichageJardinSaison(JSONlist, nomFruit){
+	let data = document.getElementById('rowDiv');
+	
+	let culturesTab;
+	for(let i = 0; i < JSONlist.length; i++){
+		let listeCultures = JSONlist[i]["culturesPresentes"];
+		try{
+			culturesTab = listeCultures.split(' ');
+			for(let inc = 0; inc < culturesTab.length; inc++){
+				if(culturesTab[inc].toLowerCase()==nomFruit.toLowerCase()){
+					afficherRaccourciJardin(JSONlist[i]["villeNom"], JSONlist[i]["typeJardin"], JSONlist[i]["typeSol"], JSONlist[i]["superficie"], JSONlist[i]["typeCulture"], data, i + 1, JSONlist[i]["id"], JSONlist[i]["image"]);
+				}
+//				else{
+//					let description = decodeUTF8("Il n'y a pas de jardin partagé qui propose ce produit.");
+//					data.innerHTML = description;
+//					console.log("no description");
+//				}
+			}
+		}catch(e) {}
 	}
 }
+
+
 
 
 
