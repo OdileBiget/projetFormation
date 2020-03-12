@@ -2,12 +2,14 @@ package services;
 
 import beans.JardinProfil;
 import beans.Profil;
+import beans.FruitEtLegume;
 
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.graalvm.compiler.nodes.java.ArrayLengthNode;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
@@ -185,9 +187,61 @@ public class methodesJardin {
 //	public static void afficheTest(List<String[]> liste) {
 //		for(String[] i : liste) System.out.println(i[0]);
 //	}
-//	
-//	
-//	
+	public static void addFruit(FruitEtLegume fl) {
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		// Ouverture session
+		Session session = sessionFactory.openSession();
+	
+//		session.beginTransaction();
+//		Query query = (Query) session.createSQLQuery("TRUNCATE TABLE fruitslegumes");
+//		query.executeUpdate();
+//		session.getTransaction().commit();
+		
+		
+		session.beginTransaction();
+		session.save(fl);
+		session.getTransaction().commit();
+
+		// Fermeture session
+		session.close();
+	}
+	
+	public static List<FruitEtLegume> getFruitSaison() {
+		List<FruitEtLegume> liste = new ArrayList<FruitEtLegume>();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+			
+		session.beginTransaction();
+		
+		Query query = (Query) session.createQuery("FROM FruitEtLegume");
+		liste = query.getResultList();
+		
+		session.getTransaction().commit();
+
+		// Fermeture session
+		session.close();
+		
+		return liste;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

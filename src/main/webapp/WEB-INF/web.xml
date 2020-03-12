@@ -14,7 +14,6 @@
 		<filter-name>Session</filter-name>
 		<url-pattern>/Session</url-pattern>
 	</filter-mapping>
-
 	<servlet>
 		<servlet-name>Basic</servlet-name>
 		<display-name>Basic</display-name>
@@ -111,6 +110,18 @@
 		<description></description>
 		<servlet-class>servlets.WSAjoutJardinPartage</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>FruitsEtLegumes</servlet-name>
+		<display-name>FruitsEtLegumes</display-name>
+		<description></description>
+		<servlet-class>servlets.FruitsEtLegumes</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JardinsContenantFL</servlet-name>
+		<display-name>JardinsContenantFL</display-name>
+		<description></description>
+		<servlet-class>servlets.JardinsContenantFL</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
 		<url-pattern>/Inscription</url-pattern>
@@ -123,7 +134,6 @@
 		<servlet-name>Connexion</servlet-name>
 		<url-pattern>/Connexion</url-pattern>
 	</servlet-mapping>
-
 	<servlet-mapping>
 		<servlet-name>Basic</servlet-name>
 		<url-pattern>/Basic</url-pattern>
@@ -175,6 +185,14 @@
 	<servlet-mapping>
 		<servlet-name>WSAjoutJardinPartage</servlet-name>
 		<url-pattern>/WSAjoutJardinPartage</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>FruitsEtLegumes</servlet-name>
+		<url-pattern>/FruitsEtLegumes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JardinsContenantFL</servlet-name>
+		<url-pattern>/JardinsContenantFL</url-pattern>
 	</servlet-mapping>
 
 	<!-- permet de lancer des servlet avant des jsp sans les appeler -->

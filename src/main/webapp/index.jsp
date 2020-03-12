@@ -29,7 +29,9 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="img/FetL.jpg" class="d-block w-100" alt="loup">
+
+				<a href="<%=request.getContextPath() + "/FruitsEtLegumes"%>"><img
+					src="img/FetL.jpg" class="d-block w-100" alt="loup"></a>
 				<div class="carousel-caption d-none d-md-block"
 					style="background-color: rgba(255, 255, 255, 0.4);">
 					<h5 style="color: #00008b;">Découvrez les fruits et légumes de
@@ -82,45 +84,55 @@
 					<li><h5>Jardins :</h5></li>
 				</ul>
 			</div>
-		</div>
 
-		<div class="jumbotron jumbotron-fluid" style="width: 70%;">
-			<div class="container">
-				<h1 class="display-4">My Local Garden</h1>
-				<p class="lead">
-					Discover our latest research project on the process of wolves
-					packing when they are endangered in an unfriendly and unusual
-					field, <a href="http://teacher.scholastic.com/wolves/gabout3.htm"
-						title="How wolves pack">here.</a>
-				</p>
+			<a class="carousel-control-prev" href="#carouselExampleCaptions"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+		<br> <br>
+		<!--  Fin du carousel -->
+		<div class="row justify-content-between" id="itemJardin"
+			style="padding: 1.5em;">
+			<div
+				style="background-color: rgba(255, 250, 205); padding: 1em; font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L; width: 25%;">
+				<h3>A la une</h3>
+				<div>
+					<ul>
+						<li><h5>Utilisateurs :</h5></li>
+						<li><h5>Jardins :</h5></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="jumbotron jumbotron-fluid" style="width: 70%;">
+				<div class="container">
+					<h1 class="display-4">My Local Garden</h1>
+					<p class="lead">
+						Discover our latest research project on the process of wolves
+						packing when they are endangered in an unfriendly and unusual
+						field, <a href="http://teacher.scholastic.com/wolves/gabout3.htm"
+							title="How wolves pack">here.</a>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
 	<br>
 	<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<!--  Footer -->
 	<%@include file="include/footer.jsp"%>
-
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
 </body>
 </html>
