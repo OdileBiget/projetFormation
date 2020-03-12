@@ -5,32 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Inscription</title>
+<link rel="icon" href="img/favicon.png">
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/cssFormulaires.css" rel="stylesheet">
+
 </head>
+
 <body>
 
 	<%@include file="include/header.jsp"%>
 
-	<div #fondForm>
+<br>
+<div id="cadreProfil">
 		<h1>Inscription</h1>
-		<br>
+		<hr>
 		<form action="Inscription">
-			<label for="name">Nom :</label><br>
-			<input type="text" id="nom" name="nom"><br> <label
-				for="name">Prénom :</label><br>
-			<input type="text" id="prenom" name="prenom"><br> <label
-				for="name">E-mail :</label><br>
-			<input type="text" id="email" name="email"><br> <label
-				for="name">Telephone :</label><br>
-			<input type="text" id="tel" name="tel"><br> <label
-				for="name">Mot de passe :</label><br>
-			<input type="text" id="mdp" name="mdp"> <br> <br> <input
-				type="submit" name="inscription" value="Inscription" />
+			<label for="name">Nom :</label><input type="text" id="nom" name="nom"><br> 
+			<label for="name">Prénom :</label><input type="text" id="prenom" name="prenom"><br> 
+			<label for="name">E-mail :</label><input type="text" id="email" name="email"><br> 
+			<label for="name">Telephone :</label><input type="text" id="tel" name="tel"><br> 
+			<label for="name">Mot de passe :</label><input type="text" id="mdp" name="mdp"> <br> <br> 
+			<input type="submit" name="inscription" value="Inscription" id="soumettre" />
 		</form>
-	</div>
-	<br>
 	<c:out value="${message}"></c:out>
+</div>
 	<br>
 
 	<%@include file="include/footer.jsp"%>

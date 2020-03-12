@@ -5,7 +5,7 @@
 <!-- <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> -->
 <!-- Latest compiled and minified CSS -->
 	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link rel="icon" href="icone.JPG">
+	<link rel="icon" href="img/favicon.png">
 	<link href="css/stylesheet.css" rel="stylesheet">
 	<title>Fruits et légumes de saison</title>
 </head>
@@ -16,6 +16,7 @@
 	
 	<h3>Découvrez les fruits et légumes de saison</h3>
 	<p id="date"></p>
+	<p>Cliquez sur un produit pour voir s'il est disponible dans un jardin près de chez vous !</p>
 	<div id="FLsaison">
 	</div>
 	

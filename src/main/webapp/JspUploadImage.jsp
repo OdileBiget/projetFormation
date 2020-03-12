@@ -16,7 +16,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link rel="icon" href="icone.JPG">
+<link rel="icon" href="img/favicon.png">
 <link href="css/stylesheet.css" rel="stylesheet">
 
 

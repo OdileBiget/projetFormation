@@ -6,48 +6,43 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Connexion</title>
+<link rel="icon" href="img/favicon.png">
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/cssFormulaires.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/08ce264d0a.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/08ce264d0a.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 	<%@include file="include/header.jsp"%>
 
-	<div #fondForm>
-		<h1>Connexion</h1>
-		<br>
+	<br>
 		<div>
 			<c:choose>
-
 				<c:when test="${connexion.equals('error') }">
-
-					<p>
+					<p id="connectezVous">
 						Un problème est survenu lors de la connexion<br>Identifiants
 						non reconus
 					</p>
-
 				</c:when>
-
 				<c:otherwise>
-
-					<p>Connectez-vous</p>
-
+					<p id="connectezVous">Veuillez-vous connecter: </p>
 				</c:otherwise>
-
 			</c:choose>
-
 		</div>
+			
+	<br>
+	<div id="cadreProfil">
+		<h1>Connexion</h1>
+		<hr>
 		<form action="Connexion" method="post">
 			<label for="mailRenseigne">E-mail :</label><br> <input
 				type="email" id="email" name="mailRenseigne"><br> <label
 				for="passwordRenseigne">Mot de passe :</label><br> <input
 				type="password" id="mdp" name="passwordRenseigne"><span
 				onclick="afficherPassword()"><i
-				class="fas fa-eye btn-show-hide-pwd"></i></span> <br> <br> <input
-				type="submit" name="connexion" value="Connexion" />
-
+				class="fas fa-eye btn-show-hide-pwd"></i></span> 
+				<br><br><input
+				type="submit" name="connexion" value="Connexion" id="soumettre"/>
 		</form>
 	</div>
 	<br><br>

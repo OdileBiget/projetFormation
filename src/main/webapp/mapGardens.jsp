@@ -10,7 +10,7 @@
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/stylesheet.css" rel="stylesheet">
 <link href="css/mapGarden.css" rel="stylesheet">
-<link rel="icon" href="icone.JPG">
+<link rel="icon" href="img/favicon.png">
 
 <title>My local garden</title>
 
@@ -19,7 +19,6 @@
 
 <body>
 	<%@include file="include/header.jsp"%>
-
 	<!-- Layout Grid -->
 	<div class="grid-container">
 		<div class="grid-item">
@@ -125,7 +124,8 @@
 	<%@include file="include/footer.jsp"%>
 	<script src="js/mapGarden.js"></script>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kevJZCUUWTkzMQM_uk61P7n6hN7iBSU">
 		google.maps.event.addDomListener(window, 'load', initMap);
@@ -134,22 +134,25 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 	<script>
-	var json = <c:out value="${json}" escapeXml="false"/>;
+		var json = <c:out value="${json}" escapeXml="false"/>;
 		$(function() {
 			initMap();
-			
+			var jardinIdList = [];
 
 			for (var i = 0; i < json.length; i++) {
+
 				var jardinId = "jardin" + json[i]["id"];
+				jardinIdList.push('#' + jardinId + '');
+
 				var address = json[i]["adresse"] + " " + json[i]["codePostal"]
 						+ " " + json[i]["villeNom"];
 
 				var contentString = '<div id="bubulle">'
-						/* 						+ '<div id="siteNotice">' + '</div>'
-						 + '<h1 id="firstHeading" class="firstHeading">'
-						 + json[i]["typeJardin"]
-						 + '</h1>' */
-						+ '<input class="btn btn-success btn-sm" id="'+jardinId+'" type="submit" value="Ajouter à ma liste de jardins partagés">'
+						+ '<input class="btn btn-success btn-sm" id="'
+						+ jardinId
+						+ 'zzz" type="submit" value="Ajouter à ma liste de jardins partagés" onClick=\'ajouterJardinPartage('
+						+ json[i]["id"]
+						+ ')\') />'
 						+ '<br><br><div id="bodyContent">'
 						+ '<p><b>Adresse : </b>'
 						+ address
@@ -167,24 +170,37 @@
 						+ json[i]["culturesPresentes"]
 						+ '</p><div class="bandeauImages" style=\'float:left\'>';
 				for (var j = 0; j < json[i]["image"].length; j++) {
-					contentString += "<img src=\"/JardinSite/fileDownload/" + json[i]["image"][j]["image"] + "\">";
+					contentString += "<img src=\"/JardinSite/fileDownload/" + json[i]["image"][j]["image"] + "\" height = 50px />";
 				}
 				contentString += '</div></div>';
-				/* 						+ '<br><div><p>Ici inséré un lien vers le profil du jardin, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'
-				 + 'Profil</a> '
-				 + '(last visited June 22, 2009).</p>'
-				 + '</div>'; */
-				console.log(json[i]["image"].length);
+
+				//console.log(jardinId);
 				addGardenMarker(address, contentString);
-			}
+
+			} /* Fin du FOR */
+			console.log(jardinIdList);
+
+			$("#jardin1").click(function() {
+				alert("The paragraph was clicked.");
+			});
+
+			/* 			$.each(jardinIdList, function(key, value) {
+			 console.log('"#' + jardinIdList[key] + '"');
+			 $('"#' + jardinIdList[key] + '"').click(function() {
+			 console.log('yo');
+			 // ------------- Do something
+			 $.get("/WSAjoutJardinPartage?idJardin=1");
+			 });
+			 }); */
+
+			/* 			for (var i = 0; i < json.length; i++) {
+			 var jardinId = "jardin" + json[i]["id"];
+			 console.log('"#' + jardinId + '"');
+
+			
+			 } */
 
 		});
-		for (var i = 0; i < json.length; i++) {
-			var jardinId = "jardin" + json[i]["id"];
-
-			$('"#'+jardinId+'"').click($get("/WSAjoutJardinPartage?idJardin="+jardinId));
-		}
-		
 	</script>
 
 

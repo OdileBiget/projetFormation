@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link rel="icon" href="icone.JPG">
+<link rel="icon" href="img/favicon.png">
 <link href="css/stylesheet.css" rel="stylesheet">
 <title>Mes jardins</title>
 

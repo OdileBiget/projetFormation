@@ -3,7 +3,8 @@ var booleanDiv = true;
 function afficherRaccourciJardin(villeN, typeJ, typeS, superficie, typeC, currentDiv, numeroJ, id, listeImage) {
 	//
 	let texte = "Le jardin situé à " + villeN + ", est de type " + typeJ + " avec un sol " + typeS + ". D'une superficie de " + superficie + " m², il propose des cultures " + typeC + "...";
-	let finalText = decodeUTF8(texte);
+//	let finalText = decodeUTF8(texte);
+	let finalText = texte;
 
 	// Div de la carte
 	let thirdDiv = document.createElement('div');
@@ -72,15 +73,15 @@ function affichageJardinsCarte(listeJSON) {
 	}
 }
 
-function encodeUTF8(string) {
-	return unescape(encodeURIComponent(string));
-}
+//function encodeUTF8(string) {
+//	return unescape(encodeURIComponent(string));
+//}
 
 //fonction pour décoder car problème avec les accents
 
-function decodeUTF8(string) {
-	return decodeURIComponent(escape(string));
-}
+//function decodeUTF8(string) {
+//	return decodeURIComponent(escape(string));
+//}
 
 //--------------------------------------------------------------------------------------------------
 
@@ -213,16 +214,28 @@ function conversionMoisChiffre(mois){
 	case 'decembre':
 		return 11;
 		break;
-	}
+	}	
 }
 
 
-
-
-
-
-
-
-
-
-
+function affichageJardinSaison(JSONlist, nomFruit){
+	let data = document.getElementById('rowDiv');
+	
+	let culturesTab;
+	for(let i = 0; i < JSONlist.length; i++){
+		let listeCultures = JSONlist[i]["culturesPresentes"];
+		try{
+			culturesTab = listeCultures.split(' ');
+			for(let inc = 0; inc < culturesTab.length; inc++){
+				if(culturesTab[inc].toLowerCase()==nomFruit.toLowerCase()){
+					afficherRaccourciJardin(JSONlist[i]["villeNom"], JSONlist[i]["typeJardin"], JSONlist[i]["typeSol"], JSONlist[i]["superficie"], JSONlist[i]["typeCulture"], data, i + 1, JSONlist[i]["id"], JSONlist[i]["image"]);
+				}
+//				else{
+//					let description = decodeUTF8("Il n'y a pas de jardin partagé qui propose ce produit.");
+//					data.innerHTML = description;
+//					console.log("no description");
+//				}
+			}
+		}catch(e) {}
+	}
+}
