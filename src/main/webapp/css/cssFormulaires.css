@@ -1,25 +1,28 @@
 h1{
-	font-family: New Century Schoolbook, TeX Gyre Schola;
-	color: #006400;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+	color: #a0522d;
+	padding: 0 30%;
 }
 
 form{
-	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L;
+	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
 	font-weight: bold;
 	font-variant: small-caps;
 }
 
 label{
 	display: block;
-	width: 150px;
+	width: 200px;
 	float: left;
+	padding: 0 5%;
 }
 
 input{
-	width: 200px;
+	width: 260px;
+	margin: 0 50%;
 	padding: 5px;
 	border: 1px solid;
-	border-color: RGB(0,50,150,10);
+	border-color: #8b4513;
 	border-radius: 10px;
 	color: RGB(0,50,150,100);	
 }
@@ -32,10 +35,32 @@ input{
 
 #soumettre
 {
-	background-color: #98fb98;
-	border: 2px solid green;
-	font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L;
+	background-color: #a0522d;
+/* 	border: 2px solid green;
+ */	color: white;
+	font-family: Arial;
 	font-size: medium;
+}
+
+#cadreProfil {
+	background-color: #ffffe0;
+	text-align: justify;
+	width: 40%;
+	padding: 1em;
+	margin: auto;
+	border: 1px #a0522d solid;
+}
+
+h2 {
+	text-align: center;
+}
+
+#item {
+	padding: 1em;
+}
+
+#connectezVous{
+	margin-left: 20px;
 }
 
 
@@ -46,8 +71,10 @@ input{
 .btn-show-hide-pwd {
 	color: #222c6a;
 	cursor: pointer;
-	margin-left: -30px;
+	margin-left: 10px;
+	margin-top: -25px;
 	opacity: 0.5;
+	float: right;
 }
 
 .btn-show-hide-pwd:hover {

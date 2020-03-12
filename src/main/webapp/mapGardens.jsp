@@ -10,7 +10,7 @@
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="css/stylesheet.css" rel="stylesheet">
 <link href="css/mapGarden.css" rel="stylesheet">
-<link rel="icon" href="icone.JPG">
+<link rel="icon" href="img/favicon.png">
 
 <title>My local garden</title>
 
