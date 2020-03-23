@@ -7,7 +7,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" href="img/favicon.png">
 <link href="css/stylesheet.css" rel="stylesheet">
@@ -33,15 +33,8 @@ h3{
 		<div id="itemJ">
 			<div class="container">
 				<div class="card-deck" id="rowDiv">
-					<c:choose>
-						<c:when test="${sessionScope.presenceJardin == true}">
-						</c:when>
-						<c:otherwise>
-							<%
-								out.println("Vous n'avez pas de jardin.");
-							%>
-						</c:otherwise>
-					</c:choose>
+				<c:if test="${sessionScope.presenceJardin == true}"/>
+					
 				</div>
 			</div>
 		</div>
@@ -58,7 +51,7 @@ h3{
 			<p>Vous n'avez pas de jardins partagés.</p>
 		</div>
 		<div>
-			<a href="mapGardens.jsp"><input type="button"
+			<a href="mapGarden"><input type="button"
 				class="btn btn-success" value="+ Partager un jardin"></a>
 		</div>
 	</div>

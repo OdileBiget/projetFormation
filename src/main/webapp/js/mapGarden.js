@@ -63,7 +63,7 @@ function geocodeAddress() {
 
 
 function ajouterJardinPartage(jardinId){
-	console.log("Je suis dans la fonction")
+	console.log("Je suis dans la fonction ajouter jardin")
 //	var XhrObj = new XMLHttpRequest();
 //	XhrObj.open("GET","http://localhost:8080/JardinSite/WSAjoutJardinPartage?jardinId=1", false);
 //	XhrObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -72,7 +72,8 @@ function ajouterJardinPartage(jardinId){
 //		return XhrObj.responseText;
 //	else
 //		alert("erreur ajax");
-	$.get("http://localhost:8080/JardinSite/WSAjoutJardinPartage?jardinId=1", function(data) {
+	console.log("http://localhost:8080/JardinSite/WSAjoutJardinPartage?jardinId="+jardinId);
+	$.get("http://localhost:8080/JardinSite/WSAjoutJardinPartage?jardinId="+jardinId, function(data) {
 		alert("The paragraph was clicked.");
 	});
 }

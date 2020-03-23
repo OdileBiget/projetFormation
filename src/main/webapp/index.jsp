@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
 
@@ -21,8 +21,8 @@
 
 	<br>
 	<br>
-      
-    
+
+
 	<div id="carouselExampleCaptions" class="carousel slide"
 		data-ride="carousel" style="width: 70%; margin: auto;">
 		<ol class="carousel-indicators">
@@ -33,39 +33,50 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<a href="<%=request.getContextPath() + "/FruitsEtLegumes"%>"><img src="img/FetL.jpg" class="d-block w-100" alt="loup"></a>
-				<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
-					<h5 style="color: #00008b;">Découvrez les fruits et légumes de saison ...</h5>	
-      			</div>
-    		</div>
-    		
-    		<div class="carousel-item">
-      			<img src="img/garden.jpg" class="d-block w-100" alt="ours">
-      			<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
-        			<h5 style="color: #00008b;">Un trésor se cache peut-être près de chez vous !</h5>
-        			<h5 style="color: #00008b;">Découvrez les jardins les mieux notés du mois précédent...</h5>
-      			</div>
-    		</div>
-    		
-    		<div class="carousel-item">
-      			<img src="img/producteur.jpg" class="d-block w-100" alt="...">
-      			<div class="carousel-caption d-none d-md-block" style="background-color: rgba(255, 255, 255, 0.4);">
-        			<h5 style="color: #00008b;">Devenez producteur local et vendez vos cultures...</h5>
-      			</div>
-    		</div>
-  		</div>
-  		
-  		<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-   	 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    		<span class="sr-only">Previous</span>
-  		</a>
- 		<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-    		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-    		<span class="sr-only">Next</span>
-  		</a>
+				<a href="<%=request.getContextPath() + "/FruitsEtLegumes"%>">
+				<img src="img/FetL.jpg" class="d-block w-100" alt="loup"></a>
+				<div class="carousel-caption d-none d-md-block"
+					style="background-color: rgba(255, 255, 255, 0.4);">
+					<h5 style="color: #00008b;">DÃ©couvrez les fruits et lÃ©gumes de
+						saison ...</h5>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+				<a href="<%=request.getContextPath() + "/MapGarden"%>">
+				<img src="img/garden.jpg" class="d-block w-100" alt="ours"></a>
+				<div class="carousel-caption d-none d-md-block"
+					style="background-color: rgba(255, 255, 255, 0.4);">
+					<h5 style="color: #00008b;">Un trï¿½sor se cache peut-ï¿½tre prï¿½s
+						de chez vous !</h5>
+					<h5 style="color: #00008b;">Dï¿½couvrez les jardins les mieux
+						notï¿½s du mois prï¿½cï¿½dent...</h5>
+				</div>
+			</div>
+
+			<div class="carousel-item">
+				<img src="img/producteur.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-caption d-none d-md-block"
+					style="background-color: rgba(255, 255, 255, 0.4);">
+					<h5 style="color: #00008b;">Devenez producteur local et vendez
+						vos cultures...</h5>
+				</div>
+			</div>
+		</div>
+
+		<a class="carousel-control-prev" href="#carouselExampleCaptions"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleCaptions"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
 	</div>
-	<br><br>
-<!--  Fin du carousel -->
+	<br>
+	<br>
+	<!--  Fin du carousel -->
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">My Local Garden</h1>
@@ -77,34 +88,35 @@
 			</p>
 		</div>
 	</div>
-	<br><br>
+	<br>
+	<br>
 
-		</div>
-		<br> <br>
-		<!--  Fin du carousel -->
-		<div class="row justify-content-between" id="itemJardin"
-			style="padding: 1.5em;">
-			<div
-				style="background-color: rgba(255, 250, 205); padding: 1em; font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L; width: 25%;">
-				<h3>A la une</h3>
-				<div>
-					<ul>
-						<li><h5>Utilisateurs :</h5></li>
-						<li><h5>Jardins :</h5></li>
-					</ul>
-				</div>
+
+	<br>
+	<br>
+	<!--  Fin du carousel -->
+	<div class="row justify-content-between" id="itemJardin"
+		style="padding: 1.5em;">
+		<div
+			style="background-color: rgba(255, 250, 205); padding: 1em; font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L; width: 25%;">
+			<h3>A la une</h3>
+			<div>
+				<ul>
+					<li><h5>Utilisateurs :</h5></li>
+					<li><h5>Jardins :</h5></li>
+				</ul>
 			</div>
+		</div>
 
-			<div class="jumbotron jumbotron-fluid" style="width: 70%;">
-				<div class="container">
-					<h1 class="display-4">My Local Garden</h1>
-					<p class="lead">
-						Discover our latest research project on the process of wolves
-						packing when they are endangered in an unfriendly and unusual
-						field, <a href="http://teacher.scholastic.com/wolves/gabout3.htm"
-							title="How wolves pack">here.</a>
-					</p>
-				</div>
+		<div class="jumbotron jumbotron-fluid" style="width: 70%;">
+			<div class="container">
+				<h1 class="display-4">My Local Garden</h1>
+				<p class="lead">
+					Discover our latest research project on the process of wolves
+					packing when they are endangered in an unfriendly and unusual
+					field, <a href="http://teacher.scholastic.com/wolves/gabout3.htm"
+						title="How wolves pack">here.</a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -117,10 +129,11 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-		<script
+	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"
 		type="text/javascript"></script>
 	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

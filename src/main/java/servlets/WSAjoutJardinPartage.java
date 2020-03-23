@@ -40,28 +40,29 @@ public class WSAjoutJardinPartage extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		// response.getWriter().append("Served at: ").append(request.getContextPath());
-//
-//		System.out.println("je suis dans le WS");
-//		HttpSession session = request.getSession();
-//		Profil profil = (Profil) session.getAttribute("user");
-//		
-//		profil = methodesLogin.getProfilFromID(profil.getId());
-//		
-//		int jardinId = Integer.parseInt(request.getParameter("jardinId"));
-//		System.out.println(profil);
-//		
-//		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-//		Session sessionHib = factory.openSession();
-//		sessionHib.beginTransaction();
-//
-//		Query query = sessionHib.createQuery("FROM JardinProfil WHERE id=" + jardinId);
-//		List<JardinProfil> result = query.list();
-//		System.out.println(result);
-//		profil.getJardinPartage().add(result.get(0));
-//		sessionHib.update(profil);
-//		sessionHib.getTransaction().commit();
-//		sessionHib.close();
-//		session.setAttribute("user", profil);
+
+		System.out.println("je suis dans le WS");
+		HttpSession session = request.getSession();
+		Profil profil = (Profil) session.getAttribute("user");
+		System.out.println("ID du profil en cours : "+ profil.getId());
+		profil = methodesLogin.getProfilFromID(profil.getId());
+		
+		System.out.println("ID du jardin : " + request.getParameter("jardinId"));
+		int jardinId = Integer.parseInt(request.getParameter("jardinId"));
+		System.out.println(profil);
+		
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session sessionHib = factory.openSession();
+		sessionHib.beginTransaction();
+
+		Query query = sessionHib.createQuery("FROM JardinProfil WHERE id=" + jardinId);
+		List<JardinProfil> result = query.list();
+		System.out.println(result);
+		//profil.getJardinPartage().add(result.get(0));
+		sessionHib.update(profil);
+		sessionHib.getTransaction().commit();
+		sessionHib.close();
+		session.setAttribute("user", profil);
 
 	}
 

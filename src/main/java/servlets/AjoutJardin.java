@@ -42,7 +42,7 @@ public class AjoutJardin extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-
+System.out.println("user : " +session.getAttribute("user"));
 		String adresse = request.getParameter("adresse");
 		String codePostal = request.getParameter("CP");
 		String nomVille = request.getParameter("nomVille");

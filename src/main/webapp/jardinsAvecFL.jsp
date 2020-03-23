@@ -7,7 +7,7 @@
 	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.png">
 	<link href="css/stylesheet.css" rel="stylesheet">
-	<title>Fruits et légumes de saison</title>
+	<title>Fruits et lï¿½gumes de saison</title>
 </head>
 <body>
 

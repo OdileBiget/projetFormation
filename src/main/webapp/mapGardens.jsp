@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%> --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
 
@@ -141,8 +141,10 @@
 
 			for (var i = 0; i < json.length; i++) {
 
-				var jardinId = "jardin" + json[i]["id"];
-				jardinIdList.push('#' + jardinId + '');
+				/* var jardinId = "jardin" + json[i]["id"]; */
+				var jardinId = json[i]["id"];
+				console.log("jardinId : " + jardinId)
+				jardinIdList.push('"#' + jardinId + '"');
 
 				var address = json[i]["adresse"] + " " + json[i]["codePostal"]
 						+ " " + json[i]["villeNom"];
@@ -170,7 +172,7 @@
 						+ json[i]["culturesPresentes"]
 						+ '</p><div class="bandeauImages" style=\'float:left\'>';
 				for (var j = 0; j < json[i]["image"].length; j++) {
-					contentString += "<img src=\"/JardinSite/fileDownload/" + json[i]["image"][j]["image"] + "\" height = 50px />";
+					contentString += "<img src=\"/JardinSite/src/main/webapp/fileDownload/" + json[i]["image"][j]["image"] + "\" height = 100px />";
 				}
 				contentString += '</div></div>';
 
@@ -180,18 +182,19 @@
 			} /* Fin du FOR */
 			console.log(jardinIdList);
 
-			$("#jardin1").click(function() {
-				alert("The paragraph was clicked.");
-			});
-
-			/* 			$.each(jardinIdList, function(key, value) {
-			 console.log('"#' + jardinIdList[key] + '"');
-			 $('"#' + jardinIdList[key] + '"').click(function() {
-			 console.log('yo');
-			 // ------------- Do something
-			 $.get("/WSAjoutJardinPartage?idJardin=1");
-			 });
+			/* 			$("#jardin1").click(function() {
+			
+			 alert("The paragraph was clicked.");
 			 }); */
+
+/* 			$.each(jardinIdList, function(key, value) {
+				console.log(jardinIdList[key]);
+				$(jardinIdList).click(function() {
+					console.log('yo');
+					// ------------- Do something
+					//$.get("/WSAjoutJardinPartage?idJardin=1");
+				});
+			}); */
 
 			/* 			for (var i = 0; i < json.length; i++) {
 			 var jardinId = "jardin" + json[i]["id"];

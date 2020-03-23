@@ -35,13 +35,35 @@ public class JardinProfil {
 //	@ElementCollection
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
 	private List<photoJardin>image = new ArrayList<photoJardin>();
-//	@ManyToMany(mappedBy = "listeJardinsPersos")
+//	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "Jardin_Utilisateurs")
 //	private List<Profil> listeProfil = new ArrayList<Profil>();
-//	
+
 	//Constructeurs
 	public JardinProfil() {
 		super();
 	}
+
+	
+//	public JardinProfil(int id, String adresse, String villeNom, String codePostal, String coordonneesGPS,
+//		String typeJardin, int superficie, String typeCulture, String culturesPresentes, String typeSol,
+//		String typeProduction, List<photoJardin> image, List<Profil> listeProfil) {
+//	super();
+//	this.id = id;
+//	this.adresse = adresse;
+//	this.villeNom = villeNom;
+//	this.codePostal = codePostal;
+//	this.coordonneesGPS = coordonneesGPS;
+//	this.typeJardin = typeJardin;
+//	this.superficie = superficie;
+//	this.typeCulture = typeCulture;
+//	this.culturesPresentes = culturesPresentes;
+//	this.typeSol = typeSol;
+//	this.typeProduction = typeProduction;
+//	this.image = image;
+//	this.listeProfil = listeProfil;
+//}
+
+
 	public JardinProfil(String adresse, String villeNom, String codePostal, String coordonneesGPS, String typeJardin, int superficie, String typeCulture, String culturesPresentes, String typeSol, String typeProduction,
 			List<photoJardin> image) {
 		super();
@@ -148,7 +170,12 @@ public class JardinProfil {
 	public void setImage(List<photoJardin> image) {
 		this.image = image;
 	}
-
+//	public List<Profil> getListeProfil() {
+//		return listeProfil;
+//	}
+//	public void setListeProfil(List<Profil> listeProfil) {
+//		this.listeProfil = listeProfil;
+//	}
 	public String affiche(String villeN, String typeJ, String typeS, String sup, String typeC) {
 		return "Le jardin situé à "+villeN+" est de type "+typeJ+" avec un sol "+typeS+". D'une superficie de "+sup+" m², il propose des cultures "+typeC+"...";
 	}

@@ -56,6 +56,8 @@
 		JardinProfil jP = (JardinProfil) session.getAttribute("monJardin");
 
 		List<photoJardin> listePhotos = jP.getImage();
+		System.out.println("listPhotos :" +listePhotos);
+
 	%>
 
 	<div class="container">
@@ -76,7 +78,9 @@
 						class="figure-img img-fluid rounded"
 						alt="A generic square placeholder image with rounded corners in a figure.">
 					<figcaption class="figure-caption">Mon jardin</figcaption>
-
+					<%
+						System.out.println("JardinSite/src/main/webapp/fileDownload/" + listePhotos.get(0).getImage());
+					%>
 				</figure>
 				<%
 					} else {

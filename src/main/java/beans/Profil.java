@@ -33,22 +33,20 @@ public class Profil {
 //		this.id_jardin = id_jardin;
 //	}
 
-//	@ManyToMany(cascade = {CascadeType.ALL})
+//	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
+//	        CascadeType.MERGE})
 //	@JoinTable(
 //			name = "Jardin_Utilisateurs",
 //			joinColumns = {@JoinColumn(name="user_id")},
 //			inverseJoinColumns = {@JoinColumn(name="jardin_id")}
 //			)
-//	private List<JardinProfil> listeJardinsPersos = new ArrayList<JardinProfil>();
-//	@OneToOne(cascade = {CascadeType.ALL})
-//	@JoinColumn(name = "id_jardin")
-//	private JardinProfil jardin;
-
+//	private List<JardinProfil> jardin = new ArrayList<JardinProfil>();
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
 	private List<JardinProfil> jardin = new ArrayList<JardinProfil>();
-
-	//@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
-	//private List<JardinProfil> jardinPartage = new ArrayList<JardinProfil>();
+//
+//	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
+//	private List<JardinProfil> jardinPartage = new ArrayList<JardinProfil>();
 	
 	// Constructeurs
 	public Profil() {
@@ -84,6 +82,8 @@ public class Profil {
 		this.password = password;
 		this.jardin = jardin;
 	}
+	
+
 
 	// Getters et setters
 	public int getId() {
@@ -142,13 +142,7 @@ public class Profil {
 		this.jardin = jardin;
 	}
 
-//	public List<JardinProfil> getJardinPartage() {
-//		return jardinPartage;
-//	}
-//
-//	public void setJardinPartage(List<JardinProfil> jardinPartage) {
-//		this.jardinPartage = jardinPartage;
-//	}
+
 
 	
 	// public JardinProfil getJardin() {
